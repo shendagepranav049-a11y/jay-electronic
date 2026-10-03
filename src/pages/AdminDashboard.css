@@ -202,12 +202,36 @@
 
 @media (max-width: 768px) {
   .dashboard-nav {
-    padding: 15px 20px;
+    padding: 15px 15px;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  .dashboard-nav > div:last-child {
+    width: 100%;
+    justify-content: space-between;
   }
   .dashboard-content {
-    padding: 30px 20px;
+    padding: 20px 15px;
+  }
+  .dashboard-header h1 {
+    font-size: 24px;
   }
   .enquiries-table-container {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 8px;
+  }
+  .enquiries-table th,
+  .enquiries-table td {
+    padding: 12px 15px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  .dashboard-brand-text h2 {
+    font-size: 14px;
+  }
+  .user-email {
+    display: none;
   }
 }

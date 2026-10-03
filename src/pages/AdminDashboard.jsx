@@ -88,7 +88,7 @@ function AdminDashboard() {
           </div>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-          <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)' }}>{user.email}</span>
+          <span className="user-email" style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)' }}>{user.email}</span>
           <button className="dashboard-logout" onClick={handleLogout}>Logout</button>
         </div>
       </nav>
