@@ -1,0 +1,164 @@
+.why-jay-section {
+  background: #080808;
+  color: #ffffff;
+  padding: 110px 7%;
+  position: relative;
+  overflow: hidden;
+}
+
+.why-jay-section::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  background: rgba(197, 31, 58, 0.08);
+  border-radius: 50%;
+  filter: blur(100px);
+  top: -180px;
+  right: -120px;
+  pointer-events: none;
+}
+
+.why-jay-container {
+  max-width: 1250px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* HEADER */
+
+.why-jay-header {
+  max-width: 780px;
+  margin-bottom: 65px;
+}
+
+.why-jay-label {
+  display: inline-block;
+  color: #c51f3a;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+
+.why-jay-header h2 {
+  margin: 0 0 22px;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+}
+
+.why-jay-header p {
+  max-width: 680px;
+  margin: 0;
+  color: #a8a8a8;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* CARDS */
+
+.why-jay-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.why-jay-card {
+  min-height: 310px;
+  padding: 30px 26px;
+  background: #111111;
+  border: 1px solid #242424;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.why-jay-card:hover {
+  transform: translateY(-8px);
+  border-color: #c51f3a;
+  background: #151515;
+}
+
+.why-jay-number {
+  color: #c51f3a;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.why-jay-line {
+  width: 45px;
+  height: 2px;
+  background: #c51f3a;
+  margin: 25px 0 30px;
+}
+
+.why-jay-card h3 {
+  margin: 0 0 18px;
+  font-size: 22px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.why-jay-card p {
+  margin: 0;
+  color: #999999;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+  .why-jay-section {
+    padding: 90px 6%;
+  }
+
+  .why-jay-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .why-jay-card {
+    min-height: 280px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .why-jay-section {
+    padding: 75px 20px;
+  }
+
+  .why-jay-header {
+    margin-bottom: 45px;
+  }
+
+  .why-jay-header h2 {
+    font-size: 38px;
+  }
+
+  .why-jay-header p {
+    font-size: 15px;
+  }
+
+  .why-jay-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .why-jay-card {
+    min-height: auto;
+    padding: 28px 24px;
+  }
+
+  .why-jay-card h3 {
+    font-size: 20px;
+  }
+
+  .why-jay-card p {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,173 @@
+.footer {
+  background: #050505;
+  color: #ffffff;
+  border-top: 1px solid #222;
+}
+
+.footer-container {
+  width: 90%;
+  max-width: 1300px;
+  margin: auto;
+  padding: 70px 0 55px;
+
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.3fr 1.3fr;
+  gap: 50px;
+}
+
+/* Company */
+
+.footer-company img {
+  width: 85px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.footer-company h3 {
+  margin: 0 0 15px;
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.footer-company p {
+  color: #aaa;
+  line-height: 1.7;
+  font-size: 14px;
+  max-width: 320px;
+}
+
+.footer-tagline {
+  margin-top: 20px;
+  color: #c51f3a;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Columns */
+
+.footer-column h4 {
+  margin: 0 0 22px;
+  font-size: 17px;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.footer-column h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 35px;
+  height: 2px;
+  background: #c51f3a;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column li {
+  color: #aaa;
+  font-size: 14px;
+  margin-bottom: 12px;
+  transition: 0.3s;
+}
+
+.footer-column li:hover {
+  color: #ffffff;
+}
+
+.footer-column a {
+  color: #aaa;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-column a:hover {
+  color: #c51f3a;
+}
+
+/* Contact */
+
+.footer-contact p {
+  color: #aaa;
+  line-height: 1.7;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.footer-button {
+  display: inline-block;
+  padding: 12px 20px;
+
+  background: #c51f3a;
+  color: #ffffff !important;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  border: 1px solid #c51f3a;
+  transition: 0.3s;
+}
+
+.footer-button:hover {
+  background: transparent;
+  color: #c51f3a !important;
+}
+
+/* Bottom */
+
+.footer-bottom {
+  width: 90%;
+  max-width: 1300px;
+  margin: auto;
+
+  padding: 20px 0;
+
+  border-top: 1px solid #222;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #777;
+  font-size: 12px;
+}
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .footer-container {
+    width: 88%;
+    grid-template-columns: 1fr;
+    padding: 55px 0 40px;
+    gap: 40px;
+  }
+
+  .footer-company p {
+    max-width: 100%;
+  }
+
+  .footer-bottom {
+    width: 88%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px 0;
+  }
+}

@@ -1,0 +1,85 @@
+.background-logo {
+  position: absolute;
+
+  right: -120px;
+  top: 50%;
+
+  width: 600px;
+  height: 600px;
+
+  z-index: 2;
+
+  pointer-events: none;
+  user-select: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0.18;
+
+  transform: translateY(-50%);
+
+  animation: logoFloat 8s ease-in-out infinite;
+}
+
+.background-logo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  display: block;
+
+  /*
+    Logo PNG मधला black background visually remove होईल
+    आणि JE mark जास्त clearly दिसेल.
+  */
+  mix-blend-mode: screen;
+
+  filter:
+    drop-shadow(0 0 25px rgba(0, 170, 255, 0.5))
+    drop-shadow(0 0 50px rgba(0, 170, 255, 0.2));
+}
+
+/* Left position */
+.background-logo-left {
+  left: -120px;
+  right: auto;
+}
+
+/* Right position */
+.background-logo-right {
+  right: -120px;
+  left: auto;
+}
+
+@keyframes logoFloat {
+  0% {
+    transform: translateY(-50%) scale(1);
+  }
+
+  50% {
+    transform: translateY(-53%) scale(1.04);
+  }
+
+  100% {
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .background-logo {
+    width: 380px;
+    height: 380px;
+
+    right: -120px;
+
+    opacity: 0.12;
+  }
+
+  .background-logo-left {
+    left: -120px;
+    right: auto;
+  }
+}

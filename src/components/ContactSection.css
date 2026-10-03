@@ -1,0 +1,633 @@
+/* =========================================
+   CONTACT SECTION
+   JAY ELECTRONICS
+========================================= */
+
+.contact-section {
+  position: relative;
+  padding: 140px 7%;
+  background:
+    linear-gradient(
+      180deg,
+      #050505 0%,
+      #080808 100%
+    );
+  overflow: hidden;
+}
+
+
+/* =========================================
+   BACKGROUND GLOW
+========================================= */
+
+.contact-section::before {
+  content: "";
+
+  position: absolute;
+
+  width: 600px;
+  height: 600px;
+
+  right: -300px;
+  top: 10%;
+
+  border-radius: 50%;
+
+  background: rgba(0, 170, 255, 0.10);
+
+  filter: blur(130px);
+
+  pointer-events: none;
+}
+
+
+.contact-section::after {
+  content: "";
+
+  position: absolute;
+
+  width: 400px;
+  height: 400px;
+
+  left: -240px;
+  bottom: -180px;
+
+  border-radius: 50%;
+
+  background: rgba(0, 170, 255, 0.06);
+
+  filter: blur(110px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.contact-container {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 1400px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.contact-header {
+  max-width: 900px;
+
+  margin-bottom: 75px;
+}
+
+
+.contact-label-wrap {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 24px;
+}
+
+
+.contact-label-line {
+  width: 42px;
+  height: 2px;
+
+  background: #00aaff;
+
+  display: block;
+}
+
+
+.contact-label {
+  margin: 0;
+
+  color: #00aaff;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+
+.contact-header h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(48px, 6vw, 84px);
+
+  line-height: 1;
+
+  letter-spacing: -4px;
+
+  font-weight: 750;
+}
+
+
+.contact-header h2 span {
+  color: #777777;
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.contact-content {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.8fr)
+    minmax(450px, 1.2fr);
+
+  gap: 100px;
+
+  align-items: start;
+}
+
+
+/* =========================================
+   CONTACT INFO
+========================================= */
+
+.contact-info {
+  max-width: 520px;
+
+  padding-top: 10px;
+}
+
+
+.contact-lead {
+  margin: 0 0 25px;
+
+  color: #dddddd;
+
+  font-size: 21px;
+
+  line-height: 1.65;
+
+  font-weight: 500;
+}
+
+
+.contact-description {
+  margin: 0;
+
+  color: #909090;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================
+   COMPANY INFO
+========================================= */
+
+.contact-company {
+  margin-top: 55px;
+
+  padding-top: 25px;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.10);
+}
+
+
+.contact-company-label {
+  margin: 0 0 12px;
+
+  color: #00aaff;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+
+.contact-company-text {
+  max-width: 450px;
+
+  margin: 0;
+
+  color: #777777;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   CONTACT FORM
+========================================= */
+
+.contact-form {
+  position: relative;
+
+  padding: 38px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(255, 255, 255, 0.012)
+    );
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.10);
+
+  box-shadow:
+    0 25px 70px
+    rgba(0, 0, 0, 0.30);
+}
+
+
+.contact-form::before {
+  content: "";
+
+  position: absolute;
+
+  width: 240px;
+  height: 240px;
+
+  right: -120px;
+  top: -120px;
+
+  border-radius: 50%;
+
+  background: rgba(0, 170, 255, 0.12);
+
+  filter: blur(70px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   FORM ROW
+========================================= */
+
+.contact-form-row {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+
+/* =========================================
+   FIELD
+========================================= */
+
+.contact-field {
+  position: relative;
+
+  z-index: 2;
+
+  margin-bottom: 22px;
+}
+
+
+.contact-field label {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: #a7a7a7;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+
+.contact-field input,
+.contact-field select,
+.contact-field textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 14px 15px;
+
+  color: #ffffff;
+
+  background:
+    rgba(0, 0, 0, 0.30);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.11);
+
+  outline: none;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.contact-field input,
+.contact-field select {
+  height: 52px;
+}
+
+
+.contact-field textarea {
+  min-height: 130px;
+
+  resize: vertical;
+}
+
+
+/* Placeholder */
+
+.contact-field input::placeholder,
+.contact-field textarea::placeholder {
+  color: #5f5f5f;
+}
+
+
+/* Select */
+
+.contact-field select {
+  color: #888888;
+
+  cursor: pointer;
+
+  appearance: none;
+
+  background-image:
+    linear-gradient(45deg, transparent 50%, #777777 50%),
+    linear-gradient(135deg, #777777 50%, transparent 50%);
+
+  background-position:
+    calc(100% - 18px) 22px,
+    calc(100% - 13px) 22px;
+
+  background-size:
+    5px 5px,
+    5px 5px;
+
+  background-repeat: no-repeat;
+}
+
+
+.contact-field select option {
+  background: #111111;
+
+  color: #ffffff;
+}
+
+
+/* Focus */
+
+.contact-field input:focus,
+.contact-field select:focus,
+.contact-field textarea:focus {
+  border-color: rgba(0, 170, 255, 0.70);
+
+  background:
+    rgba(0, 170, 255, 0.035);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(0, 170, 255, 0.08);
+}
+
+
+/* =========================================
+   SUBMIT BUTTON
+========================================= */
+
+.contact-submit {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  min-height: 56px;
+
+  margin-top: 4px;
+
+  padding: 0 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  color: #ffffff;
+
+  background: #00aaff;
+
+  border: 1px solid #00aaff;
+
+  cursor: pointer;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.contact-submit:hover {
+  background: #a91831;
+
+  border-color: #a91831;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 14px 35px
+    rgba(0, 170, 255, 0.25);
+}
+
+
+.contact-submit-arrow {
+  font-size: 21px;
+
+  line-height: 1;
+
+  transition:
+    transform 0.3s ease;
+}
+
+
+.contact-submit:hover .contact-submit-arrow {
+  transform:
+    translate(4px, -4px);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+
+  .contact-section {
+    padding: 110px 6%;
+  }
+
+
+  .contact-content {
+    grid-template-columns: 1fr;
+
+    gap: 60px;
+  }
+
+
+  .contact-info {
+    max-width: 800px;
+  }
+
+
+  .contact-form {
+    max-width: 800px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .contact-section {
+    padding: 90px 24px;
+  }
+
+
+  .contact-header {
+    margin-bottom: 55px;
+  }
+
+
+  .contact-label-wrap {
+    gap: 10px;
+
+    margin-bottom: 20px;
+  }
+
+
+  .contact-label-line {
+    width: 30px;
+  }
+
+
+  .contact-label {
+    font-size: 11px;
+
+    letter-spacing: 2px;
+  }
+
+
+  .contact-header h2 {
+    font-size: 48px;
+
+    letter-spacing: -2.5px;
+  }
+
+
+  .contact-lead {
+    font-size: 18px;
+  }
+
+
+  .contact-description {
+    font-size: 15px;
+
+    line-height: 1.7;
+  }
+
+
+  .contact-company {
+    margin-top: 40px;
+  }
+
+
+  .contact-form {
+    padding: 25px 20px;
+  }
+
+
+  .contact-form-row {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+
+  .contact-field {
+    margin-bottom: 19px;
+  }
+
+
+  .contact-submit {
+    min-height: 54px;
+  }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .contact-field input,
+  .contact-field select,
+  .contact-field textarea,
+  .contact-submit,
+  .contact-submit-arrow {
+    transition: none;
+  }
+}

@@ -1,0 +1,633 @@
+/* =========================================
+   JAY ELECTRONICS
+   MAIN APP STYLES
+   PREMIUM DARK TECHNOLOGY THEME
+========================================= */
+
+#root {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #02070d 0%,
+      #07111f 45%,
+      #02070d 100%
+    );
+}
+
+
+/* =========================================
+   WEBSITE CONTENT LAYER
+========================================= */
+
+main,
+footer {
+  position: relative;
+  z-index: 3;
+}
+
+
+/* Navbar always on top */
+nav {
+  position: relative;
+  z-index: 10;
+}
+
+
+/* =========================================
+   PREMIUM HERO SECTION
+========================================= */
+
+.hero {
+  position: relative;
+
+  overflow: hidden;
+
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+
+  padding: 140px 7% 80px;
+
+  background:
+    radial-gradient(
+      circle at 80% 25%,
+      rgba(0, 170, 255, 0.13),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 15% 80%,
+      rgba(0, 110, 180, 0.08),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #07111f 0%,
+      #0b1726 50%,
+      #02070d 100%
+    );
+
+  isolation: isolate;
+}
+
+
+/* =========================================
+   HERO LIGHT OVERLAY
+========================================= */
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(2, 7, 13, 0.35) 0%,
+      rgba(2, 7, 13, 0.15) 60%,
+      rgba(0, 170, 255, 0.05) 100%
+    );
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   ELECTRIC BLUE AMBIENT GLOW
+========================================= */
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 650px;
+  height: 650px;
+
+  right: -280px;
+  bottom: -280px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 170, 255, 0.24),
+      rgba(0, 170, 255, 0.08) 40%,
+      transparent 70%
+    );
+
+  border-radius: 50%;
+
+  filter: blur(90px);
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  animation:
+    heroGlow
+    8s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================
+   HERO CONTENT
+========================================= */
+
+.hero-content {
+  position: relative;
+
+  z-index: 4;
+
+  max-width: 900px;
+
+  animation:
+    heroContentReveal
+    1s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    both;
+}
+
+
+/* =========================================
+   COMPANY LABEL
+========================================= */
+
+.hero-label {
+  margin: 0 0 24px;
+
+  color: #00aaff;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+
+  animation:
+    heroLabelReveal
+    0.8s
+    ease-out
+    0.15s
+    both;
+}
+
+
+/* =========================================
+   MAIN HEADING
+========================================= */
+
+.hero h1 {
+  margin: 0 0 30px;
+
+  color: #ffffff;
+
+  font-size: clamp(
+    52px,
+    7vw,
+    94px
+  );
+
+  line-height: 0.95;
+
+  letter-spacing: -4px;
+
+  font-weight: 800;
+
+  text-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.55);
+
+  animation:
+    heroHeadingReveal
+    1s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    0.15s
+    both;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.hero-description {
+  max-width: 620px;
+
+  margin: 0 0 38px;
+
+  color: #b8c2cc;
+
+  font-size: 18px;
+
+  line-height: 1.7;
+
+  animation:
+    heroDescriptionReveal
+    1s
+    ease-out
+    0.35s
+    both;
+}
+
+
+/* =========================================
+   HERO BUTTONS
+========================================= */
+
+.hero-buttons {
+  display: flex;
+
+  gap: 16px;
+
+  flex-wrap: wrap;
+
+  animation:
+    heroButtonsReveal
+    1s
+    ease-out
+    0.5s
+    both;
+}
+
+
+.btn-primary,
+.btn-secondary {
+  min-height: 52px;
+
+  padding: 0 26px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  border-radius: 4px;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* =========================================
+   PRIMARY BUTTON
+========================================= */
+
+.btn-primary {
+  background: #00aaff;
+
+  color: #ffffff;
+
+  border: 1px solid #00aaff;
+
+  box-shadow:
+    0 10px 30px rgba(
+      0,
+      170,
+      255,
+      0.20
+    );
+}
+
+
+.btn-primary:hover {
+  background: #0088cc;
+
+  border-color: #0088cc;
+
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 15px 35px rgba(
+      0,
+      170,
+      255,
+      0.38
+    );
+}
+
+
+/* =========================================
+   SECONDARY BUTTON
+========================================= */
+
+.btn-secondary {
+  color: #ffffff;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.30
+    );
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.03
+    );
+
+  backdrop-filter: blur(8px);
+}
+
+
+.btn-secondary:hover {
+  border-color: #00aaff;
+
+  background:
+    rgba(
+      0,
+      170,
+      255,
+      0.10
+    );
+
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 10px 30px rgba(
+      0,
+      170,
+      255,
+      0.15
+    );
+}
+
+
+/* =========================================
+   GENERAL WEBSITE BACKGROUND
+========================================= */
+
+body {
+  background:
+    linear-gradient(
+      135deg,
+      #02070d 0%,
+      #07111f 50%,
+      #02070d 100%
+    );
+
+  color: #ffffff;
+}
+
+
+/* =========================================
+   SECTION SAFETY
+========================================= */
+
+.about-section,
+.about-container,
+.about-content {
+  position: relative;
+}
+
+
+/* =========================================
+   HERO ANIMATIONS
+========================================= */
+
+@keyframes heroContentReveal {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(45px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+@keyframes heroLabelReveal {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(-25px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(0);
+  }
+}
+
+
+@keyframes heroHeadingReveal {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(55px);
+
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+
+    filter: blur(0);
+  }
+}
+
+
+@keyframes heroDescriptionReveal {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+@keyframes heroButtonsReveal {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+@keyframes heroGlow {
+
+  0% {
+    transform:
+      translate(0, 0)
+      scale(1);
+
+    opacity: 0.55;
+  }
+
+  50% {
+    transform:
+      translate(-80px, -50px)
+      scale(1.15);
+
+    opacity: 0.85;
+  }
+
+  100% {
+    transform:
+      translate(0, 0)
+      scale(1);
+
+    opacity: 0.55;
+  }
+}
+
+
+/* =========================================
+   MOBILE HERO
+========================================= */
+
+@media (max-width: 700px) {
+
+  .hero {
+    min-height: 100svh;
+
+    padding:
+      130px
+      24px
+      70px;
+  }
+
+
+  .hero h1 {
+    font-size: 52px;
+
+    letter-spacing: -2px;
+  }
+
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+
+  .hero-buttons {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+
+
+  .hero::after {
+    width: 350px;
+
+    height: 350px;
+
+    right: -180px;
+
+    bottom: -120px;
+
+    filter: blur(80px);
+  }
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (
+  min-width: 701px
+) and (
+  max-width: 1100px
+) {
+
+  .hero {
+    padding:
+      130px
+      5%
+      80px;
+  }
+
+
+  .hero h1 {
+    font-size: 70px;
+  }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-content,
+  .hero-label,
+  .hero h1,
+  .hero-description,
+  .hero-buttons,
+  .hero::after {
+    animation: none;
+  }
+
+
+  .btn-primary,
+  .btn-secondary {
+    transition: none;
+  }
+}

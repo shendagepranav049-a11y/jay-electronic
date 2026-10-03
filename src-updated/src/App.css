@@ -1,0 +1,207 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+
+  padding: 140px 7% 80px;
+
+  background-image: url("./assets/hero.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.98) 0%,
+      rgba(0, 0, 0, 0.88) 40%,
+      rgba(0, 0, 0, 0.55) 75%,
+      rgba(0, 0, 0, 0.35) 100%
+    );
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+
+  right: -200px;
+  bottom: -200px;
+
+  background: rgba(197, 31, 58, 0.15);
+  filter: blur(100px);
+  border-radius: 50%;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-label {
+  margin-bottom: 24px;
+
+  color: #c51f3a;
+
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+.hero h1 {
+  margin: 0 0 30px;
+
+  font-size: clamp(52px, 7vw, 94px);
+  line-height: 0.95;
+
+  letter-spacing: -4px;
+  font-weight: 800;
+
+  color: #ffffff;
+}
+
+.hero-description {
+  max-width: 620px;
+
+  margin-bottom: 38px;
+
+  color: #bdbdbd;
+
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  min-height: 52px;
+
+  padding: 0 26px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  transition: all 0.25s ease;
+}
+
+.btn-primary {
+  background: #c51f3a;
+  color: #ffffff;
+
+  border: 1px solid #c51f3a;
+}
+
+.btn-primary:hover {
+  background: #a91831;
+  border-color: #a91831;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  color: #ffffff;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.btn-secondary:hover {
+  border-color: #c51f3a;
+  background: rgba(197, 31, 58, 0.08);
+
+  transform: translateY(-2px);
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .hero {
+    padding: 130px 24px 70px;
+  }
+
+  .hero h1 {
+    font-size: 52px;
+    letter-spacing: -2px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+}
+/* =========================================
+   GLOBAL JE BRAND LAYER
+========================================= */
+
+#root {
+  position: relative;
+  min-height: 100vh;
+}
+
+
+/*
+   Website content BrandBackground च्या वर
+*/
+
+main,
+footer {
+  position: relative;
+  z-index: 3;
+}
+/* =========================================
+   FRAMER MOTION SAFETY
+========================================= */
+
+.about-section,
+.about-container,
+.about-content {
+  position: relative;
+}
+
+
+/*
+   Navbar सर्वात वर
+*/
+
+nav {
+  position: relative;
+  z-index: 10;
+}
+
+
+/*
+   Hero content logo पेक्षा वर
+*/
+
+.hero-content {
+  position: relative;
+  z-index: 4;
+}
