@@ -70,7 +70,7 @@ function WhyJaySection() {
               delay={index * 0.1}
               duration={0.75}
             >
-              <article className="why-jay-card ui-card">
+              <article className="why-jay-card">
 
                 <div className="why-jay-number">
                   {strength.number}

@@ -94,7 +94,7 @@ function IndustriesSection() {
               delay={index * 0.07}
               duration={0.7}
             >
-              <article className="industry-card ui-card">
+              <article className="industry-card">
 
                 <div className="industry-top">
 

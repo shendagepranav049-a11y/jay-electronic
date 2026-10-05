@@ -14,13 +14,13 @@
   background:
     linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.72),
-      rgba(255, 255, 255, 0.48)
+      rgba(5, 5, 5, 0.72),
+      rgba(5, 5, 5, 0.48)
     );
 
   border-bottom:
     1px solid
-    rgba(0, 0, 0, 0.02);
+    rgba(255, 255, 255, 0.07);
 
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -40,8 +40,8 @@
   background:
     linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.94),
-      rgba(255, 255, 255, 0.82)
+      rgba(5, 5, 5, 0.94),
+      rgba(5, 5, 5, 0.82)
     );
 
   border-bottom:
@@ -201,10 +201,10 @@
 /* Hover */
 
 .navbar-link:hover {
-  color: var(--white);
+  color: #ffffff;
 
   background:
-    rgba(0, 0, 0, 0.02);
+    rgba(255, 255, 255, 0.045);
 }
 
 
@@ -241,7 +241,7 @@
 /* Active */
 
 .navbar-link.active {
-  color: var(--white);
+  color: #ffffff;
 
   background:
     rgba(0, 170, 255, 0.055);
@@ -269,7 +269,7 @@
   align-items: center;
   justify-content: center;
 
-  color: var(--white);
+  color: #ffffff;
 
   background:
     rgba(0, 170, 255, 0.12);
@@ -296,7 +296,7 @@
 
 .navbar-contact:hover,
 .navbar-contact.active {
-  color: var(--white);
+  color: #ffffff;
 
   background: #00aaff;
 
@@ -329,11 +329,11 @@
   gap: 5px;
 
   background:
-    rgba(0, 0, 0, 0.02);
+    rgba(255, 255, 255, 0.035);
 
   border:
     1px solid
-    rgba(0, 0, 0, 0.08);
+    rgba(255, 255, 255, 0.10);
 
   cursor: pointer;
 }
@@ -344,7 +344,7 @@
 
   display: block;
 
-  background: var(--white);
+  background: #ffffff;
 
   transition:
     transform 0.3s ease,
@@ -425,11 +425,11 @@
     flex-direction: column;
 
     background:
-      rgba(255, 255, 255, 0.96);
+      rgba(5, 5, 5, 0.96);
 
     border-top:
       1px solid
-      rgba(0, 0, 0, 0.02);
+      rgba(255, 255, 255, 0.06);
 
     border-bottom:
       1px solid
@@ -489,7 +489,7 @@
     border: none;
     border-bottom:
       1px solid
-      rgba(0, 0, 0, 0.02);
+      rgba(255, 255, 255, 0.06);
 
     font-family: inherit;
 
@@ -506,12 +506,12 @@
   }
 
   .mobile-link:hover {
-    color: var(--white);
+    color: #ffffff;
     padding-left: 15px;
   }
 
   .mobile-link.active {
-    color: var(--white);
+    color: #ffffff;
   }
 
 
@@ -546,7 +546,7 @@
     align-items: center;
     justify-content: space-between;
 
-    color: var(--white);
+    color: #ffffff;
 
     background: #00aaff;
 

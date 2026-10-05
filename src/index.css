@@ -1,24 +1,23 @@
 :root {
-  --cyan: #0088cc;
-  --cyan-light: #00aaff;
-  --cyan-dark: #006699;
-  --cyan-soft: rgba(0, 136, 204, 0.1);
-  --cyan-glow: rgba(0, 136, 204, 0.25);
+  --cyan: #00aaff;
+  --cyan-light: #55c4ff;
+  --cyan-dark: #0077b3;
+  --cyan-soft: rgba(0, 170, 255, 0.15);
+  --cyan-glow: rgba(0, 170, 255, 0.4);
   
-  /* Inverted for Light Mode */
-  --black: var(--white);
-  --black-soft: #f4f6f8;
-  --black-card: var(--white);
-  --white: #1a1a1a;
-  --text: #2d3748;
-  --muted: #718096;
+  --black: #030303;
+  --black-soft: #080808;
+  --black-card: #111111;
+  --white: #ffffff;
+  --text: rgba(255, 255, 255, 0.88);
+  --muted: rgba(255, 255, 255, 0.48);
   
-  --border: rgba(0, 0, 0, 0.08);
-  --border-cyan: rgba(0, 136, 204, 0.3);
+  --border: rgba(255, 255, 255, 0.09);
+  --border-cyan: rgba(0, 170, 255, 0.3);
   
-  --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
-  --shadow-cyan: 0 10px 25px rgba(0, 136, 204, 0.2);
+  --shadow-sm: 0 8px 25px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 18px 45px rgba(0, 0, 0, 0.19);
+  --shadow-cyan: 0 20px 50px rgba(0, 170, 255, 0.15);
   
   --transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -36,7 +35,7 @@ html {
 body {
   margin: 0;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
-  background: var(--black-soft);
+  background: var(--black);
   color: var(--text);
   overflow-x: hidden;
   animation: bodyLoad 0.8s ease;
@@ -151,7 +150,7 @@ a {
   background: linear-gradient(135deg, var(--cyan-dark), var(--cyan));
   border: none;
   border-radius: 8px;
-  color: #ffffff;
+  color: var(--white);
   font-weight: 900;
   overflow: hidden;
   padding: 14px 25px;
@@ -162,7 +161,7 @@ a {
 }
 
 .ui-button::before {
-  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.15), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
   content: "";
   height: 100%;
   left: -120%;

@@ -103,7 +103,7 @@ function Navbar() {
 
           <button
             type="button"
-            className={`navbar-contact ui-button ${
+            className={`navbar-contact ${
               activeSection === "contact" ? "active" : ""
             }`}
             onClick={() => handleNavClick("contact")}

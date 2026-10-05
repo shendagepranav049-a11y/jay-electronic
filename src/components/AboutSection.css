@@ -11,9 +11,9 @@
   background:
     linear-gradient(
       180deg,
-      var(--black) 0%,
-      var(--black) 50%,
-      var(--black) 100%
+      #050505 0%,
+      #080808 50%,
+      #050505 100%
     );
 
   overflow: hidden;
@@ -137,7 +137,7 @@
 .about-heading h2 {
   margin: 0;
 
-  color: var(--white);
+  color: #ffffff;
 
   font-size: clamp(42px, 5.5vw, 78px);
 
@@ -152,7 +152,7 @@
 /* Heading second part */
 
 .about-heading h2 span {
-  color: var(--muted);
+  color: #777777;
 }
 
 
@@ -185,7 +185,7 @@
 .about-text p {
   margin: 0 0 26px;
 
-  color: var(--muted);
+  color: #a9a9a9;
 
   font-size: 18px;
 
@@ -219,7 +219,7 @@
 
   padding-bottom: 8px;
 
-  color: var(--white);
+  color: #ffffff;
 
   text-decoration: none;
 
@@ -301,11 +301,11 @@
   background:
     linear-gradient(
       145deg,
-      rgba(0, 0, 0, 0.02),
-      rgba(0, 0, 0, 0.02)
+      rgba(255, 255, 255, 0.055),
+      rgba(255, 255, 255, 0.015)
     );
 
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.10);
 
   overflow: hidden;
 
@@ -406,7 +406,7 @@
 
   margin: 50px 0 20px;
 
-  color: var(--white);
+  color: #ffffff;
 
   font-size: clamp(34px, 4vw, 56px);
 

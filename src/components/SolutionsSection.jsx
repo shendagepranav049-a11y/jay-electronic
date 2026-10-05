@@ -102,7 +102,7 @@ function SolutionsSection() {
               delay={index * 0.08}
               duration={0.7}
             >
-              <article className="solution-card ui-card">
+              <article className="solution-card">
 
                 <div className="solution-top">
 

@@ -125,7 +125,7 @@ function ProjectsSection() {
               delay={index * 0.06}
               duration={0.7}
             >
-              <article className="project-card ui-card">
+              <article className="project-card">
 
                 {/* Project Number */}
                 <div className="project-number">

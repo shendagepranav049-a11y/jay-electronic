@@ -8,7 +8,14 @@
   position: relative;
   min-height: 100vh;
   overflow-x: hidden;
-  background: transparent;
+
+  background:
+    linear-gradient(
+      135deg,
+      #02070d 0%,
+      #07111f 45%,
+      #02070d 100%
+    );
 }
 
 
@@ -36,12 +43,34 @@ nav {
 
 .hero {
   position: relative;
+
   overflow: hidden;
+
   min-height: 100vh;
+
   display: flex;
   align-items: center;
+
   padding: 140px 7% 80px;
-  background: transparent;
+
+  background:
+    radial-gradient(
+      circle at 80% 25%,
+      rgba(0, 170, 255, 0.13),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 15% 80%,
+      rgba(0, 110, 180, 0.08),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #07111f 0%,
+      #0b1726 50%,
+      #02070d 100%
+    );
+
   isolation: isolate;
 }
 
@@ -162,7 +191,7 @@ nav {
 .hero h1 {
   margin: 0 0 30px;
 
-  color: var(--white);
+  color: #ffffff;
 
   font-size: clamp(
     52px,
@@ -197,7 +226,7 @@ nav {
 
   margin: 0 0 38px;
 
-  color: var(--muted);
+  color: #b8c2cc;
 
   font-size: 18px;
 
@@ -265,6 +294,7 @@ nav {
 
 .btn-primary {
   background: #00aaff;
+
   color: #ffffff;
 
   border: 1px solid #00aaff;
@@ -301,7 +331,7 @@ nav {
 ========================================= */
 
 .btn-secondary {
-  color: var(--white);
+  color: #ffffff;
 
   border:
     1px solid
@@ -355,12 +385,12 @@ body {
   background:
     linear-gradient(
       135deg,
-      var(--black) 0%,
-      var(--black) 50%,
-      var(--black) 100%
+      #02070d 0%,
+      #07111f 50%,
+      #02070d 100%
     );
 
-  color: var(--white);
+  color: #ffffff;
 }
 
 
