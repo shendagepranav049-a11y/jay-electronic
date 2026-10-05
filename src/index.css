@@ -1,29 +1,29 @@
 :root {
-  --cyan: #00aaff;
-  --cyan-light: #55c4ff;
-  --cyan-dark: #0077b3;
-  --cyan-soft: rgba(0, 170, 255, 0.15);
-  --cyan-glow: rgba(0, 170, 255, 0.4);
+  --cyan: #0066ff;
+  --cyan-light: #00f6ff;
+  --cyan-dark: #0044cc;
+  --cyan-soft: rgba(0, 102, 255, 0.15);
+  --cyan-glow: rgba(0, 246, 255, 0.4);
   
-  --gold: #00e676; /* Changed to electric green for secondary accent */
-  --gold-light: #69f0ae;
-  --gold-soft: rgba(0, 230, 118, 0.15);
+  --gold: #ff3366; /* Vibrant Coral */
+  --gold-light: #ff7799;
+  --gold-soft: rgba(255, 51, 102, 0.15);
   
   --black: #030303;
   --black-soft: #080808;
   --black-card: #111111;
   --white: #ffffff;
-  --text: rgba(255, 255, 255, 0.95); /* Brighter text for better visibility */
+  --text: rgba(255, 255, 255, 0.95);
   --muted: rgba(255, 255, 255, 0.6);
   --light: #f5f5f5;
   
   --border: rgba(255, 255, 255, 0.08);
-  --border-cyan: rgba(0, 170, 255, 0.3);
+  --border-cyan: rgba(0, 102, 255, 0.3);
   
   --shadow-sm: 0 8px 25px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 18px 45px rgba(0, 0, 0, 0.8);
-  --shadow-cyan: 0 15px 40px rgba(0, 170, 255, 0.2);
-  --shadow-gold: 0 15px 40px rgba(0, 230, 118, 0.15);
+  --shadow-cyan: 0 15px 40px rgba(0, 246, 255, 0.2);
+  --shadow-gold: 0 15px 40px rgba(255, 51, 102, 0.15);
   
   --transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }

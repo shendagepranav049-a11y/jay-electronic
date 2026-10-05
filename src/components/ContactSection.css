@@ -5,7 +5,7 @@
 
 .contact-section {
   position: relative;
-  padding: 140px 7%;
+  padding: 50px 7%;
   background:
     linear-gradient(
       180deg,
@@ -513,7 +513,7 @@
 @media (max-width: 1050px) {
 
   .contact-section {
-    padding: 110px 6%;
+    padding: 40px 6%;
   }
 
 
@@ -542,7 +542,7 @@
 @media (max-width: 700px) {
 
   .contact-section {
-    padding: 90px 24px;
+    padding: 40px 24px;
   }
 
 

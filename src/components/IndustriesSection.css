@@ -6,7 +6,7 @@
 .industries-section {
   position: relative;
 
-  padding: 140px 7%;
+  padding: 50px 7%;
 
   background:
     linear-gradient(
@@ -428,7 +428,7 @@
 @media (max-width: 1100px) {
 
   .industries-section {
-    padding: 110px 6%;
+    padding: 40px 6%;
   }
 
 
@@ -455,7 +455,7 @@
 @media (max-width: 700px) {
 
   .industries-section {
-    padding: 90px 24px;
+    padding: 40px 24px;
   }
 
 
