@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase";
 import "./InformationSection.css";
+import { motion } from "framer-motion";
 
 function InformationSection() {
   const [content, setContent] = useState({
@@ -36,24 +37,66 @@ function InformationSection() {
       className="information-section"
     >
       <div className="logo-watermark"></div>
-      <div className="information-container">
+      <motion.div 
+        className="information-container"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={{
+          hidden: {},
+          visible: { transition: { staggerChildren: 0.2 } }
+        }}
+      >
 
-        <div className="information-label">
+        <motion.div 
+          className="information-label"
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 }
+          }}
+        >
           JAY ELECTRONICS
-        </div>
+        </motion.div>
 
-        <h2>{content.heading}</h2>
+        <motion.div
+          className="information-divider"
+          variants={{
+            hidden: { scaleX: 0, opacity: 0 },
+            visible: { scaleX: 1, opacity: 1, transition: { duration: 0.8, ease: "circOut" } }
+          }}
+          style={{ height: '1px', backgroundColor: 'var(--cyan)', transformOrigin: 'left', margin: '20px auto', width: '100px' }}
+        />
 
-        <p>{content.description}</p>
+        <motion.h2
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 }
+          }}
+        >
+          {content.heading}
+        </motion.h2>
 
-        <a
+        <motion.p
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 }
+          }}
+        >
+          {content.description}
+        </motion.p>
+
+        <motion.a
           href="#contact"
           className="information-button"
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 }
+          }}
         >
           {content.buttonText}
-        </a>
+        </motion.a>
 
-      </div>
+      </motion.div>
     </section>
   );
 }

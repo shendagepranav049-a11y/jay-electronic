@@ -1,0 +1,46 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Admin access
+    match /admins/{userId} {
+      allow read: if request.auth != null;
+    }
+
+    // Site Content (Public Read, Admin Write)
+    match /siteContent/{document} {
+      allow read: if true;
+      allow write: if request.auth != null && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    // Solutions (Public Read, Admin Write)
+    match /solutions/{document} {
+      allow read: if true;
+      allow write: if request.auth != null && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    // Projects (Public Read, Admin Write)
+    match /projects/{document} {
+      allow read: if true;
+      allow write: if request.auth != null && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    // Industries (Public Read, Admin Write)
+    match /industries/{document} {
+      allow read: if true;
+      allow write: if request.auth != null && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    // Enquiries (Public Create, Admin Read/Write)
+    match /enquiries/{document} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    // Media metadata (Public Read, Admin Write)
+    match /media/{document} {
+      allow read: if true;
+      allow write: if request.auth != null && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+  }
+}

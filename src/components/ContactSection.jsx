@@ -1,14 +1,13 @@
 import { useState } from "react";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase";
 import "./ContactSection.css";
-import ScrollReveal from "./ScrollReveal";
-
+import { motion } from "framer-motion";
 import { useSiteContent } from '../utils/firebaseUtils';
 
 function ContactSection() {
   const { data: content, loading: contentLoading } = useSiteContent('contact', { phone: '+91 98765 43210', email: 'info@jayelectronics.in', address: 'Kolhapur, Maharashtra, India' });
-  // early return moved
+
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -25,11 +24,9 @@ function ContactSection() {
   if (contentLoading) return null;
 
   const handleChange = (e) => {
-    const { id, value } = e.target;
-
     setFormData((prev) => ({
       ...prev,
-      [id]: value,
+      [e.target.id]: e.target.value,
     }));
   };
 
@@ -42,19 +39,12 @@ function ContactSection() {
 
     try {
       await addDoc(collection(db, "enquiries"), {
-        name: formData.name.trim(),
-        company: formData.company.trim(),
-        phone: formData.phone.trim(),
-        email: formData.email.trim(),
-        requirement: formData.requirement,
-        message: formData.message.trim(),
+        ...formData,
         status: "new",
         createdAt: serverTimestamp(),
       });
 
-      setSuccess(
-        "Thank you! Your enquiry has been submitted successfully."
-      );
+      setSuccess("Your enquiry has been successfully submitted.");
 
       setFormData({
         name: "",
@@ -75,223 +65,221 @@ function ContactSection() {
     }
   };
 
+  const formVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.1 } }
+  };
+
+  const fieldVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
+  };
+
   return (
     <section className="contact-section" id="contact">
       <div className="logo-watermark"></div>
-      <div className="contact-container">
+      <motion.div 
+        className="contact-container"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+      >
 
-        <ScrollReveal direction="up">
-          <div className="contact-header">
-            <div className="contact-label-wrap">
-              <span className="contact-label-line"></span>
-              <p className="contact-label">GET IN TOUCH</p>
-            </div>
-
-            <h2>
-              Let’s build<span> your solution.</span>
-            </h2>
+        <motion.div 
+          className="contact-header"
+          variants={{
+            hidden: { opacity: 0, y: -20 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+          }}
+        >
+          <div className="contact-label-wrap">
+            <span className="contact-label-line"></span>
+            <p className="contact-label">GET IN TOUCH</p>
           </div>
-        </ScrollReveal>
+
+          <h2>
+            Let’s build<span> your solution.</span>
+          </h2>
+        </motion.div>
 
         <div className="contact-content">
 
-          <ScrollReveal direction="left" delay={0.15}>
-            <div className="contact-info">
+          <motion.div 
+            className="contact-info"
+            variants={{
+              hidden: { opacity: 0, x: -30 },
+              visible: { opacity: 1, x: 0, transition: { duration: 0.6 } }
+            }}
+          >
 
-              <p className="contact-lead">
-                Looking for a technology partner for your next
-                security, networking, telecom or infrastructure
-                project?
+            <p className="contact-lead">
+              Looking for a technology partner for your next
+              security, networking, telecom or infrastructure
+              project?
+            </p>
+
+            <p className="contact-description">
+              Tell us about your requirement and our team can
+              understand the scope and explore the right
+              technology approach for your project.
+            </p>
+
+            <div className="contact-company">
+              <p className="contact-company-label">
+                JAY ELECTRONICS PVT LTD
               </p>
 
-              <p className="contact-description">
-                Tell us about your requirement and our team can
-                understand the scope and explore the right
-                technology approach for your project.
+              <p className="contact-company-text">
+                Technology Integrator & Infrastructure
+                Service Provider delivering integrated
+                technology, security and infrastructure
+                solutions.
               </p>
+            </div>
 
-              <div className="contact-company">
-                <p className="contact-company-label">
-                  JAY ELECTRONICS PVT LTD
-                </p>
+          </motion.div>
 
-                <p className="contact-company-text">
-                  Technology Integrator & Infrastructure
-                  Service Provider delivering integrated
-                  technology, security and infrastructure
-                  solutions.
-                </p>
-              </div>
+          <motion.form
+            className="contact-form"
+            onSubmit={handleSubmit}
+            variants={formVariants}
+          >
+
+            <div className="contact-form-row">
+
+              <motion.div className="contact-field" variants={fieldVariants}>
+                <label htmlFor="name">Name</label>
+
+                <input
+                  id="name"
+                  type="text"
+                  placeholder="Your full name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+              </motion.div>
+
+              <motion.div className="contact-field" variants={fieldVariants}>
+                <label htmlFor="company">
+                  Company (Optional)
+                </label>
+
+                <input
+                  id="company"
+                  type="text"
+                  placeholder="Organization name"
+                  value={formData.company}
+                  onChange={handleChange}
+                />
+              </motion.div>
 
             </div>
-          </ScrollReveal>
 
-          <ScrollReveal direction="right" delay={0.25}>
-            <form
-              className="contact-form"
-              onSubmit={handleSubmit}
-            >
+            <div className="contact-form-row">
 
-              <div className="contact-form-row">
+              <motion.div className="contact-field" variants={fieldVariants}>
+                <label htmlFor="phone">Phone</label>
 
-                <div className="contact-field">
-                  <label htmlFor="name">Name</label>
-
-                  <input
-                    id="name"
-                    type="text"
-                    placeholder="Your name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-
-                <div className="contact-field">
-                  <label htmlFor="company">Company</label>
-
-                  <input
-                    id="company"
-                    type="text"
-                    placeholder="Company name"
-                    value={formData.company}
-                    onChange={handleChange}
-                  />
-                </div>
-
-              </div>
-
-              <div className="contact-form-row">
-
-                <div className="contact-field">
-                  <label htmlFor="phone">Phone</label>
-
-                  <input
-                    id="phone"
-                    type="tel"
-                    placeholder="Phone number"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-
-                <div className="contact-field">
-                  <label htmlFor="email">Email</label>
-
-                  <input
-                    id="email"
-                    type="email"
-                    placeholder="Email address"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-
-              </div>
-
-              <div className="contact-field">
-                <label htmlFor="requirement">
-                  Requirement
-                </label>
-
-                <select
-                  id="requirement"
-                  value={formData.requirement}
+                <input
+                  id="phone"
+                  type="tel"
+                  placeholder="Phone number"
+                  value={formData.phone}
                   onChange={handleChange}
                   required
-                >
-                  <option value="" disabled>
-                    Select requirement
-                  </option>
+                />
+              </motion.div>
 
-                  <option value="security">
-                    Electronic Security
-                  </option>
+              <motion.div className="contact-field" variants={fieldVariants}>
+                <label htmlFor="email">Email</label>
 
-                  <option value="networking">
-                    Networking
-                  </option>
-
-                  <option value="telecom">
-                    Telecom
-                  </option>
-
-                  <option value="audio-visual">
-                    Audio Visual
-                  </option>
-
-                  <option value="fire-safety">
-                    Fire & Safety
-                  </option>
-
-                  <option value="infrastructure">
-                    Infrastructure
-                  </option>
-
-                  <option value="city-surveillance">
-                    City Surveillance
-                  </option>
-
-                  <option value="solar">
-                    Solar
-                  </option>
-
-                  <option value="other">
-                    Other
-                  </option>
-                </select>
-              </div>
-
-              <div className="contact-field">
-                <label htmlFor="message">
-                  Message
-                </label>
-
-                <textarea
-                  id="message"
-                  rows="5"
-                  placeholder="Tell us about your project or requirement..."
-                  value={formData.message}
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="Email address"
+                  value={formData.email}
                   onChange={handleChange}
                   required
-                ></textarea>
-              </div>
+                />
+              </motion.div>
 
+            </div>
+
+            <motion.div className="contact-field" variants={fieldVariants}>
+              <label htmlFor="requirement">
+                Technology Requirement
+              </label>
+
+              <select
+                id="requirement"
+                value={formData.requirement}
+                onChange={handleChange}
+                required
+              >
+                <option value="" disabled>
+                  Select a category
+                </option>
+
+                <option value="Electronic Security">
+                  Electronic Security
+                </option>
+
+                <option value="Networking">Networking</option>
+
+                <option value="Telecom">Telecom</option>
+
+                <option value="Audio Visual">
+                  Audio Visual
+                </option>
+
+                <option value="Fire & Safety">
+                  Fire & Safety
+                </option>
+
+                <option value="Infrastructure">
+                  Infrastructure
+                </option>
+
+                <option value="Other">Other</option>
+              </select>
+            </motion.div>
+
+            <motion.div className="contact-field" variants={fieldVariants}>
+              <label htmlFor="message">Message</label>
+
+              <textarea
+                id="message"
+                rows="4"
+                placeholder="Tell us about your project requirements..."
+                value={formData.message}
+                onChange={handleChange}
+                required
+              ></textarea>
+            </motion.div>
+
+            <motion.div variants={fieldVariants}>
               <button
                 type="submit"
-                className="contact-submit"
+                className="contact-submit-btn"
                 disabled={loading}
               >
-                <span>
-                  {loading
-                    ? "Submitting..."
-                    : "Submit Enquiry"}
-                </span>
-
-                <span className="contact-submit-arrow">
-                  ↗
-                </span>
+                {loading ? "Submitting..." : "Submit Enquiry"}
+                <span>→</span>
               </button>
 
               {success && (
-                <p className="contact-success">
-                  {success}
-                </p>
+                <div className="form-success">{success}</div>
               )}
 
               {error && (
-                <p className="contact-error">
-                  {error}
-                </p>
+                <div className="form-error">{error}</div>
               )}
-
-            </form>
-          </ScrollReveal>
+            </motion.div>
+          </motion.form>
 
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

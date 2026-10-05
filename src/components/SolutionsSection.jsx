@@ -1,6 +1,6 @@
 import { useSiteCollection } from '../utils/firebaseUtils';
 import "./SolutionsSection.css";
-import ScrollReveal from "./ScrollReveal";
+import { motion } from "framer-motion";
 
 const fallbackSolutions = [
   {
@@ -49,50 +49,69 @@ function SolutionsSection() {
   const { data: dbSolutions, loading } = useSiteCollection("solutions");
   const solutions = dbSolutions.length > 0 ? dbSolutions : fallbackSolutions;
 
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+  };
+
   return (
     <section className="solutions-section" id="solutions">
       <div className="logo-watermark"></div>
-      <div className="solutions-container">
+      <motion.div 
+        className="solutions-container"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+      >
 
-        <ScrollReveal direction="up">
-          <div className="solutions-header">
-            <div>
-              <div className="solutions-label-wrap">
-                <span className="solutions-label-line"></span>
-                <p className="solutions-label">OUR SOLUTIONS</p>
-              </div>
-              <h2>
-                Technology solutions
-                <span> built around your needs.</span>
-              </h2>
+        <motion.div className="solutions-header" variants={cardVariants}>
+          <div>
+            <div className="solutions-label-wrap">
+              <span className="solutions-label-line"></span>
+              <p className="solutions-label">OUR SOLUTIONS</p>
             </div>
-            <p className="solutions-intro">
-              From electronic security and networking to telecom,
-              audio visual and infrastructure projects, Jay Electronics
-              delivers integrated technology solutions.
-            </p>
+            <h2>
+              Technology solutions
+              <span> built around your needs.</span>
+            </h2>
           </div>
-        </ScrollReveal>
+          <p className="solutions-intro">
+            From electronic security and networking to telecom,
+            audio visual and infrastructure projects, Jay Electronics
+            delivers integrated technology solutions.
+          </p>
+        </motion.div>
 
         <div className="solutions-grid">
           {solutions.map((solution, index) => (
-            <ScrollReveal
+            <motion.div
               key={solution.id || index}
-              direction="up"
-              delay={index * 0.1}
+              variants={cardVariants}
+              whileHover={{ scale: 1.02, y: -5 }}
+              className="solution-card ui-card"
             >
-              <div className="solution-card ui-card">
-                <div className="solution-number">
-                  0{index + 1}
-                </div>
-                <h3>{solution.title}</h3>
-                <p>{solution.description}</p>
-              </div>
-            </ScrollReveal>
+              <motion.div 
+                className="solution-number"
+                initial={{ scale: 1 }}
+                whileHover={{ scale: 1.2, rotate: 5, color: 'var(--cyan)' }}
+              >
+                0{index + 1}
+              </motion.div>
+              <h3>{solution.title}</h3>
+              <p>{solution.description}</p>
+            </motion.div>
           ))}
         </div>
 
-      </div>
+      </motion.div>
     </section>
   );
 }

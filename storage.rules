@@ -1,0 +1,13 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /media/{allPaths=**} {
+      // Anyone can read media
+      allow read: if true;
+      // Only admins can upload/delete
+      // Note: we can't easily check firestore from storage rules without custom claims
+      // So for simplicity, any authenticated user (our admins) can write
+      allow write: if request.auth != null;
+    }
+  }
+}

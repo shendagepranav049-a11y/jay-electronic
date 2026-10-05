@@ -1,5 +1,5 @@
 import "./PartnersSection.css";
-import ScrollReveal from "./ScrollReveal";
+import { motion } from "framer-motion";
 
 const partnerGroups = [
   {
@@ -51,107 +51,132 @@ const partnerGroups = [
 function PartnersSection() {
   return (
     <section className="partners-section" id="partners">
-      <div className="partners-container">
+      <motion.div 
+        className="partners-container"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={{
+          hidden: {},
+          visible: { transition: { staggerChildren: 0.15 } }
+        }}
+      >
 
-        <ScrollReveal direction="up">
-          <div className="partners-header">
+        <motion.div 
+          className="partners-header"
+          variants={{
+            hidden: { opacity: 0, y: -20 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+          }}
+        >
 
-            <div>
-              <div className="partners-label-wrap">
-                <span className="partners-label-line"></span>
+          <div>
+            <div className="partners-label-wrap">
+              <span className="partners-label-line"></span>
 
-                <p className="partners-label">
-                  TECHNOLOGY PARTNERS
-                </p>
-              </div>
-
-              <h2>
-                Trusted technology
-                <span> ecosystems.</span>
-              </h2>
+              <p className="partners-label">
+                TECHNOLOGY PARTNERS
+              </p>
             </div>
 
-            <p className="partners-intro">
-              Jay Electronics works with established technology
-              manufacturers and strategic brand partners across
-              multiple solution categories.
-            </p>
-
+            <h2>
+              Trusted technology
+              <span> ecosystems.</span>
+            </h2>
           </div>
-        </ScrollReveal>
+
+          <p className="partners-intro">
+            Jay Electronics works with established technology
+            manufacturers and strategic brand partners across
+            multiple solution categories.
+          </p>
+
+        </motion.div>
 
 
         <div className="partners-grid">
 
           {partnerGroups.map((group, index) => (
-            <ScrollReveal
+            <motion.article 
+              className="partner-card"
               key={group.number}
-              direction="up"
-              delay={index * 0.1}
-              duration={0.75}
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+              }}
             >
-              <article className="partner-card">
 
-                <div className="partner-top">
+              <div className="partner-top">
 
-                  <span className="partner-number">
-                    {group.number}
-                  </span>
+                <motion.span 
+                  className="partner-number"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1, transition: { delay: index * 0.2 + 0.3 } }}
+                  viewport={{ once: true }}
+                >
+                  {group.number}
+                </motion.span>
 
-                  <span className="partner-category">
-                    {group.category}
-                  </span>
+                <span className="partner-category">
+                  {group.category}
+                </span>
+
+              </div>
+
+
+              <div className="partner-content">
+
+                <h3>
+                  {group.category}
+                </h3>
+
+                <div className="partner-list">
+
+                  {group.partners.map((partner) => (
+                    <span key={partner}>
+                      {partner}
+                    </span>
+                  ))}
 
                 </div>
 
-
-                <div className="partner-content">
-
-                  <h3>
-                    {group.category}
-                  </h3>
-
-                  <div className="partner-list">
-
-                    {group.partners.map((partner) => (
-                      <span key={partner}>
-                        {partner}
-                      </span>
-                    ))}
-
-                  </div>
-
-                </div>
+              </div>
 
 
-                <div className="partner-line"></div>
+              <motion.div 
+                className="partner-line"
+                initial={{ width: 0 }}
+                whileInView={{ width: "100%", transition: { duration: 0.8, delay: index * 0.2 + 0.1 } }}
+                viewport={{ once: true }}
+              ></motion.div>
 
-              </article>
-            </ScrollReveal>
+            </motion.article>
           ))}
 
         </div>
 
 
-        <ScrollReveal direction="up" delay={0.2}>
+        <motion.div 
+          className="partners-note"
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+          }}
+        >
 
-          <div className="partners-note">
+          <span className="partners-note-mark">
+            *
+          </span>
 
-            <span className="partners-note-mark">
-              *
-            </span>
+          <p>
+            Partner names shown for technology ecosystem
+            representation. Final partner logos and certifications
+            should be used only after client confirmation.
+          </p>
 
-            <p>
-              Partner names shown for technology ecosystem
-              representation. Final partner logos and certifications
-              should be used only after client confirmation.
-            </p>
+        </motion.div>
 
-          </div>
-
-        </ScrollReveal>
-
-      </div>
+      </motion.div>
     </section>
   );
 }

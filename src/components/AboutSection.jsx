@@ -1,6 +1,6 @@
 import { useSiteContent } from '../utils/firebaseUtils';
 import "./AboutSection.css";
-import ScrollReveal from "./ScrollReveal";
+import { motion } from "framer-motion";
 
 function AboutSection() {
   const { data: content, loading } = useSiteContent("about", {
@@ -10,72 +10,108 @@ function AboutSection() {
 
   if (loading) return null;
 
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const lineVariants = {
+    hidden: { height: 0, opacity: 0 },
+    visible: { 
+      height: 40, 
+      opacity: 1, 
+      transition: { duration: 0.8, ease: "easeOut" } 
+    }
+  };
+
+  const textVariants = {
+    hidden: { opacity: 0, x: -30 },
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      transition: { duration: 0.7, ease: "easeOut" } 
+    }
+  };
+  
+  const rightVariants = {
+    hidden: { opacity: 0, x: 30 },
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      transition: { duration: 0.7, ease: "easeOut" } 
+    }
+  };
+
   return (
     <section className="about-section" id="about">
       <div className="logo-watermark"></div>
-      <div className="about-container">
+      <motion.div 
+        className="about-container"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
 
         {/* Section Heading */}
-        <ScrollReveal direction="up">
-          <div className="about-heading">
-            <div className="about-label-wrap">
-              <span className="about-label-line"></span>
+        <motion.div className="about-heading" variants={textVariants}>
+          <div className="about-label-wrap">
+            <motion.span className="about-label-line" variants={lineVariants}></motion.span>
 
-              <p className="section-label">
-                ABOUT JAY ELECTRONICS
-              </p>
-            </div>
-
-            <h2 style={{ whiteSpace: 'pre-line' }}>{content.heading}</h2>
+            <p className="section-label">
+              ABOUT JAY ELECTRONICS
+            </p>
           </div>
-        </ScrollReveal>
+
+          <h2 style={{ whiteSpace: 'pre-line' }}>{content.heading}</h2>
+        </motion.div>
 
         {/* Main Content */}
         <div className="about-content">
 
           {/* Left Text */}
-          <ScrollReveal direction="left" delay={0.15}>
-            <div className="about-text" style={{ whiteSpace: 'pre-line' }}>
+          <motion.div className="about-text" variants={textVariants} style={{ whiteSpace: 'pre-line' }}>
 
-              <p>{content.description}</p>
+            <p>{content.description}</p>
 
-              <a href="#solutions" className="about-link">
-                <span>Discover More</span>
-                <span className="about-arrow">→</span>
-              </a>
+            <a href="#solutions" className="about-link">
+              <span>Discover More</span>
+              <span className="about-arrow">→</span>
+            </a>
 
-            </div>
-          </ScrollReveal>
+          </motion.div>
 
           {/* Right Highlight Card */}
-          <ScrollReveal direction="right" delay={0.3}>
-            <div className="about-highlight">
+          <motion.div className="about-highlight" variants={rightVariants}>
 
-              <div className="highlight-top">
-                <span className="highlight-number">01</span>
-                <span className="highlight-line"></span>
-              </div>
-
-              <h3>
-                Technology.
-                <br />
-                Security.
-                <br />
-                Infrastructure.
-              </h3>
-
-              <p>
-                One integrated approach.
-              </p>
-
-              <div className="highlight-corner"></div>
-
+            <div className="highlight-top">
+              <span className="highlight-number">01</span>
+              <span className="highlight-line"></span>
             </div>
-          </ScrollReveal>
+
+            <h3>
+              Technology.
+              <br />
+              Security.
+              <br />
+              Infrastructure.
+            </h3>
+
+            <p>
+              One integrated approach.
+            </p>
+
+            <div className="highlight-corner"></div>
+
+          </motion.div>
 
         </div>
 
-      </div>
+      </motion.div>
     </section>
   );
 }

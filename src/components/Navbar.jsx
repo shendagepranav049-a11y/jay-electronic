@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Navbar.css";
 import logo from "../assets/je-logo.png";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
@@ -65,12 +66,17 @@ function Navbar() {
     { id: "solutions", label: "Solutions" },
     { id: "projects", label: "Projects" },
     { id: "industries", label: "Industries" },
-   { id: "information", label: "Information" },
+    { id: "information", label: "Information" },
     { id: "why-jay", label: "Why Jay" },
   ];
 
   return (
-    <header className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
+    <motion.header 
+      className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <div className="navbar-container">
 
         {/* Logo */}
@@ -131,40 +137,57 @@ function Navbar() {
 
 
       {/* Mobile Navigation */}
-
-      <div className={`mobile-menu ${menuOpen ? "mobile-menu-open" : ""}`}>
-
-        {navItems.map((item) => (
-          <button
-            key={item.id}
-            type="button"
-            className={`mobile-link ${
-              activeSection === item.id ? "active" : ""
-            }`}
-            onClick={() => handleNavClick(item.id)}
+      
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div 
+            className="mobile-menu mobile-menu-open"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            style={{ display: 'flex', visibility: 'visible', pointerEvents: 'auto' }}
           >
-            <span>{item.label}</span>
 
-            {activeSection === item.id && (
-              <span className="mobile-active-dot"></span>
-            )}
-          </button>
-        ))}
+            {navItems.map((item, index) => (
+              <motion.button
+                key={item.id}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.05 }}
+                type="button"
+                className={`mobile-link ${
+                  activeSection === item.id ? "active" : ""
+                }`}
+                onClick={() => handleNavClick(item.id)}
+              >
+                <span>{item.label}</span>
 
-        <button
-          type="button"
-          className={`mobile-contact ${
-            activeSection === "contact" ? "active" : ""
-          }`}
-          onClick={() => handleNavClick("contact")}
-        >
-          Contact
-          <span>↗</span>
-        </button>
+                {activeSection === item.id && (
+                  <span className="mobile-active-dot"></span>
+                )}
+              </motion.button>
+            ))}
 
-      </div>
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: navItems.length * 0.05 }}
+              type="button"
+              className={`mobile-contact ${
+                activeSection === "contact" ? "active" : ""
+              }`}
+              onClick={() => handleNavClick("contact")}
+            >
+              Contact
+              <span>↗</span>
+            </motion.button>
 
-    </header>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+    </motion.header>
   );
 }
 

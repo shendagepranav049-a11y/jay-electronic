@@ -1,6 +1,6 @@
 import { useSiteCollection } from '../utils/firebaseUtils';
+import { motion } from "framer-motion";
 import "./IndustriesSection.css";
-import ScrollReveal from "./ScrollReveal";
 
 const fallbackIndustries = [
   { order: 1, title: "Government & Defense", description: "Securing critical national infrastructure with advanced surveillance and command center integrations." },
@@ -18,47 +18,66 @@ function IndustriesSection() {
   return (
     <section className="industries-section" id="industries">
       <div className="logo-watermark"></div>
-      <div className="industries-container">
+      <motion.div 
+        className="industries-container"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={{
+          hidden: {},
+          visible: { transition: { staggerChildren: 0.1 } }
+        }}
+      >
 
-        <ScrollReveal direction="up">
-          <div className="industries-header">
-            <div>
-              <div className="industries-label-wrap">
-                <span className="industries-label-line"></span>
-                <p className="industries-label">INDUSTRIES WE SERVE</p>
-              </div>
-              <h2>
-                Tailored solutions for
-                <span> diverse environments.</span>
-              </h2>
+        <motion.div 
+          className="industries-header"
+          variants={{
+            hidden: { opacity: 0, y: -20 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+          }}
+        >
+          <div>
+            <div className="industries-label-wrap">
+              <span className="industries-label-line"></span>
+              <p className="industries-label">INDUSTRIES WE SERVE</p>
             </div>
-            <p className="industries-intro">
-              Our engineering expertise spans across multiple sectors,
-              understanding the unique compliance, operational, and
-              scale requirements of each industry.
-            </p>
+            <h2>
+              Tailored solutions for
+              <span> diverse environments.</span>
+            </h2>
           </div>
-        </ScrollReveal>
+          <p className="industries-intro">
+            Our engineering expertise spans across multiple sectors,
+            understanding the unique compliance, operational, and
+            scale requirements of each industry.
+          </p>
+        </motion.div>
 
         <div className="industries-grid">
           {industriesList.map((industry, index) => (
-            <ScrollReveal
+            <motion.div
               key={industry.id || index}
-              direction="up"
-              delay={index * 0.1}
+              variants={{
+                hidden: { opacity: 0, scale: 0.9 },
+                visible: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 100 } }
+              }}
+              whileHover={{ scale: 1.05 }}
+              className="industry-card ui-card"
             >
-              <div className="industry-card ui-card">
-                <div className="industry-content">
-                  <h3>{industry.title}</h3>
-                  <p>{industry.description}</p>
-                </div>
-                <div className="industry-hover-line"></div>
+              <div className="industry-content">
+                <h3>{industry.title}</h3>
+                <p>{industry.description}</p>
               </div>
-            </ScrollReveal>
+              <motion.div 
+                className="industry-hover-line"
+                initial={{ width: 0 }}
+                whileHover={{ width: "100%" }}
+              ></motion.div>
+            </motion.div>
           ))}
         </div>
 
-      </div>
+      </motion.div>
     </section>
   );
 }
