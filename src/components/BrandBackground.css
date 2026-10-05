@@ -1,5 +1,5 @@
 /* =========================================
-   TECH BACKGROUND (ELECTRONICS THEME)
+   WHITE THEME BACKGROUND
 ========================================= */
 
 .brand-background {
@@ -7,133 +7,37 @@
   inset: 0;
   overflow: hidden;
   pointer-events: none;
-  background-color: #030508;
+  background-color: #f8f9fa; /* Light grey base */
   z-index: -1;
 }
 
-/* Base Circuit Grid */
-.circuit-grid {
+.brand-bg-image {
   position: absolute;
-  inset: -50px; /* Oversize to prevent clipping during animation */
-  background-image: 
-    linear-gradient(rgba(0, 170, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 170, 255, 0.05) 1px, transparent 1px);
-  background-size: 50px 50px;
-  perspective: 1000px;
-  transform-style: preserve-3d;
-  animation: gridMove 20s linear infinite;
-  mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
-  -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+  inset: 0;
+  background-size: 600px; /* Size of the pattern */
+  background-repeat: repeat;
+  background-position: center;
+  opacity: 0.6; /* Faint enough so text is readable */
+  animation: bgPan 120s linear infinite;
 }
 
-@keyframes gridMove {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(50px); }
-}
-
-/* Glowing Tech Nodes */
-.node {
+.brand-bg-overlay {
   position: absolute;
-  width: 6px;
-  height: 6px;
-  background: #00aaff;
-  border-radius: 50%;
-  box-shadow: 0 0 15px 4px rgba(0, 170, 255, 0.6);
-  animation: nodePulse 3s ease-in-out infinite alternate;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
 }
 
-.node-1 { top: 20%; left: 15%; animation-delay: 0s; }
-.node-2 { top: 60%; left: 80%; animation-delay: 1s; }
-.node-3 { top: 80%; left: 25%; animation-delay: 2s; }
-.node-4 { top: 30%; left: 70%; animation-delay: 0.5s; }
-.node-5 { top: 50%; left: 45%; animation-delay: 1.5s; }
-
-@keyframes nodePulse {
-  0% { transform: scale(0.8); opacity: 0.5; box-shadow: 0 0 10px 2px rgba(0, 170, 255, 0.3); }
-  100% { transform: scale(1.5); opacity: 1; box-shadow: 0 0 25px 8px rgba(0, 170, 255, 0.8); }
-}
-
-/* Connection Lines (Simulating Data Flow) */
-.connection-line {
-  position: absolute;
-  background: rgba(0, 170, 255, 0.3);
-  overflow: hidden;
-}
-
-.connection-line::after {
-  content: '';
-  position: absolute;
-  background: #ffffff;
-  box-shadow: 0 0 15px 3px #00aaff;
-}
-
-.line-1 {
-  top: 20%; left: 15%; width: 55%; height: 1px;
-}
-.line-1::after {
-  top: 0; left: -20px; width: 40px; height: 1px;
-  animation: flowRight 4s linear infinite;
-}
-
-.line-2 {
-  top: 30%; left: 70%; width: 1px; height: 30%;
-}
-.line-2::after {
-  top: -20px; left: 0; width: 1px; height: 40px;
-  animation: flowDown 3s linear infinite 1s;
-}
-
-.line-3 {
-  top: 80%; left: 25%; width: 45%; height: 1px;
-}
-.line-3::after {
-  top: 0; left: -20px; width: 40px; height: 1px;
-  animation: flowRight 5s linear infinite 2s;
-}
-
-@keyframes flowRight {
-  0% { left: -10%; opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { left: 110%; opacity: 0; }
-}
-
-@keyframes flowDown {
-  0% { top: -10%; opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { top: 110%; opacity: 0; }
-}
-
-/* Ambient Deep Glows */
-.tech-glow {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.4;
-  animation: floatGlow 15s ease-in-out infinite alternate;
-}
-
-.glow-primary {
-  top: -10%; left: -10%;
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(0,170,255,0.2) 0%, transparent 70%);
-}
-
-.glow-secondary {
-  bottom: -20%; right: -10%;
-  width: 800px; height: 800px;
-  background: radial-gradient(circle, rgba(0,100,255,0.15) 0%, transparent 70%);
-  animation-delay: -5s;
-}
-
-@keyframes floatGlow {
-  0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(50px, -50px) scale(1.1); }
+@keyframes bgPan {
+  0% { background-position: 0 0; }
+  100% { background-position: 600px 600px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .circuit-grid, .node, .connection-line::after, .tech-glow {
+  .brand-bg-image {
     animation: none;
   }
 }

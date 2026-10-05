@@ -1,26 +1,15 @@
 import "./BrandBackground.css";
+import bgImage from "../assets/devices-bg.jpg";
 
 function BrandBackground() {
   return (
     <div className="brand-background" aria-hidden="true">
-      {/* Circuit Grid */}
-      <div className="circuit-grid"></div>
-
-      {/* Nodes / Particles */}
-      <div className="node node-1"></div>
-      <div className="node node-2"></div>
-      <div className="node node-3"></div>
-      <div className="node node-4"></div>
-      <div className="node node-5"></div>
-
-      {/* Ambient Glows */}
-      <div className="tech-glow glow-primary"></div>
-      <div className="tech-glow glow-secondary"></div>
-
-      {/* Connection Lines */}
-      <div className="connection-line line-1"></div>
-      <div className="connection-line line-2"></div>
-      <div className="connection-line line-3"></div>
+      <div 
+        className="brand-bg-image" 
+        style={{ backgroundImage: `url(${bgImage})` }}
+      ></div>
+      {/* Light gradient overlay to ensure text readability */}
+      <div className="brand-bg-overlay"></div>
     </div>
   );
 }

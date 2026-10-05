@@ -162,7 +162,7 @@ nav {
 .hero h1 {
   margin: 0 0 30px;
 
-  color: #ffffff;
+  color: var(--white);
 
   font-size: clamp(
     52px,
@@ -197,7 +197,7 @@ nav {
 
   margin: 0 0 38px;
 
-  color: #b8c2cc;
+  color: var(--muted);
 
   font-size: 18px;
 
@@ -265,7 +265,6 @@ nav {
 
 .btn-primary {
   background: #00aaff;
-
   color: #ffffff;
 
   border: 1px solid #00aaff;
@@ -302,7 +301,7 @@ nav {
 ========================================= */
 
 .btn-secondary {
-  color: #ffffff;
+  color: var(--white);
 
   border:
     1px solid
@@ -356,12 +355,12 @@ body {
   background:
     linear-gradient(
       135deg,
-      #02070d 0%,
-      #07111f 50%,
-      #02070d 100%
+      var(--black) 0%,
+      var(--black) 50%,
+      var(--black) 100%
     );
 
-  color: #ffffff;
+  color: var(--white);
 }
 
 
