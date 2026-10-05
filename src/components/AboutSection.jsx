@@ -1,7 +1,15 @@
+import { useSiteContent } from '../utils/firebaseUtils';
 import "./AboutSection.css";
 import ScrollReveal from "./ScrollReveal";
 
 function AboutSection() {
+  const { data: content, loading } = useSiteContent("about", {
+    heading: "Integrated technology\nfor a connected world.",
+    description: "Jay Electronics Pvt Ltd delivers integrated technology, security and infrastructure solutions designed for modern organizations and connected environments.\n\nOur solutions bring together electronic security, networking, telecom, audio visual, fire and safety, infrastructure and other technology capabilities."
+  });
+
+  if (loading) return null;
+
   return (
     <section className="about-section" id="about">
       <div className="logo-watermark"></div>
@@ -18,10 +26,7 @@ function AboutSection() {
               </p>
             </div>
 
-            <h2>
-              Integrated technology
-              <span> for a connected world.</span>
-            </h2>
+            <h2 style={{ whiteSpace: 'pre-line' }}>{content.heading}</h2>
           </div>
         </ScrollReveal>
 
@@ -30,21 +35,11 @@ function AboutSection() {
 
           {/* Left Text */}
           <ScrollReveal direction="left" delay={0.15}>
-            <div className="about-text">
+            <div className="about-text" style={{ whiteSpace: 'pre-line' }}>
 
-              <p>
-                Jay Electronics Pvt Ltd delivers integrated technology,
-                security and infrastructure solutions designed for modern
-                organizations and connected environments.
-              </p>
+              <p>{content.description}</p>
 
-              <p>
-                Our solutions bring together electronic security,
-                networking, telecom, audio visual, fire and safety,
-                infrastructure and other technology capabilities.
-              </p>
-
-              <a href="/about" className="about-link">
+              <a href="#solutions" className="about-link">
                 <span>Discover More</span>
                 <span className="about-arrow">→</span>
               </a>

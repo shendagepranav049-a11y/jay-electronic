@@ -4,7 +4,11 @@ import { db } from "../firebase";
 import "./ContactSection.css";
 import ScrollReveal from "./ScrollReveal";
 
+import { useSiteContent } from '../utils/firebaseUtils';
+
 function ContactSection() {
+  const { data: content, loading: contentLoading } = useSiteContent('contact', { phone: '+91 98765 43210', email: 'info@jayelectronics.in', address: 'Kolhapur, Maharashtra, India' });
+  if (contentLoading) return null;
   const [formData, setFormData] = useState({
     name: "",
     company: "",

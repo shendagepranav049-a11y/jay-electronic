@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
-import { auth, db } from "../firebase";
+import { auth, db } from "../../firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { collection, query, orderBy, getDocs } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/je-logo.png";
-import "./AdminDashboard.css";
+import logo from "../../assets/je-logo.png";
+import "../AdminDashboard.css";
 import { motion, AnimatePresence } from "framer-motion";
 
-import Overview from "./admin/Overview";
-import EnquiriesManager from "./admin/EnquiriesManager";
-import ContentEditor from "./admin/ContentEditor";
-import MediaManager from "./admin/MediaManager";
-import ListManager from "./admin/ListManager";
+import Overview from "./Overview";
+import EnquiriesManager from "./EnquiriesManager";
+import ContentEditor from "./ContentEditor";
+import MediaManager from "./MediaManager";
+import ListManager from "./ListManager";
 
 function AdminDashboard() {
   const navigate = useNavigate();

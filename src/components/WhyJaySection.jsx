@@ -28,7 +28,11 @@ const strengths = [
   },
 ];
 
+import { useSiteContent } from '../utils/firebaseUtils';
+
 function WhyJaySection() {
+  const { data: content, loading } = useSiteContent('whyJay', { heading: '{content.heading} our work.', description: '{content.description}  ' });
+  if (loading) return null;
   return (
     <section className="why-jay-section" id="why-jay">
       <div className="logo-watermark"></div>

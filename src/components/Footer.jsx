@@ -2,7 +2,11 @@ import "./Footer.css";
 import ScrollReveal from "./ScrollReveal";
 import logo from "../assets/je-logo.png";
 
+import { useSiteContent } from '../utils/firebaseUtils';
+
 function Footer() {
+  const { data: content, loading } = useSiteContent('footer', { description: 'Delivering integrated technology, security and infrastructure solutions designed for modern organizations and connected environments.' });
+  if (loading) return null;
   const currentYear = new Date().getFullYear();
 
   return (
@@ -158,16 +162,15 @@ function Footer() {
 
         {/* Bottom */}
         <div className="footer-bottom">
-
           <p>
-            © {currentYear} Jay Electronics Pvt Ltd.
-            All rights reserved.
+            © {currentYear} Jay Electronics Pvt Ltd. All rights reserved. 
+            {" | "} 
+            <a href="/admin/login" style={{ color: 'var(--muted)', textDecoration: 'none' }}>Admin Login</a>
           </p>
 
           <p className="footer-bottom-right">
             Technology Integrator & Infrastructure Service Provider
           </p>
-
         </div>
 
       </div>

@@ -1,58 +1,20 @@
+import { useSiteCollection } from '../utils/firebaseUtils';
 import "./IndustriesSection.css";
 import ScrollReveal from "./ScrollReveal";
 
-const industries = [
-  {
-    number: "01",
-    title: "Government",
-    description:
-      "Technology and infrastructure solutions for government and public-sector environments.",
-  },
-  {
-    number: "02",
-    title: "Corporate",
-    description:
-      "Integrated technology solutions supporting secure and connected corporate workplaces.",
-  },
-  {
-    number: "03",
-    title: "Healthcare",
-    description:
-      "Reliable networking, security and infrastructure solutions for healthcare environments.",
-  },
-  {
-    number: "04",
-    title: "Education",
-    description:
-      "Connected technology infrastructure for educational institutions and campuses.",
-  },
-  {
-    number: "05",
-    title: "Industrial",
-    description:
-      "Technology and infrastructure solutions designed for industrial environments.",
-  },
-  {
-    number: "06",
-    title: "Telecom",
-    description:
-      "Telecom, networking and communication infrastructure for connected operations.",
-  },
-  {
-    number: "07",
-    title: "Commercial",
-    description:
-      "Integrated security, networking and technology solutions for commercial spaces.",
-  },
-  {
-    number: "08",
-    title: "Residential",
-    description:
-      "Smart security and technology infrastructure solutions for residential environments.",
-  },
+const fallbackIndustries = [
+  { order: 1, title: "Government & Defense", description: "Securing critical national infrastructure with advanced surveillance and command center integrations." },
+  { order: 2, title: "Corporate & Enterprise", description: "Smart building solutions, unified communications, and high-speed enterprise networking." },
+  { order: 3, title: "Manufacturing & Industrial", description: "Ruggedized CCTV, industrial fire safety, and wide-area networking for manufacturing plants." },
+  { order: 4, title: "Healthcare & Hospitals", description: "IP-PBX, public address systems, and secure access control for medical facilities." },
+  { order: 5, title: "Education & Campuses", description: "Campus-wide Wi-Fi, digital classrooms, and perimeter security for educational institutions." },
+  { order: 6, title: "Transport & Logistics", description: "Automated surveillance, boom barriers, and communication infrastructure for transport hubs." }
 ];
 
 function IndustriesSection() {
+  const { data: dbInd, loading } = useSiteCollection("industries");
+  const industriesList = dbInd.length > 0 ? dbInd : fallbackIndustries;
+
   return (
     <section className="industries-section" id="industries">
       <div className="logo-watermark"></div>
@@ -60,75 +22,40 @@ function IndustriesSection() {
 
         <ScrollReveal direction="up">
           <div className="industries-header">
-
             <div>
               <div className="industries-label-wrap">
                 <span className="industries-label-line"></span>
-
-                <p className="industries-label">
-                  INDUSTRIES WE SERVE
-                </p>
+                <p className="industries-label">INDUSTRIES WE SERVE</p>
               </div>
-
               <h2>
-                Technology for
-                <span> every environment.</span>
+                Tailored solutions for
+                <span> diverse environments.</span>
               </h2>
             </div>
-
             <p className="industries-intro">
-              Jay Electronics delivers integrated technology,
-              security and infrastructure solutions across
-              diverse environments and sectors.
+              Our engineering expertise spans across multiple sectors,
+              understanding the unique compliance, operational, and
+              scale requirements of each industry.
             </p>
-
           </div>
         </ScrollReveal>
 
-
         <div className="industries-grid">
-
-          {industries.map((industry, index) => (
+          {industriesList.map((industry, index) => (
             <ScrollReveal
-              key={industry.number}
+              key={industry.id || index}
               direction="up"
-              delay={index * 0.07}
-              duration={0.7}
+              delay={index * 0.1}
             >
-              <article className="industry-card">
-
-                <div className="industry-top">
-
-                  <span className="industry-number">
-                    {industry.number}
-                  </span>
-
-                  <span className="industry-arrow">
-                    ↗
-                  </span>
-
-                </div>
-
-
+              <div className="industry-card ui-card">
                 <div className="industry-content">
-
-                  <h3>
-                    {industry.title}
-                  </h3>
-
-                  <p>
-                    {industry.description}
-                  </p>
-
+                  <h3>{industry.title}</h3>
+                  <p>{industry.description}</p>
                 </div>
-
-
-                <div className="industry-line"></div>
-
-              </article>
+                <div className="industry-hover-line"></div>
+              </div>
             </ScrollReveal>
           ))}
-
         </div>
 
       </div>

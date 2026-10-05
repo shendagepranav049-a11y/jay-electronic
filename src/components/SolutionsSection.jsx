@@ -1,142 +1,95 @@
+import { useSiteCollection } from '../utils/firebaseUtils';
 import "./SolutionsSection.css";
 import ScrollReveal from "./ScrollReveal";
 
-const solutions = [
+const fallbackSolutions = [
   {
-    number: "01",
+    order: 1,
     title: "Electronic Security",
-    description:
-      "IP CCTV, video surveillance, PTZ cameras, VMS and AI-driven security solutions.",
+    description: "IP CCTV, video surveillance, PTZ cameras, VMS and AI-driven security solutions.",
   },
   {
-    number: "02",
+    order: 2,
     title: "Networking",
-    description:
-      "LAN, WAN, structured cabling, network switching, wireless networks and firewall solutions.",
+    description: "LAN, WAN, structured cabling, network switching, wireless networks and firewall solutions.",
   },
   {
-    number: "03",
+    order: 3,
     title: "Telecom",
-    description:
-      "EPABX, IP-PBX, enterprise telephony and fibre optic network solutions.",
+    description: "EPABX, IP-PBX, enterprise telephony and fibre optic network solutions.",
   },
   {
-    number: "04",
+    order: 4,
     title: "Audio Visual",
-    description:
-      "Professional displays, projectors, video conferencing, public address and AV integration.",
+    description: "Professional displays, projectors, video conferencing, public address and AV integration.",
   },
   {
-    number: "05",
+    order: 5,
     title: "Fire & Safety",
-    description:
-      "Fire security, detection and smart safety systems for modern environments.",
+    description: "Fire security, detection and smart safety systems for modern environments.",
   },
   {
-    number: "06",
+    order: 6,
     title: "Infrastructure",
-    description:
-      "Fibre laying, cable ducting, tower erection and electrical and mechanical infrastructure works.",
+    description: "Fibre laying, cable ducting, tower erection and electrical and mechanical infrastructure works.",
   },
   {
-    number: "07",
+    order: 7,
     title: "City Surveillance",
-    description:
-      "Large-scale surveillance systems for cities, public infrastructure and command environments.",
+    description: "Large-scale surveillance systems for cities, public infrastructure and command environments.",
   },
   {
-    number: "08",
+    order: 8,
     title: "Solar",
-    description:
-      "Commercial and industrial solar power projects with integrated engineering capabilities.",
+    description: "Commercial and industrial solar power projects with integrated engineering capabilities.",
   },
 ];
 
 function SolutionsSection() {
+  const { data: dbSolutions, loading } = useSiteCollection("solutions");
+  const solutions = dbSolutions.length > 0 ? dbSolutions : fallbackSolutions;
+
   return (
     <section className="solutions-section" id="solutions">
       <div className="logo-watermark"></div>
       <div className="solutions-container">
 
-        {/* =========================
-            SECTION HEADER
-        ========================== */}
-
         <ScrollReveal direction="up">
           <div className="solutions-header">
-
             <div>
               <div className="solutions-label-wrap">
                 <span className="solutions-label-line"></span>
-
-                <p className="solutions-label">
-                  OUR SOLUTIONS
-                </p>
+                <p className="solutions-label">OUR SOLUTIONS</p>
               </div>
-
               <h2>
                 Technology solutions
                 <span> built around your needs.</span>
               </h2>
             </div>
-
             <p className="solutions-intro">
               From electronic security and networking to telecom,
               audio visual and infrastructure projects, Jay Electronics
               delivers integrated technology solutions.
             </p>
-
           </div>
         </ScrollReveal>
 
-
-        {/* =========================
-            SOLUTION CARDS
-        ========================== */}
-
         <div className="solutions-grid">
-
           {solutions.map((solution, index) => (
             <ScrollReveal
-              key={solution.number}
+              key={solution.id || index}
               direction="up"
-              delay={index * 0.08}
-              duration={0.7}
+              delay={index * 0.1}
             >
-              <article className="solution-card">
-
-                <div className="solution-top">
-
-                  <span className="solution-number">
-                    {solution.number}
-                  </span>
-
-                  <span className="solution-arrow">
-                    ↗
-                  </span>
-
+              <div className="solution-card ui-card">
+                <div className="solution-number">
+                  0{index + 1}
                 </div>
-
-
-                <div className="solution-content">
-
-                  <h3>
-                    {solution.title}
-                  </h3>
-
-                  <p>
-                    {solution.description}
-                  </p>
-
-                </div>
-
-
-                <div className="solution-line"></div>
-
-              </article>
+                <h3>{solution.title}</h3>
+                <p>{solution.description}</p>
+              </div>
             </ScrollReveal>
           ))}
-
         </div>
 
       </div>

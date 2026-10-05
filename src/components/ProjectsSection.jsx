@@ -1,186 +1,129 @@
+import { useSiteCollection } from '../utils/firebaseUtils';
 import "./ProjectsSection.css";
 import ScrollReveal from "./ScrollReveal";
 
-const projects = [
+const fallbackProjects = [
   {
     number: "01",
-    location: "Paithan",
-    title: "City Surveillance",
-    details: "91 Cameras",
-    description:
-      "City-wide surveillance system including PTZ and varifocal cameras.",
-    tags: ["PTZ", "VARIFOCAL 4MP", "IP SURVEILLANCE"],
+    title: "City Surveillance System",
+    location: "Metro City Phase I",
+    description: "Deployment of 500+ IP PTZ cameras with centralized AI video analytics and command center integration.",
+    stats: [
+      { label: "Cameras", value: "500+" },
+      { label: "Analytics", value: "12 Types" }
+    ],
+    image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80"
   },
   {
     number: "02",
-    location: "Tasgaon",
-    title: "City Surveillance",
-    details: "96 Cameras + IP PA System",
-    description:
-      "Integrated surveillance and public address infrastructure.",
-    tags: ["PTZ", "VARIFOCAL 4MP", "IP PA"],
+    title: "Enterprise Networking",
+    location: "Global Tech Park",
+    description: "Complete structured cabling and active networking for a 10-story IT park supporting 5,000+ endpoints.",
+    stats: [
+      { label: "Endpoints", value: "5000+" },
+      { label: "Fiber", value: "12km" }
+    ],
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80"
   },
   {
     number: "03",
-    location: "Hinjewadi",
-    title: "City Surveillance",
-    details: "96 Cameras",
-    description:
-      "IP-based city surveillance infrastructure with centralized monitoring.",
-    tags: ["PTZ", "VARIFOCAL 4MP", "SURVEILLANCE"],
+    title: "Industrial Fire & Safety",
+    location: "Manufacturing Hub",
+    description: "Intelligent fire detection and suppression system integrated with public address and access control.",
+    stats: [
+      { label: "Sensors", value: "1200+" },
+      { label: "Zones", value: "45" }
+    ],
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80"
   },
   {
     number: "04",
-    location: "Ichalkaranji",
-    title: "City Surveillance",
-    details: "261 Cameras",
-    description:
-      "Large-scale city surveillance deployment with IP camera infrastructure.",
-    tags: ["PTZ", "VARIFOCAL 4MP", "IP SURVEILLANCE"],
-  },
-  {
-    number: "05",
-    location: "Kolhapur",
-    title: "City Surveillance",
-    details: "165 Cameras",
-    description:
-      "Integrated surveillance infrastructure for city-level monitoring.",
-    tags: ["PTZ", "VARIFOCAL 4MP", "SURVEILLANCE"],
-  },
-  {
-    number: "06",
-    location: "Sangli",
-    title: "LAN Infrastructure",
-    details: "300 Ports",
-    description:
-      "Structured LAN infrastructure implemented for enterprise requirements.",
-    tags: ["LAN", "STRUCTURED CABLING", "NETWORKING"],
-  },
-  {
-    number: "07",
-    location: "Prakash Hospital",
-    title: "LAN Infrastructure",
-    details: "500 Ports",
-    description:
-      "Enterprise networking infrastructure supporting a large-scale environment.",
-    tags: ["LAN", "NETWORKING", "INFRASTRUCTURE"],
-  },
-  {
-    number: "08",
-    location: "Enterprise Projects",
-    title: "EPABX Solutions",
-    details: "500 Port System",
-    description:
-      "Enterprise telephony infrastructure using EPABX technology.",
-    tags: ["EPABX", "TELECOM", "ENTERPRISE"],
-  },
+    title: "Command Center AV",
+    location: "State Police HQ",
+    description: "State-of-the-art video wall integration and audio conferencing system for mission critical operations.",
+    stats: [
+      { label: "Displays", value: "24x" },
+      { label: "Uptime", value: "99.99%" }
+    ],
+    image: "https://images.unsplash.com/photo-1541884323281-229d44c80cb1?auto=format&fit=crop&w=800&q=80"
+  }
 ];
 
 function ProjectsSection() {
+  const { data: dbProjects, loading } = useSiteCollection("projects");
+  const projectsList = dbProjects.length > 0 ? dbProjects : fallbackProjects;
+
   return (
     <section className="projects-section" id="projects">
       <div className="logo-watermark"></div>
       <div className="projects-container">
 
-        {/* =========================
-            HEADER
-        ========================== */}
-
         <ScrollReveal direction="up">
           <div className="projects-header">
-
             <div>
               <div className="projects-label-wrap">
                 <span className="projects-label-line"></span>
-
-                <p className="projects-label">
-                  PROJECT EXPERIENCE
-                </p>
+                <p className="projects-label">FEATURED PROJECTS</p>
               </div>
-
               <h2>
-                Real projects.
-                <span> Real infrastructure.</span>
+                Delivering excellence
+                <span> at scale.</span>
               </h2>
             </div>
-
             <p className="projects-intro">
-              Selected project experience across surveillance,
-              networking and telecom infrastructure.
+              Explore our portfolio of integrated technology deployments 
+              across government, enterprise, and industrial sectors.
             </p>
-
           </div>
         </ScrollReveal>
 
-
-        {/* =========================
-            PROJECT LIST
-        ========================== */}
-
-        <div className="projects-list">
-
-          {projects.map((project, index) => (
+        <div className="projects-grid">
+          {projectsList.map((project, index) => (
             <ScrollReveal
-              key={project.number}
+              key={project.id || index}
               direction="up"
-              delay={index * 0.06}
-              duration={0.7}
+              delay={index * 0.1}
             >
-              <article className="project-card">
-
-                {/* Project Number */}
-                <div className="project-number">
-                  {project.number}
-                </div>
-
-
-                {/* Main Information */}
-                <div className="project-main">
-
-                  <p className="project-location">
-                    {project.location}
-                  </p>
-
-                  <h3>
-                    {project.title}
-                  </h3>
-
-                  <p className="project-description">
-                    {project.description}
-                  </p>
-
-                  <div className="project-tags">
-                    {project.tags.map((tag) => (
-                      <span key={tag}>
-                        {tag}
-                      </span>
-                    ))}
+              <div className="project-card ui-card">
+                <div className="project-image-wrapper">
+                  <div className="project-number">
+                    {project.number || `0\${index + 1}`}
                   </div>
-
+                  <img src={project.image || "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80"} alt={project.title} className="project-image" />
+                  <div className="project-overlay">
+                    <a href="#" className="project-view-btn">View Details</a>
+                  </div>
                 </div>
-
-
-                {/* Project Details */}
-                <div className="project-details">
-
-                  <p>
-                    PROJECT SCOPE
-                  </p>
-
-                  <strong>
-                    {project.details}
-                  </strong>
-
-                  <span className="project-arrow">
-                    ↗
-                  </span>
-
+                
+                <div className="project-content">
+                  <div className="project-meta">
+                    <span className="project-location">
+                      <span className="icon">📍</span> 
+                      {project.location || 'Location missing'}
+                    </span>
+                  </div>
+                  
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                  
+                  {project.stats && (
+                    <div className="project-stats">
+                      {project.stats.map((stat, i) => (
+                        <div key={i} className="stat-item">
+                          <span className="stat-value">{stat.value}</span>
+                          <span className="stat-label">{stat.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
-
-              </article>
+              </div>
             </ScrollReveal>
           ))}
-
+        </div>
+        
+        <div className="projects-footer">
+          <a href="#" className="btn-secondary">View All Projects</a>
         </div>
 
       </div>
