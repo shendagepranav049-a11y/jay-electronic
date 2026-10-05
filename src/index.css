@@ -11,10 +11,10 @@
   
   --black: #030303;
   --black-soft: #080808;
-  --black-card: #ffffff; /* Light mode cards */
+  --black-card: #111111;
   --white: #ffffff;
-  --text: #171717;
-  --muted: #666666;
+  --text: rgba(255, 255, 255, 0.88);
+  --muted: rgba(255, 255, 255, 0.48);
   --light: #f5f5f5;
   
   --border: #d4af3740;
@@ -41,8 +41,8 @@ html {
 body {
   margin: 0;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
-  background: var(--light);
-  color: var(--text);
+  background: #030303;
+  color: rgba(255, 255, 255, 0.88);
   overflow-x: hidden;
   animation: bodyLoad 0.8s ease;
 }

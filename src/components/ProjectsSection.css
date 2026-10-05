@@ -11,8 +11,8 @@
   background:
     linear-gradient(
       180deg,
-      var(--light) 0%,
-      var(--white) 100%
+      #050505 0%,
+      #080808 100%
     );
 
   overflow: hidden;
@@ -146,7 +146,7 @@
 .projects-header h2 {
   margin: 0;
 
-  color: var(--text);
+  color: #ffffff;
 
   font-size: clamp(42px, 5vw, 72px);
 
@@ -159,7 +159,7 @@
 
 
 .projects-header h2 span {
-  color: var(--muted);
+  color: #777777;
 }
 
 
@@ -172,7 +172,7 @@
 
   margin: 0 0 5px;
 
-  color: var(--muted);
+  color: #9d9d9d;
 
   font-size: 17px;
 
@@ -215,11 +215,11 @@
   background:
     linear-gradient(
       100deg,
-      rgba(0, 0, 0, 0.05),
-      rgba(0, 0, 0, 0.05)
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.012)
     );
 
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 
   overflow: hidden;
 
@@ -267,7 +267,7 @@
     linear-gradient(
       100deg,
       rgba(0, 170, 255, 0.07),
-      rgba(0, 0, 0, 0.05)
+      rgba(255, 255, 255, 0.018)
     );
 
   box-shadow:
@@ -335,7 +335,7 @@
 .project-main h3 {
   margin: 0 0 15px;
 
-  color: var(--text);
+  color: #ffffff;
 
   font-size: 31px;
 
@@ -386,9 +386,9 @@
 
   color: #a5a5a5;
 
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.035);
 
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.09);
 
   font-size: 10px;
 
@@ -429,7 +429,7 @@
 
   justify-content: center;
 
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(255, 255, 255, 0.10);
 }
 
 
@@ -447,7 +447,7 @@
 
 
 .project-details strong {
-  color: var(--text);
+  color: #ffffff;
 
   font-size: 20px;
 
@@ -471,9 +471,9 @@
   align-items: center;
   justify-content: center;
 
-  color: var(--text);
+  color: #ffffff;
 
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 
   font-size: 17px;
 
@@ -617,7 +617,7 @@
 
     border-top:
       1px solid
-      rgba(0, 0, 0, 0.1);
+      rgba(255, 255, 255, 0.10);
   }
 
 

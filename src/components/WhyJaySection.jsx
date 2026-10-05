@@ -31,6 +31,7 @@ const strengths = [
 function WhyJaySection() {
   return (
     <section className="why-jay-section" id="why-jay">
+      <div className="logo-watermark"></div>
       <div className="why-jay-container">
 
         <ScrollReveal direction="up">

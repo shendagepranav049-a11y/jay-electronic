@@ -35,6 +35,7 @@ function InformationSection() {
       id="information"
       className="information-section"
     >
+      <div className="logo-watermark"></div>
       <div className="information-container">
 
         <div className="information-label">

@@ -71,6 +71,7 @@ function ContactSection() {
 
   return (
     <section className="contact-section" id="contact">
+      <div className="logo-watermark"></div>
       <div className="contact-container">
 
         <ScrollReveal direction="up">
