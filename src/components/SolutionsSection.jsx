@@ -55,6 +55,7 @@ const solutions = [
 function SolutionsSection() {
   return (
     <section className="solutions-section" id="solutions">
+      <div className="logo-watermark"></div>
       <div className="solutions-container">
 
         {/* =========================

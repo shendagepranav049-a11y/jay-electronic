@@ -4,6 +4,7 @@ import ScrollReveal from "./ScrollReveal";
 function AboutSection() {
   return (
     <section className="about-section" id="about">
+      <div className="logo-watermark"></div>
       <div className="about-container">
 
         {/* Section Heading */}

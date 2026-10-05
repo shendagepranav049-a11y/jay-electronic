@@ -11,8 +11,8 @@
   background:
     linear-gradient(
       180deg,
-      var(--black-card) 0%,
-      var(--black-card) 100%
+      var(--light) 0%,
+      var(--white) 100%
     );
 
   overflow: hidden;

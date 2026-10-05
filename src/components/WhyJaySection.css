@@ -8,8 +8,8 @@
   background:
     linear-gradient(
       180deg,
-      var(--black-card) 0%,
-      var(--black-card) 100%
+      var(--white) 0%,
+      var(--light) 100%
     );
   overflow: hidden;
 }

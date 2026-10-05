@@ -79,6 +79,7 @@ const projects = [
 function ProjectsSection() {
   return (
     <section className="projects-section" id="projects">
+      <div className="logo-watermark"></div>
       <div className="projects-container">
 
         {/* =========================

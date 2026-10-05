@@ -55,6 +55,7 @@ const industries = [
 function IndustriesSection() {
   return (
     <section className="industries-section" id="industries">
+      <div className="logo-watermark"></div>
       <div className="industries-container">
 
         <ScrollReveal direction="up">
