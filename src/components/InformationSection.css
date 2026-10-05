@@ -33,7 +33,7 @@
 .information-container h2 {
   margin: 0 auto 20px;
 
-  color: #ffffff;
+  color: var(--text);
   font-size: clamp(32px, 5vw, 58px);
   line-height: 1.05;
   font-weight: 700;
@@ -43,7 +43,7 @@
   max-width: 760px;
   margin: 0 auto 32px;
 
-  color: rgba(255, 255, 255, 0.68);
+  color: rgba(0, 0, 0, 0.15);
   font-size: 17px;
   line-height: 1.8;
 }
@@ -57,7 +57,7 @@
   padding: 0 28px;
 
   background: #00aaff;
-  color: #ffffff;
+  color: var(--text);
 
   border-radius: 6px;
   text-decoration: none;

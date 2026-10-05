@@ -23,9 +23,6 @@ import AdminDashboard from "./pages/AdminDashboard.jsx";
 function PublicWebsite() {
   return (
     <>
-      {/* Brand Background */}
-      <BrandBackground />
-
       {/* Navigation */}
       <Navbar />
 
