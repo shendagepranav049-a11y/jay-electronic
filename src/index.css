@@ -1,28 +1,35 @@
 :root {
-  --cyan: #0066ff;
-  --cyan-light: #00f6ff;
-  --cyan-dark: #0044cc;
-  --cyan-soft: rgba(0, 102, 255, 0.15);
-  --cyan-glow: rgba(0, 246, 255, 0.4);
+  /* New Fresh Background Colors */
+  --bg-main: #0b192c;    /* Deep fresh navy */
+  --bg-card: #142845;    /* Lighter navy for cards */
+  --text-main: #ffffff;  /* Pure white text */
+  --text-muted: #94a3b8; /* Slate muted text */
+
+  /* Accent Colors */
+  --cyan: #00e5ff;       /* Fresh Cyan */
+  --cyan-light: #66f0ff;
+  --cyan-dark: #00b3cc;
+  --cyan-soft: rgba(0, 229, 255, 0.15);
+  --cyan-glow: rgba(0, 229, 255, 0.4);
   
-  --gold: #ff3366; /* Vibrant Coral */
+  --gold: #ff3366;       /* Vibrant Coral Accent */
   --gold-light: #ff7799;
   --gold-soft: rgba(255, 51, 102, 0.15);
   
   --black: #030303;
   --black-soft: #080808;
-  --black-card: #111111;
+  --black-card: var(--bg-card);
   --white: #ffffff;
-  --text: rgba(255, 255, 255, 0.95);
-  --muted: rgba(255, 255, 255, 0.6);
-  --light: #f5f5f5;
+  --text: var(--text-main);
+  --muted: var(--text-muted);
+  --light: var(--bg-main);
   
   --border: rgba(255, 255, 255, 0.08);
-  --border-cyan: rgba(0, 102, 255, 0.3);
+  --border-cyan: rgba(0, 229, 255, 0.3);
   
-  --shadow-sm: 0 8px 25px rgba(0, 0, 0, 0.5);
-  --shadow-md: 0 18px 45px rgba(0, 0, 0, 0.8);
-  --shadow-cyan: 0 15px 40px rgba(0, 246, 255, 0.2);
+  --shadow-sm: 0 8px 25px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 18px 45px rgba(0, 0, 0, 0.5);
+  --shadow-cyan: 0 15px 40px rgba(0, 229, 255, 0.2);
   --shadow-gold: 0 15px 40px rgba(255, 51, 102, 0.15);
   
   --transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
@@ -41,8 +48,8 @@ html {
 body {
   margin: 0;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
-  background: #030303;
-  color: rgba(255, 255, 255, 0.88);
+  background: var(--bg-main);
+  color: var(--text-main);
   overflow-x: hidden;
   animation: bodyLoad 0.8s ease;
 }

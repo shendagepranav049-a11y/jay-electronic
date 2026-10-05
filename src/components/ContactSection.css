@@ -9,8 +9,8 @@
   background:
     linear-gradient(
       180deg,
-      #050505 0%,
-      #080808 100%
+      var(--bg-main) 0%,
+      var(--bg-card) 100%
     );
   overflow: hidden;
 }
@@ -127,7 +127,7 @@
 .contact-header h2 {
   margin: 0;
 
-  color: #ffffff;
+  color: var(--text-main);
 
   font-size: clamp(48px, 6vw, 84px);
 
@@ -140,7 +140,7 @@
 
 
 .contact-header h2 span {
-  color: #777777;
+  color: var(--text-muted);
 }
 
 
@@ -229,7 +229,7 @@
 
   margin: 0;
 
-  color: #777777;
+  color: var(--text-muted);
 
   font-size: 14px;
 
@@ -337,7 +337,7 @@
 
   padding: 14px 15px;
 
-  color: #ffffff;
+  color: var(--text-main);
 
   background:
     rgba(0, 0, 0, 0.30);
@@ -392,8 +392,8 @@
   appearance: none;
 
   background-image:
-    linear-gradient(45deg, transparent 50%, #777777 50%),
-    linear-gradient(135deg, #777777 50%, transparent 50%);
+    linear-gradient(45deg, transparent 50%, var(--text-muted) 50%),
+    linear-gradient(135deg, var(--text-muted) 50%, transparent 50%);
 
   background-position:
     calc(100% - 18px) 22px,
@@ -408,9 +408,9 @@
 
 
 .contact-field select option {
-  background: #111111;
+  background: var(--bg-card);
 
-  color: #ffffff;
+  color: var(--text-main);
 }
 
 
@@ -453,7 +453,7 @@
 
   justify-content: space-between;
 
-  color: #ffffff;
+  color: var(--text-main);
 
   background: #00aaff;
 

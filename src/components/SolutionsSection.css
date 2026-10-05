@@ -11,8 +11,8 @@
   background:
     linear-gradient(
       180deg,
-      #080808 0%,
-      #050505 100%
+      var(--bg-card) 0%,
+      var(--bg-main) 100%
     );
 
   overflow: hidden;
@@ -146,7 +146,7 @@
 .solutions-header h2 {
   margin: 0;
 
-  color: #ffffff;
+  color: var(--text-main);
 
   font-size: clamp(42px, 5vw, 72px);
 
@@ -159,7 +159,7 @@
 
 
 .solutions-header h2 span {
-  color: #777777;
+  color: var(--text-muted);
 }
 
 
@@ -172,7 +172,7 @@
 
   margin: 0 0 5px;
 
-  color: #9d9d9d;
+  color: var(--text-muted);
 
   font-size: 17px;
 
@@ -324,7 +324,7 @@
 
   border: 1px solid rgba(255, 255, 255, 0.15);
 
-  color: #ffffff;
+  color: var(--text-main);
 
   font-size: 18px;
 
@@ -361,7 +361,7 @@
 .solution-content h3 {
   margin: 0 0 18px;
 
-  color: #ffffff;
+  color: var(--text-main);
 
   font-size: 25px;
 
@@ -378,7 +378,7 @@
 
 
 .solution-card:hover .solution-content h3 {
-  color: #ffffff;
+  color: var(--text-main);
 
   transform: translateX(4px);
 }
@@ -387,7 +387,7 @@
 .solution-content p {
   margin: 0;
 
-  color: #858585;
+  color: var(--text-muted);
 
   font-size: 14px;
 
@@ -399,7 +399,7 @@
 
 
 .solution-card:hover .solution-content p {
-  color: #a9a9a9;
+  color: var(--text-muted);
 }
 
 
