@@ -1,29 +1,29 @@
 :root {
-  --cyan: #9b59ff;       /* Purple mapped to cyan variable for existing components */
-  --cyan-light: #c99cff; /* Purple light */
-  --cyan-dark: #6c2bd9;  /* Purple dark */
-  --cyan-soft: #9b59ff26;
-  --cyan-glow: #9b59ff4d;
+  --cyan: #00aaff;
+  --cyan-light: #55c4ff;
+  --cyan-dark: #0077b3;
+  --cyan-soft: rgba(0, 170, 255, 0.15);
+  --cyan-glow: rgba(0, 170, 255, 0.4);
   
-  --gold: #d4af37;
-  --gold-light: #f8e7a1;
-  --gold-soft: #d4af3726;
+  --gold: #00e676; /* Changed to electric green for secondary accent */
+  --gold-light: #69f0ae;
+  --gold-soft: rgba(0, 230, 118, 0.15);
   
   --black: #030303;
   --black-soft: #080808;
   --black-card: #111111;
   --white: #ffffff;
-  --text: rgba(255, 255, 255, 0.88);
-  --muted: rgba(255, 255, 255, 0.48);
+  --text: rgba(255, 255, 255, 0.95); /* Brighter text for better visibility */
+  --muted: rgba(255, 255, 255, 0.6);
   --light: #f5f5f5;
   
-  --border: #d4af3740;
-  --border-cyan: #9b59ff4d;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-cyan: rgba(0, 170, 255, 0.3);
   
-  --shadow-sm: 0 8px 25px rgba(0, 0, 0, 0.07);
-  --shadow-md: 0 18px 45px rgba(0, 0, 0, 0.12);
-  --shadow-cyan: 0 20px 50px rgba(155, 89, 255, 0.15);
-  --shadow-gold: 0 20px 50px rgba(212, 175, 55, 0.15);
+  --shadow-sm: 0 8px 25px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 18px 45px rgba(0, 0, 0, 0.8);
+  --shadow-cyan: 0 15px 40px rgba(0, 170, 255, 0.2);
+  --shadow-gold: 0 15px 40px rgba(0, 230, 118, 0.15);
   
   --transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -60,7 +60,7 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  opacity: 0.03;
+  opacity: 0.02;
   pointer-events: none;
   z-index: 0;
 }
