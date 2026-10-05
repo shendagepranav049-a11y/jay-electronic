@@ -47,7 +47,7 @@ function InformationSection() {
 
         <a
           href="#contact"
-          className="information-button"
+          className="information-button ui-button"
         >
           {content.buttonText}
         </a>

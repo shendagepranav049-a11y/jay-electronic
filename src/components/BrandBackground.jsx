@@ -1,27 +1,26 @@
 import "./BrandBackground.css";
-import logo from "../assets/je-logo.png";
 
 function BrandBackground() {
   return (
     <div className="brand-background" aria-hidden="true">
+      {/* Circuit Grid */}
+      <div className="circuit-grid"></div>
 
-      {/* Red ambient glow */}
-      <div className="brand-glow"></div>
+      {/* Nodes / Particles */}
+      <div className="node node-1"></div>
+      <div className="node node-2"></div>
+      <div className="node node-3"></div>
+      <div className="node node-4"></div>
+      <div className="node node-5"></div>
 
-      {/* Main JE Logo */}
-      <div className="brand-logo brand-logo-one">
-        <img src={logo} alt="" />
-      </div>
+      {/* Ambient Glows */}
+      <div className="tech-glow glow-primary"></div>
+      <div className="tech-glow glow-secondary"></div>
 
-      {/* Secondary JE Logo */}
-      <div className="brand-logo brand-logo-two">
-        <img src={logo} alt="" />
-      </div>
-
-      {/* Decorative rings */}
-      <div className="brand-ring brand-ring-one"></div>
-      <div className="brand-ring brand-ring-two"></div>
-
+      {/* Connection Lines */}
+      <div className="connection-line line-1"></div>
+      <div className="connection-line line-2"></div>
+      <div className="connection-line line-3"></div>
     </div>
   );
 }

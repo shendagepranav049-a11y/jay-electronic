@@ -254,7 +254,7 @@ function ContactSection() {
 
               <button
                 type="submit"
-                className="contact-submit"
+                className="contact-submit ui-button"
                 disabled={loading}
               >
                 <span>

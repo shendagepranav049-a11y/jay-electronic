@@ -90,7 +90,7 @@ function PartnersSection() {
               delay={index * 0.1}
               duration={0.75}
             >
-              <article className="partner-card">
+              <article className="partner-card ui-card">
 
                 <div className="partner-top">
 
