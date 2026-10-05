@@ -8,14 +8,7 @@
   position: relative;
   min-height: 100vh;
   overflow-x: hidden;
-
-  background:
-    linear-gradient(
-      135deg,
-      #02070d 0%,
-      #07111f 45%,
-      #02070d 100%
-    );
+  background: transparent;
 }
 
 
@@ -43,34 +36,12 @@ nav {
 
 .hero {
   position: relative;
-
   overflow: hidden;
-
   min-height: 100vh;
-
   display: flex;
   align-items: center;
-
   padding: 140px 7% 80px;
-
-  background:
-    radial-gradient(
-      circle at 80% 25%,
-      rgba(0, 170, 255, 0.13),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at 15% 80%,
-      rgba(0, 110, 180, 0.08),
-      transparent 30%
-    ),
-    linear-gradient(
-      135deg,
-      #07111f 0%,
-      #0b1726 50%,
-      #02070d 100%
-    );
-
+  background: transparent;
   isolation: isolate;
 }
 
