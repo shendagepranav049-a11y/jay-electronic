@@ -32,7 +32,7 @@ function AdminDashboard() {
     return () => unsubscribeAuth();
   }, [navigate]);
 
-  const fetchStats = async () => {
+  async function fetchStats() {
     try {
       const qE = query(collection(db, "enquiries"));
       const snapE = await getDocs(qE);
