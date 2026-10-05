@@ -13,21 +13,45 @@ function HeroSection() {
     return <section className="hero" id="home"></section>;
   }
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { staggerChildren: 0.2, delayChildren: 0.1 } 
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30, filter: "blur(10px)" },
+    visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.8, ease: "easeOut" } }
+  };
+
   return (
     <section className="hero" id="home">
-      <div className="hero-content">
-        <p className="hero-label">{content.subheading}</p>
+      <motion.div 
+        className="hero-content"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.p className="hero-label" variants={itemVariants}>
+          {content.subheading}
+        </motion.p>
 
-        <h1 style={{ whiteSpace: 'pre-line' }}>{content.heading}</h1>
+        <motion.h1 style={{ whiteSpace: 'pre-line' }} variants={itemVariants}>
+          {content.heading}
+        </motion.h1>
 
-        <p className="hero-description">{content.description}</p>
+        <motion.p className="hero-description" variants={itemVariants}>
+          {content.description}
+        </motion.p>
 
-        <div className="hero-buttons">
+        <motion.div className="hero-buttons" variants={itemVariants}>
           <a href="#solutions" className="btn-primary">
             {content.primaryCtaText}
           </a>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

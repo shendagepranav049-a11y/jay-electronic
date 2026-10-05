@@ -1,6 +1,7 @@
 import "./Footer.css";
 import ScrollReveal from "./ScrollReveal";
 import logo from "../assets/je-logo.png";
+import { Link } from "react-router-dom";
 
 import { useSiteContent } from '../utils/firebaseUtils';
 
@@ -165,7 +166,7 @@ function Footer() {
           <p>
             © {currentYear} Jay Electronics Pvt Ltd. All rights reserved. 
             {" | "} 
-            <a href="/admin/login" style={{ color: 'var(--muted)', textDecoration: 'none' }}>Admin Login</a>
+            <Link to="/admin/login" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Admin Login</Link>
           </p>
 
           <p className="footer-bottom-right">
