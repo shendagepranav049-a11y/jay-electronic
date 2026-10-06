@@ -7,8 +7,9 @@ import { useSiteContent } from '../utils/firebaseUtils';
 
 function Footer() {
   const { loading } = useSiteContent('footer', { description: 'Delivering integrated technology, security and infrastructure solutions designed for modern organizations and connected environments.' });
+  const { data: socialData, loading: socialLoading } = useSiteContent('social');
+  
   if (loading) return null;
-  const { data: socialData } = useSiteContent('social');
   const currentYear = new Date().getFullYear();
 
   return (
