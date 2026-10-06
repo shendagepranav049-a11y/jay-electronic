@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import "./Navbar.css";
-import logo from "../assets/je-logo.png";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,12 +63,10 @@ function Navbar() {
 
   const navItems = [
     { id: "home", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "solutions", label: "Solutions" },
-    { id: "projects", label: "Projects" },
-    { id: "industries", label: "Industries" },
-    { id: "information", label: "Information" },
-    { id: "why-jay", label: "Why Jay" },
+    { id: "about", label: "About Us ▾" },
+    { id: "solutions", label: "Solutions ▾" },
+    { id: "blog", label: "Blog" },
+    { id: "contact", label: "Contact" },
   ];
 
   return (
@@ -82,11 +81,15 @@ function Navbar() {
         {/* Logo */}
 
         <button
-          className="navbar-logo"
+          className="navbar-logo-text"
           onClick={() => handleNavClick("home")}
           aria-label="Go to home"
         >
-          <img src={logo} alt="Jay Electronics" />
+          <div className="logo-icon"></div>
+          <div className="logo-text-group">
+            <span className="logo-title">JEPL</span>
+            <span className="logo-subtitle">JAY ELECTRONICS</span>
+          </div>
         </button>
 
 
@@ -109,12 +112,13 @@ function Navbar() {
 
           <button
             type="button"
-            className={`navbar-contact ${
-              activeSection === "contact" ? "active" : ""
-            }`}
-            onClick={() => handleNavClick("contact")}
+            className="navbar-admin-btn"
+            onClick={() => navigate('/admin/login')}
+            aria-label="Admin Login"
           >
-            Contact
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="currentColor"/>
+            </svg>
           </button>
 
         </nav>
@@ -174,12 +178,10 @@ function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: navItems.length * 0.05 }}
               type="button"
-              className={`mobile-contact ${
-                activeSection === "contact" ? "active" : ""
-              }`}
-              onClick={() => handleNavClick("contact")}
+              className="mobile-contact"
+              onClick={() => navigate("/admin/login")}
             >
-              Contact
+              Admin Login
               <span>↗</span>
             </motion.button>
 

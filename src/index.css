@@ -6,11 +6,11 @@
   --text-muted: #94a3b8; /* Slate muted text */
 
   /* Accent Colors */
-  --cyan: #00e5ff;       /* Fresh Cyan */
-  --cyan-light: #66f0ff;
-  --cyan-dark: #00b3cc;
-  --cyan-soft: rgba(0, 229, 255, 0.15);
-  --cyan-glow: rgba(0, 229, 255, 0.4);
+  --cyan: #FFB800;       /* Fresh Cyan */
+  --cyan-light: #FFD147;
+  --cyan-dark: #D49A00;
+  --cyan-soft: rgba(255, 184, 0, 0.15);
+  --cyan-glow: rgba(255, 184, 0, 0.4);
   
   --gold: #ff3366;       /* Vibrant Coral Accent */
   --gold-light: #ff7799;

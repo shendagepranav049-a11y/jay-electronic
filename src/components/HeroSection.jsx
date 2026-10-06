@@ -1,18 +1,6 @@
-import { useSiteContent } from '../utils/firebaseUtils';
 import { motion } from 'framer-motion';
 
 function HeroSection() {
-  const { data: content, loading } = useSiteContent("hero", {
-    subheading: "JAY ELECTRONICS PVT LTD",
-    heading: "Technology.\nSecurity.\nInfrastructure.",
-    description: "Integrated technology solutions for secure, connected and efficient environments.",
-    primaryCtaText: "Explore Solutions",
-  });
-
-  if (loading) {
-    return <section className="hero" id="home"></section>;
-  }
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { 
@@ -22,33 +10,40 @@ function HeroSection() {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30, filter: "blur(10px)" },
-    visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.8, ease: "easeOut" } }
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
   };
 
   return (
     <section className="hero" id="home">
+      <div className="hero-background-overlay"></div>
+      
       <motion.div 
         className="hero-content"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.p className="hero-label" variants={itemVariants}>
-          {content.subheading}
+        <motion.p className="hero-label-top" variants={itemVariants}>
+          SINCE 1989 • TECHNOLOGY INTEGRATION
         </motion.p>
 
-        <motion.h1 style={{ whiteSpace: 'pre-line' }} variants={itemVariants}>
-          {content.heading}
+        <motion.h1 variants={itemVariants}>
+          Securing Businesses.<br/>
+          Empowering Connectivity.<br/>
+          Delivering Excellence.
         </motion.h1>
 
-        <motion.p className="hero-description" variants={itemVariants}>
-          {content.description}
+        <motion.p className="hero-description-new" variants={itemVariants}>
+          JAY ELECTRONICS PRIVATE LIMITED is one of Maharashtra's trusted system integration companies specializing in Electronic Security, CCTV Surveillance, Networking Infrastructure, Audio Visual Systems, Access Control, Telecom Solutions and Smart Technology Integration.
         </motion.p>
 
-        <motion.div className="hero-buttons" variants={itemVariants}>
-          <a href="#solutions" className="btn-primary">
-            {content.primaryCtaText}
+        <motion.div className="hero-buttons-new" variants={itemVariants}>
+          <a href="#contact" className="btn-solid-gold">
+            Get Free Site Survey
+          </a>
+          <a href="#contact" className="btn-outline-gold">
+            Request Quotation
           </a>
         </motion.div>
       </motion.div>
