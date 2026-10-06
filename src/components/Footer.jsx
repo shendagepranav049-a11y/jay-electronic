@@ -8,6 +8,7 @@ import { useSiteContent } from '../utils/firebaseUtils';
 function Footer() {
   const { loading } = useSiteContent('footer', { description: 'Delivering integrated technology, security and infrastructure solutions designed for modern organizations and connected environments.' });
   if (loading) return null;
+  const { data: socialData } = useSiteContent('social');
   const currentYear = new Date().getFullYear();
 
   return (
@@ -158,6 +159,25 @@ function Footer() {
               Send an Enquiry
               <span>→</span>
             </a>
+
+            {/* Social Media Links */}
+            <div className="footer-social-links" style={{ display: 'flex', gap: '15px', marginTop: '20px' }}>
+              {socialData?.whatsapp && (
+                <a href={socialData.whatsapp} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--cyan)' }}>
+                  WhatsApp
+                </a>
+              )}
+              {socialData?.instagram && (
+                <a href={socialData.instagram} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--cyan)' }}>
+                  Instagram
+                </a>
+              )}
+              {socialData?.facebook && (
+                <a href={socialData.facebook} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--cyan)' }}>
+                  Facebook
+                </a>
+              )}
+            </div>
 
           </div>
 

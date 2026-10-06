@@ -36,7 +36,8 @@ function InformationSection() {
       id="information"
       className="information-section"
     >
-      <div className="logo-watermark"></div>
+      <div className="information-tech-bg"></div>
+      
       <motion.div 
         className="information-container"
         initial="hidden"
@@ -47,55 +48,55 @@ function InformationSection() {
           visible: { transition: { staggerChildren: 0.2 } }
         }}
       >
-
         <motion.div 
-          className="information-label"
+          className="information-glass-panel"
           variants={{
-            hidden: { opacity: 0, y: 20 },
-            visible: { opacity: 1, y: 0 }
+            hidden: { opacity: 0, x: 50 },
+            visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "circOut" } }
           }}
         >
-          JAY ELECTRONICS
+          <div className="information-label-wrap">
+            <span className="information-label-line"></span>
+            <span className="information-label">JAY ELECTRONICS</span>
+          </div>
+
+          <motion.h2
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 }
+            }}
+          >
+            {content.heading}
+          </motion.h2>
+
+          <motion.div
+            className="information-divider"
+            variants={{
+              hidden: { scaleX: 0, opacity: 0 },
+              visible: { scaleX: 1, opacity: 1, transition: { duration: 0.8, delay: 0.4 } }
+            }}
+          />
+
+          <motion.p
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 }
+            }}
+          >
+            {content.description}
+          </motion.p>
+
+          <motion.a
+            href="#contact"
+            className="btn-solid-primary"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 }
+            }}
+          >
+            {content.buttonText}
+          </motion.a>
         </motion.div>
-
-        <motion.div
-          className="information-divider"
-          variants={{
-            hidden: { scaleX: 0, opacity: 0 },
-            visible: { scaleX: 1, opacity: 1, transition: { duration: 0.8, ease: "circOut" } }
-          }}
-          style={{ height: '1px', backgroundColor: 'var(--cyan)', transformOrigin: 'left', margin: '20px auto', width: '100px' }}
-        />
-
-        <motion.h2
-          variants={{
-            hidden: { opacity: 0, y: 20 },
-            visible: { opacity: 1, y: 0 }
-          }}
-        >
-          {content.heading}
-        </motion.h2>
-
-        <motion.p
-          variants={{
-            hidden: { opacity: 0, y: 20 },
-            visible: { opacity: 1, y: 0 }
-          }}
-        >
-          {content.description}
-        </motion.p>
-
-        <motion.a
-          href="#contact"
-          className="information-button"
-          variants={{
-            hidden: { opacity: 0, y: 20 },
-            visible: { opacity: 1, y: 0 }
-          }}
-        >
-          {content.buttonText}
-        </motion.a>
-
       </motion.div>
     </section>
   );

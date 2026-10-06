@@ -77,6 +77,7 @@ function AdminDashboard() {
       case "why-jay": return <ContentEditor sectionId="whyJay" title="Why Jay Section" />;
       case "contact": return <ContentEditor sectionId="contact" title="Contact Information" />;
       case "footer": return <ContentEditor sectionId="footer" title="Footer & Links" />;
+      case "social": return <ContentEditor sectionId="social" title="Social Media Links" />;
       
       case "solutions": return <ListManager collectionName="solutions" title="Solutions" />;
       case "projects": return <ListManager collectionName="projects" title="Projects" hasGallery={true} />;
@@ -96,6 +97,7 @@ function AdminDashboard() {
     { id: "why-jay", label: "Why Jay", group: "website" },
     { id: "contact", label: "Contact Info", group: "website" },
     { id: "footer", label: "Footer", group: "website" },
+    { id: "social", label: "Social Media", group: "website" },
     
     { id: "solutions", label: "Solutions", group: "lists" },
     { id: "projects", label: "Projects", group: "lists" },

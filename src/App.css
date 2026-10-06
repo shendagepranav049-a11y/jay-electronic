@@ -51,7 +51,7 @@ nav {
 
   background:
     linear-gradient(90deg, #000000f7, #000000d1, #14052352),
-    url(/src/assets/cctv-bg.jpg);
+    url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1800&q=90);
   background-position: 50%;
   background-size: cover;
 
@@ -606,7 +606,7 @@ body {
 }
 
 .navbar-admin-btn {
-  background: linear-gradient(135deg, #FFB800, #FFD147);
+  background: linear-gradient(135deg, #00e5ff, #66f0ff);
   color: #000;
   border: none;
   border-radius: 8px;
@@ -618,16 +618,16 @@ body {
   cursor: pointer;
   margin-left: 15px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(255, 184, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
 }
 
 .navbar-admin-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(255, 184, 0, 0.5);
+  box-shadow: 0 8px 25px rgba(0, 229, 255, 0.5);
 }
 
 .hero-label-top {
-  color: #FFB800;
+  color: #00e5ff;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 3px;
@@ -648,9 +648,7 @@ body {
   gap: 20px;
 }
 
-.btn-solid-gold {
-  background: #FFB800;
-  color: #000;
+.btn-solid-gold { background: #00e5ff; color: #000;
   font-weight: 700;
   padding: 14px 28px;
   border-radius: 6px;
@@ -662,15 +660,15 @@ body {
 }
 
 .btn-solid-gold:hover {
-  background: #FFD147;
+  background: #66f0ff;
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(255, 184, 0, 0.3);
+  box-shadow: 0 10px 20px rgba(0, 229, 255, 0.3);
 }
 
 .btn-outline-gold {
   background: transparent;
   color: #fff;
-  border: 2px solid #FFB800;
+  border: 2px solid #00e5ff;
   font-weight: 700;
   padding: 12px 28px;
   border-radius: 6px;
@@ -682,7 +680,7 @@ body {
 }
 
 .btn-outline-gold:hover {
-  background: rgba(255, 184, 0, 0.1);
+  background: rgba(0, 229, 255, 0.1);
   transform: translateY(-2px);
 }
 

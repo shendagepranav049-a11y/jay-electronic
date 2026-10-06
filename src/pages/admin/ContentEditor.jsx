@@ -65,6 +65,12 @@ function ContentEditor({ sectionId, title }) {
           { name: "description", label: "Footer Description", type: "textarea" },
           { name: "copyright", label: "Copyright Text", type: "text" },
         ];
+      case "social":
+        return [
+          { name: "whatsapp", label: "WhatsApp Link (e.g., https://wa.me/1234567890)", type: "text" },
+          { name: "instagram", label: "Instagram Link", type: "text" },
+          { name: "facebook", label: "Facebook Link", type: "text" },
+        ];
       default:
         return [];
     }
