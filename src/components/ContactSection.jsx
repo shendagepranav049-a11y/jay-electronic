@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { useSiteContent } from '../utils/firebaseUtils';
 
 function ContactSection() {
-  const { data: content, loading: contentLoading } = useSiteContent('contact', { phone: '+91 98765 43210', email: 'info@jayelectronics.in', address: 'Kolhapur, Maharashtra, India' });
+  const { loading: contentLoading } = useSiteContent('contact', { phone: '+91 98765 43210', email: 'info@jayelectronics.in', address: 'Kolhapur, Maharashtra, India' });
 
   const [formData, setFormData] = useState({
     name: "",
@@ -20,6 +20,8 @@ function ContactSection() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+
+  if (contentLoading) return null;
 
   if (contentLoading) return null;
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useSiteContent, updateSiteContent } from "../../utils/firebaseUtils";
+import { updateSiteContent } from "../../utils/firebaseUtils";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
 
@@ -30,7 +30,7 @@ function ContentEditor({ sectionId, title }) {
       await updateSiteContent(sectionId, formData);
       setMsg("Saved successfully!");
       setTimeout(() => setMsg(""), 3000);
-    } catch (err) {
+    } catch {
       setMsg("Error saving.");
     }
     setSaving(false);

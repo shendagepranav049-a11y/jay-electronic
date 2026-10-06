@@ -15,7 +15,6 @@ import InformationSection from "./components/InformationSection";
 import WhyJaySection from "./components/WhyJaySection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
-import BrandBackground from "./components/BrandBackground";
 import HeroSection from "./components/HeroSection";
 
 import AdminLogin from "./pages/AdminLogin";

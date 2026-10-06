@@ -30,7 +30,7 @@ const strengths = [
 ];
 
 function WhyJaySection() {
-  const { data: content, loading } = useSiteContent('whyJay', { heading: 'Built on experience.', description: 'Delivered with discipline.' });
+  const { loading } = useSiteContent('whyJay', { heading: 'Built on experience.', description: 'Delivered with discipline.' });
   if (loading) return null;
   return (
     <section className="why-jay-section" id="why-jay">

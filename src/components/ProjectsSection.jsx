@@ -1,7 +1,6 @@
 import { useSiteCollection } from '../utils/firebaseUtils';
 import { motion } from "framer-motion";
 import "./ProjectsSection.css";
-import ScrollReveal from "./ScrollReveal";
 
 const fallbackProjects = [
   {
@@ -51,7 +50,7 @@ const fallbackProjects = [
 ];
 
 function ProjectsSection() {
-  const { data: dbProjects, loading } = useSiteCollection("projects");
+  const { data: dbProjects } = useSiteCollection("projects");
   const projectsList = dbProjects.length > 0 ? dbProjects : fallbackProjects;
 
   return (

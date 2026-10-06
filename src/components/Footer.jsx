@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useSiteContent } from '../utils/firebaseUtils';
 
 function Footer() {
-  const { data: content, loading } = useSiteContent('footer', { description: 'Delivering integrated technology, security and infrastructure solutions designed for modern organizations and connected environments.' });
+  const { loading } = useSiteContent('footer', { description: 'Delivering integrated technology, security and infrastructure solutions designed for modern organizations and connected environments.' });
   if (loading) return null;
   const currentYear = new Date().getFullYear();
 

@@ -46,7 +46,7 @@ const fallbackSolutions = [
 ];
 
 function SolutionsSection() {
-  const { data: dbSolutions, loading } = useSiteCollection("solutions");
+  const { data: dbSolutions } = useSiteCollection("solutions");
   const solutions = dbSolutions.length > 0 ? dbSolutions : fallbackSolutions;
 
   const containerVariants = {

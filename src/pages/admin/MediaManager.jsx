@@ -7,7 +7,7 @@ import { uploadMedia } from "../../utils/firebaseUtils";
 function MediaManager({ onSelect, isPicker = false }) {
   const [media, setMedia] = useState([]);
   const [uploading, setUploading] = useState(false);
-  const [progress, setProgress] = useState(0);
+  const [, setProgress] = useState(0);
 
   useEffect(() => {
     const q = query(collection(db, "media"), orderBy("createdAt", "desc"));

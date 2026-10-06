@@ -20,18 +20,6 @@ function AdminDashboard() {
   const [activeTab, setActiveTab] = useState("overview");
   const [stats, setStats] = useState({ enquiries: 0, projects: 0, solutions: 0 });
 
-  useEffect(() => {
-    const unsubscribeAuth = onAuthStateChanged(auth, (currentUser) => {
-      if (!currentUser) {
-        navigate("/admin/login");
-      } else {
-        setUser(currentUser);
-        fetchStats();
-      }
-    });
-    return () => unsubscribeAuth();
-  }, [navigate]);
-
   async function fetchStats() {
     try {
       const qE = query(collection(db, "enquiries"));
@@ -54,6 +42,20 @@ function AdminDashboard() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    const unsubscribeAuth = onAuthStateChanged(auth, (currentUser) => {
+      if (!currentUser) {
+        navigate("/admin/login");
+      } else {
+        setUser(currentUser);
+        fetchStats();
+      }
+    });
+    return () => unsubscribeAuth();
+  }, [navigate]);
+
+  
 
   const handleLogout = async () => {
     await signOut(auth);
