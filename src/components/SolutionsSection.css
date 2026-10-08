@@ -32,14 +32,14 @@
 .solutions-label-line {
   width: 40px;
   height: 2px;
-  background: var(--cyan);
-  box-shadow: 0 0 10px var(--cyan);
+  background: var(--accent-solutions);
+  box-shadow: 0 0 10px var(--accent-solutions);
 }
 
 .solutions-label {
   font-size: 13px;
   font-weight: 700;
-  color: var(--cyan);
+  color: var(--accent-solutions);
   letter-spacing: 3px;
   margin: 0;
 }
@@ -76,7 +76,7 @@
 /* Technical Cards */
 .solution-card {
   position: relative;
-  background: var(--bg-card);
+  background: var(--midnight-navy);
   border: 1px solid rgba(255, 255, 255, 0.05);
   padding: 40px 30px;
   border-radius: 4px;
@@ -100,15 +100,15 @@
 .solution-card::before {
   top: 0;
   left: 0;
-  border-top: 2px solid var(--cyan);
-  border-left: 2px solid var(--cyan);
+  border-top: 2px solid var(--accent-solutions);
+  border-left: 2px solid var(--accent-solutions);
 }
 
 .solution-card::after {
   bottom: 0;
   right: 0;
-  border-bottom: 2px solid var(--cyan);
-  border-right: 2px solid var(--cyan);
+  border-bottom: 2px solid var(--accent-solutions);
+  border-right: 2px solid var(--accent-solutions);
 }
 
 .solution-card:hover::before,
@@ -137,7 +137,7 @@
 
 .solution-card:hover .solution-number {
   color: transparent;
-  -webkit-text-stroke: 1px var(--cyan);
+  -webkit-text-stroke: 1px var(--accent-solutions);
   text-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
 }
 
@@ -151,7 +151,7 @@
 }
 
 .solution-card:hover h3 {
-  color: var(--cyan);
+  color: var(--accent-solutions);
 }
 
 .solution-card p {
@@ -169,14 +169,14 @@
   left: 0;
   width: 0%;
   height: 3px;
-  background: var(--cyan);
+  background: var(--accent-solutions);
   transition: width 0.4s ease;
   z-index: 3;
 }
 
 .solution-card:hover .hover-line {
   width: 100%;
-  box-shadow: 0 0 15px var(--cyan);
+  box-shadow: 0 0 15px var(--accent-solutions);
 }
 
 @media (max-width: 992px) {

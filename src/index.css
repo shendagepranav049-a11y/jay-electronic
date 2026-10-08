@@ -1,28 +1,34 @@
 :root {
-  /* New Fresh Background Colors */
-  --bg-main: #0b192c;    /* Deep fresh navy */
-  --bg-card: #142845;    /* Lighter navy for cards */
-  --text-main: #ffffff;  /* Pure white text */
-  --text-muted: #94a3b8; /* Slate muted text */
+  /* Master Brand Colors */
+  --deep-black: #05070A;
+  --midnight-navy: #08111F;
+  --white: #F5F7FA;
+  --cool-gray: #A8B1BC;
+  --electric-blue: #00A8FF;
+  --cyan: #25D9FF;
+  --dark-steel: #111A24;
 
-  /* Accent Colors */
-  --cyan: #00e5ff;       /* Fresh Cyan */
-  --cyan-light: #66f0ff;
-  --cyan-dark: #00b3cc;
-  --cyan-soft: rgba(0, 229, 255, 0.15);
-  --cyan-glow: rgba(0, 229, 255, 0.4);
+  /* Section Accents */
+  --accent-hero: var(--cyan);
+  --accent-about: var(--cool-gray);
+  --accent-solutions: var(--electric-blue);
+  --accent-projects: #D4AF37; /* Warm Gold / Amber */
+  --accent-industries: #00E5FF; /* Teal / Turquoise */
+  --accent-information: #8A2BE2; /* Violet / Indigo */
+  --accent-whyjay: #10B981; /* Emerald */
+  --accent-contact: var(--cyan);
+
+  /* Functional Mapping */
+  --bg-main: var(--deep-black);
+  --text-main: var(--white);
+  --text-muted: var(--cool-gray);
+  --bg-card: var(--midnight-navy);
   
-  --gold: #ff3366;       /* Vibrant Coral Accent */
-  --gold-light: #ff7799;
-  --gold-soft: rgba(255, 51, 102, 0.15);
-  
-  --black: #030303;
-  --black-soft: #080808;
-  --black-card: var(--bg-card);
-  --white: #ffffff;
-  --text: var(--text-main);
-  --muted: var(--text-muted);
-  --light: var(--bg-main);
+  /* Fallback/Legacy map to new system */
+  --cyan-dark: var(--electric-blue);
+  --cyan-glow: rgba(37, 217, 255, 0.4);
+  --black: var(--deep-black);
+  --text: var(--white);
   
   --border: rgba(255, 255, 255, 0.08);
   --border-cyan: rgba(0, 229, 255, 0.3);

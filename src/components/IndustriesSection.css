@@ -5,7 +5,7 @@
 .industries-section {
   position: relative;
   padding: 160px 0;
-  background: var(--bg-main);
+  background: #06131c;
 }
 
 /* Subtle background lines */
@@ -49,14 +49,14 @@
 .industries-label-line {
   width: 40px;
   height: 2px;
-  background: var(--cyan);
-  box-shadow: 0 0 10px var(--cyan);
+  background: var(--accent-industries);
+  box-shadow: 0 0 10px var(--accent-industries);
 }
 
 .industries-label {
   font-size: 13px;
   font-weight: 700;
-  color: var(--cyan);
+  color: var(--accent-industries);
   letter-spacing: 3px;
   margin: 0;
 }
@@ -117,7 +117,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--cyan);
+  color: var(--accent-industries);
   background: rgba(0, 229, 255, 0.1);
   border-radius: 8px;
   margin-bottom: 30px;
@@ -125,7 +125,7 @@
 }
 
 .industry-card:hover .industry-icon {
-  background: var(--cyan);
+  background: var(--accent-industries);
   color: #000;
   transform: scale(1.1);
 }
@@ -145,7 +145,7 @@
 }
 
 .industry-card:hover .industry-content h3 {
-  color: var(--cyan);
+  color: var(--accent-industries);
 }
 
 .industry-content p {
@@ -176,8 +176,8 @@
   bottom: 0;
   left: 0;
   height: 2px;
-  background: var(--cyan);
-  box-shadow: 0 0 10px var(--cyan);
+  background: var(--accent-industries);
+  box-shadow: 0 0 10px var(--accent-industries);
 }
 
 @media (max-width: 1200px) {

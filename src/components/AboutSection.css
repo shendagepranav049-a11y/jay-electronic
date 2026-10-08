@@ -42,14 +42,14 @@
 
 .about-label-line {
   width: 2px;
-  background: var(--cyan);
-  box-shadow: 0 0 10px var(--cyan);
+  background: var(--accent-about);
+  box-shadow: 0 0 10px var(--accent-about);
 }
 
 .section-label {
   font-size: 13px;
   font-weight: 700;
-  color: var(--cyan);
+  color: var(--accent-about);
   letter-spacing: 3px;
   text-transform: uppercase;
   margin: 0;
@@ -99,17 +99,17 @@
   font-weight: 700;
   color: var(--white);
   padding-bottom: 8px;
-  border-bottom: 1px solid var(--cyan);
+  border-bottom: 1px solid var(--accent-about);
   transition: gap 0.3s ease, color 0.3s ease;
 }
 
 .about-link:hover {
   gap: 20px;
-  color: var(--cyan);
+  color: var(--accent-about);
 }
 
 .about-arrow {
-  color: var(--cyan);
+  color: var(--accent-about);
 }
 
 /* Technical Highlight Card */
@@ -155,8 +155,8 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: var(--cyan);
-  box-shadow: 0 0 8px var(--cyan);
+  background: var(--accent-about);
+  box-shadow: 0 0 8px var(--accent-about);
 }
 
 .about-highlight h3 {
@@ -168,7 +168,7 @@
 }
 
 .about-highlight p {
-  color: var(--cyan);
+  color: var(--accent-about);
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 1px;
@@ -181,8 +181,8 @@
   right: 0;
   width: 30px;
   height: 30px;
-  border-bottom: 2px solid var(--cyan);
-  border-right: 2px solid var(--cyan);
+  border-bottom: 2px solid var(--accent-about);
+  border-right: 2px solid var(--accent-about);
   opacity: 0.5;
 }
 

@@ -5,7 +5,7 @@
 .why-jay-section {
   position: relative;
   padding: 160px 0;
-  background: var(--bg-card);
+  background: #0a0d10;
   overflow: hidden;
 }
 
@@ -13,7 +13,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at right center, rgba(0, 229, 255, 0.05), transparent 60%);
+  background: radial-gradient(circle at right center, rgba(16, 185, 129, 0.05), transparent 60%);
   pointer-events: none;
 }
 
@@ -43,14 +43,14 @@
 .why-jay-label-line {
   width: 40px;
   height: 2px;
-  background: var(--cyan);
-  box-shadow: 0 0 10px var(--cyan);
+  background: var(--accent-whyjay);
+  box-shadow: 0 0 10px var(--accent-whyjay);
 }
 
 .why-jay-label {
   font-size: 13px;
   font-weight: 700;
-  color: var(--cyan);
+  color: var(--accent-whyjay);
   letter-spacing: 4px;
   text-transform: uppercase;
 }
@@ -91,8 +91,8 @@
 }
 
 .timeline-line-active {
-  background: linear-gradient(180deg, transparent, var(--cyan), transparent);
-  box-shadow: 0 0 15px var(--cyan);
+  background: linear-gradient(180deg, transparent, var(--accent-whyjay), transparent);
+  box-shadow: 0 0 15px var(--accent-whyjay);
 }
 
 /* Timeline Items */
@@ -125,10 +125,10 @@
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
-  background: var(--bg-card);
-  border: 3px solid var(--cyan);
+  background: #0a0d10;
+  border: 3px solid var(--accent-whyjay);
   border-radius: 50%;
-  box-shadow: 0 0 15px var(--cyan-glow);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
   z-index: 3;
 }
 
@@ -150,8 +150,8 @@
 }
 
 .timeline-item:hover .timeline-content {
-  background: rgba(0, 229, 255, 0.05);
-  border-color: rgba(0, 229, 255, 0.2);
+  background: rgba(16, 185, 129, 0.05);
+  border-color: rgba(16, 185, 129, 0.2);
   transform: translateY(-5px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
@@ -175,8 +175,8 @@
 }
 
 .timeline-item:hover .timeline-number {
-  -webkit-text-stroke: 1.5px var(--cyan);
-  text-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
+  -webkit-text-stroke: 1.5px var(--accent-whyjay);
+  text-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
 }
 
 .timeline-content h3 {

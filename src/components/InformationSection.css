@@ -5,7 +5,7 @@
 .information-section {
   position: relative;
   padding: 160px 0;
-  background: var(--bg-main);
+  background: #12121a;
   overflow: hidden;
 }
 
@@ -16,7 +16,7 @@
   left: 0;
   width: 200%;
   height: 200%;
-  background-image: radial-gradient(circle at center, rgba(0, 229, 255, 0.05) 0%, transparent 50%);
+  background-image: radial-gradient(circle at center, rgba(138, 43, 226, 0.05) 0%, transparent 50%);
   background-size: 1000px 1000px;
   background-position: center;
   animation: bgPan 30s linear infinite alternate;
@@ -44,8 +44,8 @@
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  border-right: 2px solid var(--cyan);
-  border-bottom: 2px solid var(--cyan);
+  border-right: 2px solid var(--accent-information);
+  border-bottom: 2px solid var(--accent-information);
   padding: 60px;
   max-width: 700px;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
@@ -59,8 +59,8 @@
   left: 0;
   width: 30px;
   height: 30px;
-  border-top: 2px solid var(--cyan);
-  border-left: 2px solid var(--cyan);
+  border-top: 2px solid var(--accent-information);
+  border-left: 2px solid var(--accent-information);
   opacity: 0.5;
 }
 
@@ -74,14 +74,14 @@
 .information-label-line {
   width: 50px;
   height: 1px;
-  background: var(--cyan);
-  box-shadow: 0 0 10px var(--cyan);
+  background: var(--accent-information);
+  box-shadow: 0 0 10px var(--accent-information);
 }
 
 .information-label {
   font-size: 14px;
   font-weight: 700;
-  color: var(--cyan);
+  color: var(--accent-information);
   letter-spacing: 4px;
   text-transform: uppercase;
 }
@@ -99,7 +99,7 @@
 .information-divider {
   height: 1px;
   width: 100%;
-  background: linear-gradient(90deg, var(--cyan), transparent);
+  background: linear-gradient(90deg, var(--accent-information), transparent);
   margin-bottom: 30px;
   transform-origin: left;
 }
@@ -116,7 +116,7 @@
   align-items: center;
   justify-content: center;
   padding: 16px 36px;
-  background: var(--cyan);
+  background: var(--accent-information);
   color: #000;
   font-weight: 700;
   font-size: 15px;
@@ -126,9 +126,9 @@
 }
 
 .btn-solid-primary:hover {
-  background: var(--cyan-light);
+  background: #9b5de5;
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px var(--cyan-glow);
+  box-shadow: 0 10px 25px rgba(138, 43, 226, 0.4);
 }
 
 @media (max-width: 992px) {
