@@ -1,5 +1,5 @@
 /* =========================================
-   HERO SECTION - CINEMATIC TECHNOLOGY
+   HERO SECTION - BRAND THEME (CCTV BACKGROUND)
    ========================================= */
 
 .hero-cinematic {
@@ -8,206 +8,140 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: var(--midnight-navy);
-  padding: 120px 7% 80px;
+  padding: 180px 7% 180px;
+  background-color: var(--midnight-navy);
 }
 
-/* Technical Grid Background */
-.hero-grid-bg {
+/* CCTV Background Image */
+.hero-image-bg {
   position: absolute;
-  inset: -100%;
-  width: 300%;
-  height: 300%;
-  background-image: 
-    linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
+  inset: 0;
+  background-size: cover;
   background-position: center;
-  transform: perspective(1000px) rotateX(60deg) translateY(-100px) translateZ(-200px);
-  animation: gridMove 20s linear infinite;
-  pointer-events: none;
-  z-index: 1;
+  background-attachment: fixed; /* Parallax feel */
+  z-index: 0;
 }
 
-@keyframes gridMove {
-  0% { transform: perspective(1000px) rotateX(60deg) translateY(0) translateZ(-200px); }
-  100% { transform: perspective(1000px) rotateX(60deg) translateY(50px) translateZ(-200px); }
-}
-
-/* Ambient Glows */
-.hero-ambient-glow {
+/* Dark Overlay to make text readable */
+.hero-image-overlay {
   position: absolute;
-  width: 800px;
-  height: 800px;
-  background: radial-gradient(circle, var(--cyan-soft) 0%, transparent 70%);
-  top: -200px;
-  left: -200px;
-  border-radius: 50%;
-  filter: blur(80px);
-  z-index: 2;
-  pointer-events: none;
-  animation: glowPulse 10s ease-in-out infinite alternate;
-}
-
-.hero-ambient-glow.right-glow {
-  top: auto;
-  bottom: -300px;
-  left: auto;
-  right: -300px;
-  background: radial-gradient(circle, rgba(0, 170, 255, 0.1) 0%, transparent 70%);
-  animation-delay: -5s;
-}
-
-@keyframes glowPulse {
-  0% { opacity: 0.5; transform: scale(1); }
-  100% { opacity: 1; transform: scale(1.1); }
+  inset: 0;
+  background: linear-gradient(
+    90deg, 
+    rgba(5, 7, 10, 0.95) 0%, 
+    rgba(5, 7, 10, 0.8) 50%, 
+    rgba(5, 7, 10, 0.4) 100%
+  );
+  z-index: 1;
 }
 
 .hero-content-wrapper {
   position: relative;
-  z-index: 10;
+  z-index: 5;
+  width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  width: 100%;
 }
 
 .hero-text-content {
-  max-width: 800px;
+  max-width: 850px;
 }
 
-/* Label */
+/* Gold Theme Label */
 .hero-label-premium {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  color: var(--cyan);
+  color: #FBBF24; /* Golden Yellow */
   font-size: 14px;
   font-weight: 700;
-  letter-spacing: 4px;
-  margin-bottom: 40px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-.label-line {
-  width: 40px;
-  height: 2px;
-  background: var(--cyan);
-  box-shadow: 0 0 10px var(--cyan);
-}
-
-/* Title */
+/* Main Title */
 .hero-title-premium {
+  font-size: clamp(40px, 6vw, 75px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  color: #ffffff;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-bottom: 30px;
 }
 
 .hero-title-line {
   display: block;
-  font-size: clamp(48px, 6vw, 90px);
-  font-weight: 700;
-  line-height: 1.1;
-  color: var(--text-main);
-  letter-spacing: -0.5px;
-}
-
-.hero-title-line.accent {
-  color: transparent;
-  -webkit-text-stroke: 1.5px var(--cyan);
-  text-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
 }
 
 /* Description */
 .hero-description-premium {
-  font-size: 20px;
-  line-height: 1.6;
-  color: var(--text-muted);
-  max-width: 540px;
-  margin-bottom: 48px;
-  border-left: 2px solid rgba(255, 255, 255, 0.1);
-  padding-left: 20px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 700px;
+  margin-bottom: 50px;
 }
 
 /* Buttons */
 .hero-actions-premium {
   display: flex;
-  gap: 24px;
+  gap: 20px;
   align-items: center;
 }
 
-.btn-premium-primary {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px 32px;
-  background: var(--cyan);
-  color: #000;
+.btn-solid-gold {
+  background: #FBBF24;
+  color: #111827;
+  padding: 15px 30px;
+  border-radius: 8px;
   font-weight: 700;
   font-size: 15px;
-  border-radius: 4px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-block;
+  border: 1px solid transparent;
 }
 
-.btn-premium-primary .btn-text {
-  position: relative;
-  z-index: 2;
+.btn-solid-gold:hover {
+  transform: translateY(-4px);
+  background: #F59E0B;
+  box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
 }
 
-.btn-premium-primary .btn-glow {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
-  transform: translateX(-100%) skewX(-15deg);
-  transition: transform 0.6s ease;
-  z-index: 1;
-}
-
-.btn-premium-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px var(--cyan-glow);
-}
-
-.btn-premium-primary:hover .btn-glow {
-  transform: translateX(100%) skewX(-15deg);
-}
-
-.btn-premium-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px 32px;
+.btn-outline-gold {
   background: transparent;
-  color: var(--text-main);
+  color: #FBBF24;
+  padding: 15px 30px;
+  border-radius: 8px;
   font-weight: 700;
   font-size: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-  transition: all 0.3s ease;
+  text-decoration: none;
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-block;
 }
 
-.btn-premium-secondary:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: var(--cyan);
-  transform: translateY(-2px);
+.btn-outline-gold:hover {
+  transform: translateY(-4px);
+  background: rgba(251, 191, 36, 0.1);
+  border-color: #FBBF24;
 }
 
 @media (max-width: 768px) {
+  .hero-cinematic {
+    padding-top: 140px;
+    padding-bottom: 100px;
+  }
+  
   .hero-actions-premium {
     flex-direction: column;
     align-items: stretch;
   }
   
-  .hero-title-line {
-    font-size: 42px;
-  }
-  
-  .hero-label-premium {
-    font-size: 12px;
-  }
-  
-  .hero-description-premium {
-    font-size: 16px;
+  .btn-solid-gold, .btn-outline-gold {
+    text-align: center;
   }
 }
