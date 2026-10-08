@@ -162,19 +162,19 @@ function Footer() {
             </a>
 
             {/* Social Media Links */}
-            <div className="footer-social-links" style={{ display: 'flex', gap: '15px', marginTop: '20px' }}>
+            <div className="footer-social-links" style={{ display: 'flex', gap: '20px', marginTop: '30px' }}>
               {socialData?.whatsapp && (
-                <a href={socialData.whatsapp} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--cyan)' }}>
+                <a href={socialData.whatsapp.startsWith('http') ? socialData.whatsapp : `https://wa.me/${socialData.whatsapp.replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" className="social-link" style={{ color: 'var(--cyan)', fontWeight: 600, textDecoration: 'none' }}>
                   WhatsApp
                 </a>
               )}
               {socialData?.instagram && (
-                <a href={socialData.instagram} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--cyan)' }}>
+                <a href={socialData.instagram} target="_blank" rel="noopener noreferrer" className="social-link" style={{ color: 'var(--cyan)', fontWeight: 600, textDecoration: 'none' }}>
                   Instagram
                 </a>
               )}
               {socialData?.facebook && (
-                <a href={socialData.facebook} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--cyan)' }}>
+                <a href={socialData.facebook} target="_blank" rel="noopener noreferrer" className="social-link" style={{ color: 'var(--cyan)', fontWeight: 600, textDecoration: 'none' }}>
                   Facebook
                 </a>
               )}

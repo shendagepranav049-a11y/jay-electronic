@@ -1,586 +1,228 @@
 /* =========================================
-   ABOUT SECTION
-   JAY ELECTRONICS
-========================================= */
+   ABOUT SECTION - EDITORIAL CORPORATE
+   ========================================= */
 
 .about-section {
   position: relative;
-
-  padding: 50px 7%;
-
-  background:
-    linear-gradient(
-      180deg,
-      var(--bg-main) 0%,
-      var(--bg-card) 50%,
-      var(--bg-main) 100%
-    );
-
+  padding: 160px 0;
+  background: var(--black);
   overflow: hidden;
 }
 
-
-/* =========================================
-   SUBTLE RED BRAND GLOW
-========================================= */
-
+/* Subtle Technical Grid Overlay */
 .about-section::before {
   content: "";
-
   position: absolute;
-
-  width: 500px;
-  height: 500px;
-
-  left: -280px;
-  top: 20%;
-
-  border-radius: 50%;
-
-  background: rgba(0, 170, 255, 0.10);
-
-  filter: blur(120px);
-
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.5;
   pointer-events: none;
 }
-
-
-/* Right side glow */
-
-.about-section::after {
-  content: "";
-
-  position: absolute;
-
-  width: 350px;
-  height: 350px;
-
-  right: -180px;
-  bottom: -100px;
-
-  border-radius: 50%;
-
-  background: rgba(0, 170, 255, 0.08);
-
-  filter: blur(100px);
-
-  pointer-events: none;
-}
-
-
-/* =========================================
-   CONTAINER
-========================================= */
 
 .about-container {
-  position: relative;
-
-  z-index: 2;
-
   max-width: 1400px;
-
   margin: 0 auto;
+  padding: 0 5%;
+  position: relative;
+  z-index: 2;
 }
-
-
-/* =========================================
-   HEADING
-========================================= */
-
-.about-heading {
-  max-width: 950px;
-
-  margin-bottom: 80px;
-}
-
-
-/* Label */
 
 .about-label-wrap {
   display: flex;
-
-  align-items: center;
-
-  gap: 14px;
-
-  margin-bottom: 24px;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 30px;
 }
-
 
 .about-label-line {
-  width: 42px;
-  height: 2px;
-
-  background: #00aaff;
-
-  display: block;
+  width: 2px;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
 }
-
 
 .section-label {
-  margin: 0;
-
-  color: #00aaff;
-
   font-size: 13px;
-
   font-weight: 700;
-
+  color: var(--cyan);
   letter-spacing: 3px;
-
   text-transform: uppercase;
+  margin: 0;
+  padding-top: 4px;
 }
 
-
-/* Main heading */
+.about-heading {
+  margin-bottom: 60px;
+}
 
 .about-heading h2 {
-  margin: 0;
-
-  color: var(--text-main);
-
-  font-size: clamp(42px, 5.5vw, 78px);
-
-  line-height: 1.02;
-
-  letter-spacing: -3px;
-
-  font-weight: 750;
+  font-size: clamp(32px, 5vw, 64px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  color: var(--white);
+  max-width: 900px;
 }
 
-
-/* Heading second part */
-
-.about-heading h2 span {
-  color: var(--text-muted);
-}
-
-
-/* =========================================
-   MAIN CONTENT
-========================================= */
-
+/* Asymmetric Content Layout */
 .about-content {
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 1.1fr)
-    minmax(360px, 0.9fr);
-
-  gap: 100px;
-
-  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 80px;
+  align-items: stretch;
 }
-
-
-/* =========================================
-   LEFT TEXT
-========================================= */
 
 .about-text {
-  max-width: 650px;
+  flex: 1;
+  max-width: 600px;
+  padding-top: 20px;
 }
-
 
 .about-text p {
-  margin: 0 0 26px;
-
-  color: var(--text-muted);
-
-  font-size: 18px;
-
+  font-size: 19px;
   line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 40px;
 }
-
-
-.about-text p:first-child {
-  color: #dddddd;
-
-  font-size: 21px;
-
-  line-height: 1.65;
-}
-
-
-/* =========================================
-   DISCOVER LINK
-========================================= */
 
 .about-link {
-  position: relative;
-
   display: inline-flex;
-
   align-items: center;
-
-  gap: 16px;
-
-  margin-top: 18px;
-
-  padding-bottom: 8px;
-
-  color: var(--text-main);
-
-  text-decoration: none;
-
-  font-size: 14px;
-
+  gap: 12px;
+  font-size: 15px;
   font-weight: 700;
-
-  letter-spacing: 1px;
-
-  transition:
-    color 0.3s ease,
-    gap 0.3s ease;
+  color: var(--white);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--cyan);
+  transition: gap 0.3s ease, color 0.3s ease;
 }
-
-
-.about-link::after {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  bottom: 0;
-
-  width: 0;
-  height: 1px;
-
-  background: #00aaff;
-
-  transition: width 0.35s ease;
-}
-
 
 .about-link:hover {
-  color: #00aaff;
-
-  gap: 22px;
+  gap: 20px;
+  color: var(--cyan);
 }
-
-
-.about-link:hover::after {
-  width: 100%;
-}
-
 
 .about-arrow {
-  color: #00aaff;
-
-  font-size: 22px;
-
-  line-height: 1;
-
-  transition:
-    transform 0.3s ease;
+  color: var(--cyan);
 }
 
-
-.about-link:hover .about-arrow {
-  transform: translateX(5px);
-}
-
-
-/* =========================================
-   RIGHT HIGHLIGHT CARD
-========================================= */
-
+/* Technical Highlight Card */
 .about-highlight {
+  flex: 0.8;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 50px;
   position: relative;
-
-  min-height: 480px;
-
-  padding: 48px;
-
   display: flex;
-
   flex-direction: column;
-
-  justify-content: space-between;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.055),
-      rgba(255, 255, 255, 0.015)
-    );
-
-  border: 1px solid rgba(255, 255, 255, 0.10);
-
-  overflow: hidden;
-
-  transition:
-    transform 0.5s ease,
-    border-color 0.5s ease,
-    box-shadow 0.5s ease;
+  justify-content: center;
+  backdrop-filter: blur(10px);
 }
 
-
-/* Card red light */
-
-.about-highlight::before {
-  content: "";
-
-  position: absolute;
-
-  width: 280px;
-  height: 280px;
-
-  right: -130px;
-  top: -130px;
-
-  border-radius: 50%;
-
-  background: rgba(0, 170, 255, 0.18);
-
-  filter: blur(70px);
-
-  transition:
-    transform 0.6s ease,
-    opacity 0.6s ease;
-}
-
-
-.about-highlight:hover {
-  transform: translateY(-8px);
-
-  border-color: rgba(0, 170, 255, 0.45);
-
-  box-shadow:
-    0 25px 70px rgba(0, 0, 0, 0.45),
-    0 0 40px rgba(0, 170, 255, 0.08);
-}
-
-
-.about-highlight:hover::before {
-  transform: scale(1.25);
-
-  opacity: 0.9;
-}
-
-
-/* =========================================
-   CARD TOP
-========================================= */
-
+/* Top Accent */
 .highlight-top {
-  position: relative;
-
-  z-index: 2;
-
   display: flex;
-
   align-items: center;
-
-  gap: 18px;
+  gap: 15px;
+  margin-bottom: 40px;
 }
-
 
 .highlight-number {
-  color: #00aaff;
-
-  font-size: 13px;
-
-  font-weight: 700;
-
+  font-family: monospace;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 16px;
   letter-spacing: 2px;
 }
 
-
 .highlight-line {
-  width: 65px;
+  flex: 1;
   height: 1px;
-
-  background: rgba(0, 170, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+  position: relative;
 }
 
-
-/* =========================================
-   CARD HEADING
-========================================= */
+.highlight-line::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -2px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan);
+}
 
 .about-highlight h3 {
-  position: relative;
-
-  z-index: 2;
-
-  margin: 50px 0 20px;
-
-  color: var(--text-main);
-
-  font-size: clamp(34px, 4vw, 56px);
-
-  line-height: 1.03;
-
-  letter-spacing: -2px;
-
-  font-weight: 750;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  color: var(--white);
 }
 
-
-/* Card description */
-
 .about-highlight p {
-  position: relative;
-
-  z-index: 2;
-
-  margin: 0;
-
-  color: #8f8f8f;
-
-  font-size: 15px;
-
+  color: var(--cyan);
+  font-size: 16px;
+  font-weight: 600;
   letter-spacing: 1px;
 }
 
-
-/* =========================================
-   CORNER DETAIL
-========================================= */
-
+/* Corner Technical Accents */
 .highlight-corner {
   position: absolute;
-
-  right: 28px;
-  bottom: 28px;
-
-  width: 45px;
-  height: 45px;
-
-  border-right: 1px solid #00aaff;
-  border-bottom: 1px solid #00aaff;
-
-  opacity: 0.7;
-
-  transition:
-    width 0.4s ease,
-    height 0.4s ease;
+  bottom: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border-bottom: 2px solid var(--cyan);
+  border-right: 2px solid var(--cyan);
+  opacity: 0.5;
 }
 
-
-.about-highlight:hover .highlight-corner {
-  width: 65px;
-  height: 65px;
+.about-highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 1000px) {
-
-  .about-section {
-    padding: 40px 6%;
-  }
-
-
+@media (max-width: 992px) {
   .about-content {
-    grid-template-columns: 1fr;
-
-    gap: 60px;
+    flex-direction: column;
+    gap: 50px;
   }
-
-
-  .about-text {
-    max-width: 800px;
-  }
-
-
+  
   .about-highlight {
-    max-width: 650px;
-
-    min-height: 430px;
+    width: 100%;
+    padding: 40px 30px;
   }
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 700px) {
-
-  .about-section {
-    padding: 40px 24px;
-  }
-
-
-  .about-heading {
-    margin-bottom: 55px;
-  }
-
-
-  .about-label-wrap {
-    gap: 10px;
-
-    margin-bottom: 20px;
-  }
-
-
-  .about-label-line {
-    width: 30px;
-  }
-
-
-  .section-label {
-    font-size: 11px;
-
-    letter-spacing: 2px;
-  }
-
-
+  
   .about-heading h2 {
     font-size: 42px;
-
-    letter-spacing: -2px;
-
-    line-height: 1.05;
-  }
-
-
-  .about-text p:first-child {
-    font-size: 18px;
-  }
-
-
-  .about-text p {
-    font-size: 16px;
-
-    line-height: 1.7;
-  }
-
-
-  .about-highlight {
-    min-height: 390px;
-
-    padding: 32px;
-  }
-
-
-  .about-highlight h3 {
-    font-size: 38px;
-
-    letter-spacing: -1.5px;
-
-    margin-top: 35px;
   }
 }
 
-
-/* =========================================
-   REDUCED MOTION
-========================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  .about-highlight,
-  .about-highlight::before,
-  .about-link,
-  .about-link::after,
-  .about-arrow,
-  .highlight-corner {
-    transition: none;
+@media (max-width: 768px) {
+  .about-section {
+    padding: 100px 0;
+  }
+  
+  .about-heading h2 {
+    font-size: 32px;
+  }
+  
+  .about-text p {
+    font-size: 16px;
   }
 }

@@ -101,12 +101,13 @@ function SolutionsSection() {
               <motion.div 
                 className="solution-number"
                 initial={{ scale: 1 }}
-                whileHover={{ scale: 1.2, rotate: 5, color: 'var(--cyan)' }}
+                whileHover={{ scale: 1.05 }}
               >
                 0{index + 1}
               </motion.div>
               <h3>{solution.title}</h3>
               <p>{solution.description}</p>
+              <div className="hover-line"></div>
             </motion.div>
           ))}
         </div>

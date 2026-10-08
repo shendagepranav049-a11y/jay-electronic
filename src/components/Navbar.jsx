@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./Navbar.css";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import jeLogo from "../assets/je-logo.png";
 
 function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
@@ -63,9 +64,11 @@ function Navbar() {
 
   const navItems = [
     { id: "home", label: "Home" },
-    { id: "about", label: "About Us ▾" },
-    { id: "solutions", label: "Solutions ▾" },
-    { id: "blog", label: "Blog" },
+    { id: "about", label: "About" },
+    { id: "solutions", label: "Solutions" },
+    { id: "projects", label: "Projects" },
+    { id: "industries", label: "Industries" },
+    { id: "why-jay", label: "Why Jay" },
     { id: "contact", label: "Contact" },
   ];
 
@@ -81,15 +84,11 @@ function Navbar() {
         {/* Logo */}
 
         <button
-          className="navbar-logo-text"
+          className="navbar-logo"
           onClick={() => handleNavClick("home")}
           aria-label="Go to home"
         >
-          <div className="logo-icon"></div>
-          <div className="logo-text-group">
-            <span className="logo-title">JEPL</span>
-            <span className="logo-subtitle">JAY ELECTRONICS</span>
-          </div>
+          <img src={jeLogo} alt="Jay Electronics Logo" />
         </button>
 
 

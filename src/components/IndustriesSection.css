@@ -1,580 +1,213 @@
 /* =========================================
-   INDUSTRIES SECTION
-   JAY ELECTRONICS
-========================================= */
+   INDUSTRIES SECTION - ENTERPRISE GRID
+   ========================================= */
 
 .industries-section {
   position: relative;
-
-  padding: 50px 7%;
-
-  background:
-    linear-gradient(
-      180deg,
-      var(--bg-card) 0%,
-      var(--bg-main) 100%
-    );
-
-  overflow: hidden;
+  padding: 160px 0;
+  background: var(--bg-main);
 }
 
-
-/* =========================================
-   BACKGROUND GLOW
-========================================= */
-
+/* Subtle background lines */
 .industries-section::before {
   content: "";
-
   position: absolute;
-
-  width: 520px;
-  height: 520px;
-
-  left: -280px;
-  top: 15%;
-
-  border-radius: 50%;
-
-  background: rgba(0, 170, 255, 0.08);
-
-  filter: blur(120px);
-
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+  background-size: 100px 100px;
   pointer-events: none;
 }
-
-
-.industries-section::after {
-  content: "";
-
-  position: absolute;
-
-  width: 400px;
-  height: 400px;
-
-  right: -220px;
-  bottom: -160px;
-
-  border-radius: 50%;
-
-  background: rgba(0, 170, 255, 0.06);
-
-  filter: blur(110px);
-
-  pointer-events: none;
-}
-
-
-/* =========================================
-   CONTAINER
-========================================= */
 
 .industries-container {
-  position: relative;
-
-  z-index: 2;
-
   max-width: 1400px;
-
   margin: 0 auto;
+  padding: 0 5%;
+  position: relative;
+  z-index: 2;
 }
-
-
-/* =========================================
-   HEADER
-========================================= */
 
 .industries-header {
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 1.2fr)
-    minmax(300px, 0.8fr);
-
-  gap: 80px;
-
-  align-items: end;
-
-  margin-bottom: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  margin-bottom: 80px;
 }
-
-
-/* =========================================
-   LABEL
-========================================= */
 
 .industries-label-wrap {
   display: flex;
-
   align-items: center;
-
-  gap: 14px;
-
+  gap: 16px;
   margin-bottom: 24px;
 }
 
-
 .industries-label-line {
-  width: 42px;
+  width: 40px;
   height: 2px;
-
-  background: #00aaff;
-
-  display: block;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
 }
-
 
 .industries-label {
-  margin: 0;
-
-  color: #00aaff;
-
   font-size: 13px;
-
   font-weight: 700;
-
+  color: var(--cyan);
   letter-spacing: 3px;
-
-  text-transform: uppercase;
+  margin: 0;
 }
-
-
-/* =========================================
-   HEADING
-========================================= */
 
 .industries-header h2 {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--white);
   margin: 0;
-
-  color: var(--text-main);
-
-  font-size: clamp(42px, 5vw, 72px);
-
-  line-height: 1.02;
-
-  letter-spacing: -3px;
-
-  font-weight: 750;
+  max-width: 600px;
 }
-
 
 .industries-header h2 span {
   color: var(--text-muted);
 }
 
-
-/* =========================================
-   INTRO
-========================================= */
-
 .industries-intro {
-  max-width: 510px;
-
-  margin: 0 0 5px;
-
-  color: var(--text-muted);
-
+  max-width: 450px;
   font-size: 17px;
-
-  line-height: 1.8;
-}
-
-
-/* =========================================
-   INDUSTRIES GRID
-========================================= */
-
-
-
-
-/* =========================================
-   INDUSTRY CARD
-========================================= */
-
-
-
-
-/* Red glow inside card */
-
-.industry-card::before {
-  content: "";
-
-  position: absolute;
-
-  width: 230px;
-  height: 230px;
-
-  right: -115px;
-  top: -115px;
-
-  border-radius: 50%;
-
-  background: rgba(0, 170, 255, 0.17);
-
-  filter: blur(65px);
-
-  opacity: 0;
-
-  transition:
-    opacity 0.5s ease,
-    transform 0.6s ease;
-}
-
-
-.industry-card:hover {
-  transform: translateY(-10px);
-
-  border-color: rgba(0, 170, 255, 0.42);
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(0, 170, 255, 0.08),
-      rgba(255, 255, 255, 0.018)
-    );
-
-  box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.45),
-    0 0 35px rgba(0, 170, 255, 0.07);
-}
-
-
-.industry-card:hover::before {
-  opacity: 1;
-
-  transform: scale(1.2);
-}
-
-
-/* =========================================
-   CARD TOP
-========================================= */
-
-.industry-top {
-  position: relative;
-
-  z-index: 2;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-}
-
-
-.industry-number {
-  color: #00aaff;
-
-  font-size: 13px;
-
-  font-weight: 700;
-
-  letter-spacing: 2px;
-}
-
-
-.industry-arrow {
-  width: 38px;
-  height: 38px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  color: var(--text-main);
-
-  border: 1px solid rgba(255, 255, 255, 0.13);
-
-  font-size: 18px;
-
-  transition:
-    background 0.35s ease,
-    border-color 0.35s ease,
-    transform 0.35s ease;
-}
-
-
-.industry-card:hover .industry-arrow {
-  background: #00aaff;
-
-  border-color: #00aaff;
-
-  transform:
-    translate(3px, -3px);
-}
-
-
-/* =========================================
-   CARD CONTENT
-========================================= */
-
-
-
-
-.industry-content h3 {
-  margin: 0 0 16px;
-
-  color: var(--text-main);
-
-  font-size: 25px;
-
-  line-height: 1.15;
-
-  letter-spacing: -0.5px;
-
-  font-weight: 700;
-
-  transition:
-    transform 0.3s ease;
-}
-
-
-.industry-card:hover .industry-content h3 {
-  transform: translateX(4px);
-}
-
-
-.industry-content p {
-  margin: 0;
-
-  color: var(--text-muted);
-
-  font-size: 14px;
-
   line-height: 1.7;
-
-  transition:
-    color 0.3s ease;
-}
-
-
-.industry-card:hover .industry-content p {
   color: var(--text-muted);
+  margin: 0;
+  padding-bottom: 10px;
 }
 
-
-/* =========================================
-   BOTTOM RED LINE
-========================================= */
-
-.industry-line {
-  position: relative;
-
-  z-index: 2;
-
-  width: 32px;
-  height: 2px;
-
-  background: #00aaff;
-
-  transition:
-    width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-
-.industry-card:hover .industry-line {
-  width: 100%;
-}
-
-
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 1100px) {
-
-  .industries-section {
-    padding: 40px 6%;
-  }
-
-
-  .industries-header {
-    grid-template-columns: 1fr;
-
-    gap: 30px;
-
-    align-items: start;
-  }
-
-
-  .industries-grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-  }
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 700px) {
-
-  .industries-section {
-    padding: 40px 24px;
-  }
-
-
-  .industries-header {
-    margin-bottom: 55px;
-  }
-
-
-  .industries-label-wrap {
-    gap: 10px;
-
-    margin-bottom: 20px;
-  }
-
-
-  .industries-label-line {
-    width: 30px;
-  }
-
-
-  .industries-label {
-    font-size: 11px;
-
-    letter-spacing: 2px;
-  }
-
-
-  .industries-header h2 {
-    font-size: 42px;
-
-    letter-spacing: -2px;
-  }
-
-
-  .industries-intro {
-    font-size: 16px;
-
-    line-height: 1.7;
-  }
-
-
-  .industries-grid {
-    grid-template-columns: 1fr;
-
-    gap: 14px;
-  }
-
-
-  .industry-card {
-    min-height: 285px;
-
-    padding: 26px;
-  }
-
-
-  .industry-content {
-    margin-top: 45px;
-  }
-
-
-  .industry-content h3 {
-    font-size: 23px;
-  }
-}
-
-
-/* =========================================
-   REDUCED MOTION
-========================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  .industry-card,
-  .industry-card::before,
-  .industry-arrow,
-  .industry-content h3,
-  .industry-content p,
-  .industry-line {
-    transition: none;
-  }
-}
-
+/* Enterprise Grid */
 .industries-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1px;
-  background: rgba(0, 229, 255, 0.2);
-  padding: 1px;
-  border-radius: 12px;
-  overflow: hidden;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
+/* Industry Cards */
 .industry-card {
-  background: #02070d;
-  padding: 40px;
-  min-height: 250px;
+  background: rgba(20, 40, 69, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
   position: relative;
+  overflow: hidden;
   transition: all 0.4s ease;
-  border-radius: 0;
-  border: none;
+  backdrop-filter: blur(5px);
+  min-height: 280px;
 }
 
 .industry-card:hover {
   background: rgba(0, 229, 255, 0.05);
+  border-color: rgba(0, 229, 255, 0.2);
   transform: translateY(-5px);
-  z-index: 2;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.industry-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 10px;
-  height: 10px;
-  border-top: 2px solid var(--cyan);
-  border-left: 2px solid var(--cyan);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+.industry-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cyan);
+  background: rgba(0, 229, 255, 0.1);
+  border-radius: 8px;
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
 }
 
-.industry-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 10px;
-  height: 10px;
-  border-bottom: 2px solid var(--cyan);
-  border-right: 2px solid var(--cyan);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+.industry-card:hover .industry-icon {
+  background: var(--cyan);
+  color: #000;
+  transform: scale(1.1);
 }
 
-.industry-card:hover::before,
-.industry-card:hover::after {
-  opacity: 1;
+.industry-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .industry-content h3 {
   font-size: 20px;
   font-weight: 700;
+  color: var(--white);
   margin-bottom: 15px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  transition: color 0.3s ease;
 }
 
-.industry-content h3::before {
-  content: '';
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  background: var(--cyan);
-  border-radius: 50%;
-  box-shadow: 0 0 10px var(--cyan-glow);
+.industry-card:hover .industry-content h3 {
+  color: var(--cyan);
 }
 
 .industry-content p {
-  color: #a4a4a4;
+  font-size: 14px;
   line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Connector Line (Design element) */
+.industry-connector-line {
+  position: absolute;
+  top: 64px;
+  left: 78px;
+  width: 50px;
+  height: 1px;
+  background: dashed 1px rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.industry-card:hover .industry-connector-line {
+  opacity: 1;
+}
+
+.industry-hover-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+}
+
+@media (max-width: 1200px) {
+  .industries-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .industries-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .industries-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .industries-section {
+    padding: 100px 0;
+  }
+  
+  .industries-header h2 {
+    font-size: 32px;
+  }
+  
+  .industries-grid {
+    grid-template-columns: 1fr;
+  }
 }

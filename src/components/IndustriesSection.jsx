@@ -3,12 +3,14 @@ import { motion } from "framer-motion";
 import "./IndustriesSection.css";
 
 const fallbackIndustries = [
-  { order: 1, title: "Government & Defense", description: "Securing critical national infrastructure with advanced surveillance and command center integrations." },
-  { order: 2, title: "Corporate & Enterprise", description: "Smart building solutions, unified communications, and high-speed enterprise networking." },
-  { order: 3, title: "Manufacturing & Industrial", description: "Ruggedized CCTV, industrial fire safety, and wide-area networking for manufacturing plants." },
-  { order: 4, title: "Healthcare & Hospitals", description: "IP-PBX, public address systems, and secure access control for medical facilities." },
-  { order: 5, title: "Education & Campuses", description: "Campus-wide Wi-Fi, digital classrooms, and perimeter security for educational institutions." },
-  { order: 6, title: "Transport & Logistics", description: "Automated surveillance, boom barriers, and communication infrastructure for transport hubs." }
+  { order: 1, title: "Government", description: "Securing critical national infrastructure with advanced surveillance and command center integrations." },
+  { order: 2, title: "Corporate", description: "Smart building solutions, unified communications, and high-speed enterprise networking." },
+  { order: 3, title: "Healthcare", description: "IP-PBX, public address systems, and secure access control for medical facilities." },
+  { order: 4, title: "Education", description: "Campus-wide Wi-Fi, digital classrooms, and perimeter security for educational institutions." },
+  { order: 5, title: "Industrial", description: "Ruggedized CCTV, industrial fire safety, and wide-area networking for manufacturing plants." },
+  { order: 6, title: "Telecom", description: "Fiber optic networks, enterprise telephony, and communication infrastructure." },
+  { order: 7, title: "Commercial", description: "Integrated security, access control, and AV solutions for commercial real estate." },
+  { order: 8, title: "Residential", description: "Smart home automation, video door phones, and community surveillance." }
 ];
 
 function IndustriesSection() {
@@ -64,10 +66,18 @@ function IndustriesSection() {
               whileHover={{ scale: 1.05 }}
               className="industry-card ui-card"
             >
+              <div className="industry-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
               <div className="industry-content">
                 <h3>{industry.title}</h3>
                 <p>{industry.description}</p>
               </div>
+              <div className="industry-connector-line"></div>
               <motion.div 
                 className="industry-hover-line"
                 initial={{ width: 0 }}
