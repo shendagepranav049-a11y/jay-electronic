@@ -1,4 +1,9 @@
+const fs = require('fs');
+const path = require('path');
 
+const indexCssPath = path.join(__dirname, '..', 'src', 'index.css');
+
+let content = `
 :root {
   /* MASTER THEME FROM REFERENCE SITE */
   --black: #030303;
@@ -136,3 +141,7 @@ body {
   0% { background-position: 300%; }
   100% { background-position: -300%; }
 }
+`;
+
+fs.writeFileSync(indexCssPath, content);
+console.log('index.css updated to match CCTV reference template');
