@@ -14,6 +14,7 @@
 
 /* CCTV Background Image */
 .hero-image-bg {
+  animation: heroImageZoom 8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   position: absolute;
   inset: 0;
   background-size: cover;
@@ -144,4 +145,10 @@
   .btn-solid-gold, .btn-outline-gold {
     text-align: center;
   }
+}
+
+
+@keyframes heroImageZoom {
+  0% { transform: scale(1.04); }
+  100% { transform: scale(1); }
 }
