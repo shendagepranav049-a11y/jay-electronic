@@ -68,8 +68,9 @@ function ProjectsSection() {
             <div className="projects-label-wrap">
               <span className="projects-label-line"></span>
               <p className="projects-label">FEATURED PROJECTS</p>
+            <div className="purple-gold-line"></div>
             </div>
-            <h2>
+            <h2 className="text-shine">
               Delivering excellence
               <span> at scale.</span>
             </h2>

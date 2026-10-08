@@ -56,8 +56,9 @@ function WhyJaySection() {
           <div className="why-jay-label-wrap">
             <span className="why-jay-label-line"></span>
             <p className="why-jay-label">OUR PRINCIPLES</p>
+            <div className="purple-gold-line"></div>
           </div>
-          <h2>
+          <h2 className="text-shine">
             {content?.heading || "Built on experience."}
             <span> {content?.description || "Delivered with discipline."}</span>
           </h2>

@@ -77,8 +77,9 @@ function SolutionsSection() {
             <div className="solutions-label-wrap">
               <span className="solutions-label-line"></span>
               <p className="solutions-label">OUR SOLUTIONS</p>
+            <div className="purple-gold-line"></div>
             </div>
-            <h2>
+            <h2 className="text-shine">
               Technology solutions
               <span> built around your needs.</span>
             </h2>

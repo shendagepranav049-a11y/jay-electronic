@@ -77,9 +77,10 @@ function PartnersSection() {
               <p className="partners-label">
                 TECHNOLOGY PARTNERS
               </p>
+            <div className="purple-gold-line"></div>
             </div>
 
-            <h2>
+            <h2 className="text-shine">
               Trusted technology
               <span> ecosystems.</span>
             </h2>

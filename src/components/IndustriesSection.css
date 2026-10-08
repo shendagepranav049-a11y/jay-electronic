@@ -211,3 +211,13 @@
     grid-template-columns: 1fr;
   }
 }
+
+.industry-card {
+  border: none;
+  border-left: 3px solid var(--gold);
+}
+.industry-card:hover {
+  border-color: transparent;
+  border-left-color: var(--purple);
+  transform: translateX(8px) translateY(-4px);
+}

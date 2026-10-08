@@ -97,9 +97,10 @@ function ContactSection() {
           <div className="contact-label-wrap">
             <span className="contact-label-line"></span>
             <p className="contact-label">GET IN TOUCH</p>
+            <div className="purple-gold-line"></div>
           </div>
 
-          <h2>
+          <h2 className="text-shine">
             Let’s build<span> your solution.</span>
           </h2>
         </motion.div>
@@ -130,6 +131,7 @@ function ContactSection() {
               <p className="contact-company-label">
                 JAY ELECTRONICS PVT LTD
               </p>
+            <div className="purple-gold-line"></div>
 
               <p className="contact-company-text">
                 Technology Integrator & Infrastructure

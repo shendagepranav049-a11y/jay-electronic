@@ -42,8 +42,9 @@ function IndustriesSection() {
             <div className="industries-label-wrap">
               <span className="industries-label-line"></span>
               <p className="industries-label">INDUSTRIES WE SERVE</p>
+            <div className="purple-gold-line"></div>
             </div>
-            <h2>
+            <h2 className="text-shine">
               Tailored solutions for
               <span> diverse environments.</span>
             </h2>

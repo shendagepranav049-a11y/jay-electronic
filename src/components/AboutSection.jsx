@@ -66,6 +66,8 @@ function AboutSection() {
               ABOUT JAY ELECTRONICS
             </p>
             <div className="purple-gold-line"></div>
+            <div className="purple-gold-line"></div>
+            
           </div>
 
           <h2 style={{ whiteSpace: 'pre-line' }}>{content.heading}</h2>
