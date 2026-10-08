@@ -9,13 +9,7 @@
   min-height: 100vh;
   overflow-x: hidden;
 
-  background:
-    linear-gradient(
-      135deg,
-      #02070d 0%,
-      #07111f 45%,
-      #02070d 100%
-    );
+  background: var(--bg-main);
 }
 
 
@@ -49,9 +43,7 @@ nav {
   align-items: center;
   padding: 140px 7% 80px;
 
-  background:
-    linear-gradient(90deg, #000000f7, #000000d1, #14052352),
-    url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1800&q=90);
+  background: var(--bg-main);
   background-position: 50%;
   background-size: cover;
 
@@ -70,13 +62,7 @@ nav {
 
   inset: 0;
 
-  background:
-    linear-gradient(
-      90deg,
-      rgba(2, 7, 13, 0.35) 0%,
-      rgba(2, 7, 13, 0.15) 60%,
-      rgba(0, 170, 255, 0.05) 100%
-    );
+  background: var(--bg-main);
 
   z-index: 0;
 
@@ -277,14 +263,14 @@ nav {
 ========================================= */
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--cyan-light), var(--cyan));
+  background: var(--bg-main);
   color: #ffffff;
   border: 1px solid var(--cyan);
   box-shadow: 0 10px 30px var(--cyan-glow);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, var(--cyan), var(--cyan-dark));
+  background: var(--bg-main);
   border-color: var(--cyan-dark);
   transform: translateY(-4px);
   box-shadow: 0 15px 35px var(--cyan-glow);
@@ -313,13 +299,7 @@ nav {
 ========================================= */
 
 body {
-  background:
-    linear-gradient(
-      135deg,
-      #02070d 0%,
-      #07111f 50%,
-      #02070d 100%
-    );
+  background: var(--bg-main);
 
   color: #ffffff;
 }
@@ -580,7 +560,7 @@ body {
 .logo-icon {
   width: 20px;
   height: 20px;
-  background: linear-gradient(135deg, #10b981, #3b82f6);
+  background: var(--bg-main);
   border-radius: 4px 10px 4px 10px;
 }
 
@@ -606,7 +586,7 @@ body {
 }
 
 .navbar-admin-btn {
-  background: linear-gradient(135deg, #00e5ff, #66f0ff);
+  background: var(--bg-main);
   color: #000;
   border: none;
   border-radius: 8px;
