@@ -4,7 +4,7 @@
 
 .why-jay-section {
   position: relative;
-  padding: 160px 0;
+  padding: 180px 0;
   background: #0a0d10;
   overflow: hidden;
 }
@@ -44,7 +44,7 @@
   width: 40px;
   height: 2px;
   background: var(--accent-whyjay);
-  box-shadow: 0 0 10px var(--accent-whyjay);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .why-jay-label {
@@ -57,11 +57,11 @@
 
 .why-jay-header h2 {
   font-size: clamp(36px, 5vw, 56px);
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.1;
   color: var(--white);
   max-width: 800px;
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
 }
 
 .why-jay-header h2 span {
@@ -92,7 +92,7 @@
 
 .timeline-line-active {
   background: linear-gradient(180deg, transparent, var(--accent-whyjay), transparent);
-  box-shadow: 0 0 15px var(--accent-whyjay);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* Timeline Items */
@@ -126,7 +126,7 @@
   width: 20px;
   height: 20px;
   background: #0a0d10;
-  border: 3px solid var(--accent-whyjay);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 50%;
   box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
   z-index: 3;
@@ -161,7 +161,7 @@
   top: -40px;
   right: 20px;
   font-size: 100px;
-  font-weight: 900;
+  font-weight: 700;
   color: transparent;
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05);
   line-height: 1;
@@ -230,7 +230,7 @@
 
 @media (max-width: 768px) {
   .why-jay-section {
-    padding: 100px 0;
+    padding: 180px 0;
   }
   
   .why-jay-header h2 {

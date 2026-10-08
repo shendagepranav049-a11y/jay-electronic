@@ -27,7 +27,7 @@ function IndustriesSection() {
         viewport={{ once: true, amount: 0.2 }}
         variants={{
           hidden: {},
-          visible: { transition: { staggerChildren: 0.1 } }
+          visible: { transition: { staggerChildren: 0.15 } }
         }}
       >
 
@@ -35,7 +35,7 @@ function IndustriesSection() {
           className="industries-header"
           variants={{
             hidden: { opacity: 0, y: -20 },
-            visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+            visible: { opacity: 1, y: 0, transition: { duration: 1.2 } }
           }}
         >
           <div>

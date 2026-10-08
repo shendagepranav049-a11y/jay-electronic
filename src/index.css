@@ -176,34 +176,43 @@ a {
 
 /* GLOBAL UI CLASSES */
 .ui-card {
-  animation: cardReveal 0.8s both;
-  background: var(--black-card);
-  border-top: 3px solid var(--border);
-  border-radius: 13px;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
+  animation: cardReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
 }
 
 .ui-card:hover {
-  border-top-color: var(--cyan);
-  box-shadow: var(--shadow-cyan);
-  transform: translateY(-9px);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px);
 }
 
 .ui-button {
-  background: linear-gradient(135deg, var(--cyan-dark), var(--cyan));
-  border: none;
-  border-radius: 8px;
-  color: var(--white);
-  font-weight: 900;
+  background: var(--text-main);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: var(--bg-main);
+  font-weight: 600;
+  letter-spacing: -0.2px;
   overflow: hidden;
-  padding: 14px 25px;
+  padding: 14px 28px;
   position: relative;
-  transition: var(--transition);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   z-index: 1;
+}
+
+.ui-button:hover {
+  background: transparent;
+  color: var(--text-main);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
 }
 
 .ui-button::before {

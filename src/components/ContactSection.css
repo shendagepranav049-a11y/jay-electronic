@@ -4,7 +4,7 @@
 
 .contact-section {
   position: relative;
-  padding: 160px 0;
+  padding: 180px 0;
   background: var(--midnight-navy);
   overflow: hidden;
 }
@@ -56,11 +56,11 @@
 
 .contact-header h2 {
   font-size: clamp(36px, 5vw, 64px);
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.1;
   color: var(--white);
   max-width: 600px;
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
 }
 
 .contact-header h2 span {
@@ -252,7 +252,7 @@
 
 @media (max-width: 768px) {
   .contact-section {
-    padding: 100px 0;
+    padding: 180px 0;
   }
   
   .contact-header h2 {

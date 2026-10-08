@@ -22,27 +22,27 @@ function AboutSection() {
   const lineVariants = {
     hidden: { height: 0, opacity: 0 },
     visible: { 
-      height: 40, 
+      height: 60, 
       opacity: 1, 
-      transition: { duration: 0.8, ease: "easeOut" } 
+      transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } 
     }
   };
 
   const textVariants = {
-    hidden: { opacity: 0, x: -30 },
+    hidden: { opacity: 0, y: 20 },
     visible: { 
       opacity: 1, 
-      x: 0, 
-      transition: { duration: 0.7, ease: "easeOut" } 
+      y: 0, 
+      transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } 
     }
   };
   
   const rightVariants = {
-    hidden: { opacity: 0, x: 30 },
+    hidden: { opacity: 0, y: 30 },
     visible: { 
       opacity: 1, 
-      x: 0, 
-      transition: { duration: 0.7, ease: "easeOut" } 
+      y: 0, 
+      transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 } 
     }
   };
 

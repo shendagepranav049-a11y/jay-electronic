@@ -4,7 +4,7 @@
 
 .solutions-section {
   position: relative;
-  padding: 140px 0;
+  padding: 180px 0;
   background: var(--bg-main);
 }
 
@@ -33,7 +33,7 @@
   width: 40px;
   height: 2px;
   background: var(--accent-solutions);
-  box-shadow: 0 0 10px var(--accent-solutions);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .solutions-label {
@@ -46,7 +46,7 @@
 
 .solutions-header h2 {
   font-size: clamp(32px, 4vw, 52px);
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.1;
   color: var(--white);
   margin: 0;
@@ -127,7 +127,7 @@
 
 .solution-number {
   font-size: 54px;
-  font-weight: 900;
+  font-weight: 700;
   color: rgba(255, 255, 255, 0.03);
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
   margin-bottom: 20px;
@@ -176,7 +176,7 @@
 
 .solution-card:hover .hover-line {
   width: 100%;
-  box-shadow: 0 0 15px var(--accent-solutions);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 992px) {
@@ -189,7 +189,7 @@
 
 @media (max-width: 768px) {
   .solutions-section {
-    padding: 100px 0;
+    padding: 180px 0;
   }
   
   .solutions-header h2 {

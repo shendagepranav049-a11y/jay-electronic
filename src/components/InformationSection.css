@@ -4,7 +4,7 @@
 
 .information-section {
   position: relative;
-  padding: 160px 0;
+  padding: 180px 0;
   background: #12121a;
   overflow: hidden;
 }
@@ -75,7 +75,7 @@
   width: 50px;
   height: 1px;
   background: var(--accent-information);
-  box-shadow: 0 0 10px var(--accent-information);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .information-label {
@@ -88,11 +88,11 @@
 
 .information-glass-panel h2 {
   font-size: clamp(32px, 4vw, 56px);
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.1;
   color: var(--white);
   margin-bottom: 30px;
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
 }
 
 /* Animated Divider */
@@ -139,7 +139,7 @@
 
 @media (max-width: 768px) {
   .information-section {
-    padding: 100px 0;
+    padding: 180px 0;
   }
   
   .information-glass-panel {

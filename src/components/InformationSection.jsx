@@ -45,14 +45,14 @@ function InformationSection() {
         viewport={{ once: true, amount: 0.2 }}
         variants={{
           hidden: {},
-          visible: { transition: { staggerChildren: 0.2 } }
+          visible: { transition: { staggerChildren: 0.15 } }
         }}
       >
         <motion.div 
           className="information-glass-panel"
           variants={{
             hidden: { opacity: 0, x: 50 },
-            visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "circOut" } }
+            visible: { opacity: 1, x: 0, transition: { duration: 1.2, ease: "circOut" } }
           }}
         >
           <div className="information-label-wrap">
@@ -73,7 +73,7 @@ function InformationSection() {
             className="information-divider"
             variants={{
               hidden: { scaleX: 0, opacity: 0 },
-              visible: { scaleX: 1, opacity: 1, transition: { duration: 0.8, delay: 0.4 } }
+              visible: { scaleX: 1, opacity: 1, transition: { duration: 1.2, delay: 0.4 } }
             }}
           />
 

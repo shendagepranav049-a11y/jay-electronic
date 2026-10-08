@@ -61,7 +61,7 @@ function ProjectsSection() {
         <motion.div 
           className="projects-header"
           initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0, transition: { duration: 0.6 } }}
+          whileInView={{ opacity: 1, x: 0, transition: { duration: 1.2 } }}
           viewport={{ once: true }}
         >
           <div>
@@ -87,7 +87,7 @@ function ProjectsSection() {
           viewport={{ once: true, amount: 0.1 }}
           variants={{
             hidden: {},
-            visible: { transition: { staggerChildren: 0.2 } }
+            visible: { transition: { staggerChildren: 0.15 } }
           }}
         >
           {projectsList.map((project, index) => (
@@ -95,7 +95,7 @@ function ProjectsSection() {
               key={project.id || index}
               variants={{
                 hidden: { opacity: 0, clipPath: 'inset(0 100% 0 0)' },
-                visible: { opacity: 1, clipPath: 'inset(0 0% 0 0)', transition: { duration: 0.8, ease: "circOut" } }
+                visible: { opacity: 1, clipPath: 'inset(0 0% 0 0)', transition: { duration: 1.2, ease: "circOut" } }
               }}
               className="project-card ui-card"
             >
@@ -108,7 +108,7 @@ function ProjectsSection() {
                   alt={project.title} 
                   className="project-image"
                   whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.5 }}
+                  transition={{ duration: 1.2 }}
                 />
                 <motion.div 
                   className="project-overlay"

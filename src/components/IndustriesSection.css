@@ -4,7 +4,7 @@
 
 .industries-section {
   position: relative;
-  padding: 160px 0;
+  padding: 180px 0;
   background: #06131c;
 }
 
@@ -50,7 +50,7 @@
   width: 40px;
   height: 2px;
   background: var(--accent-industries);
-  box-shadow: 0 0 10px var(--accent-industries);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .industries-label {
@@ -63,7 +63,7 @@
 
 .industries-header h2 {
   font-size: clamp(32px, 4vw, 52px);
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.1;
   color: var(--white);
   margin: 0;
@@ -177,7 +177,7 @@
   left: 0;
   height: 2px;
   background: var(--accent-industries);
-  box-shadow: 0 0 10px var(--accent-industries);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 1200px) {
@@ -200,7 +200,7 @@
 
 @media (max-width: 768px) {
   .industries-section {
-    padding: 100px 0;
+    padding: 180px 0;
   }
   
   .industries-header h2 {

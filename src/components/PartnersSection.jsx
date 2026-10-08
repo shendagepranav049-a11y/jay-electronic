@@ -58,7 +58,7 @@ function PartnersSection() {
         viewport={{ once: true, amount: 0.1 }}
         variants={{
           hidden: {},
-          visible: { transition: { staggerChildren: 0.15 } }
+          visible: { transition: { staggerChildren: 0.155 } }
         }}
       >
 
@@ -66,7 +66,7 @@ function PartnersSection() {
           className="partners-header"
           variants={{
             hidden: { opacity: 0, y: -20 },
-            visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+            visible: { opacity: 1, y: 0, transition: { duration: 1.2 } }
           }}
         >
 
@@ -102,7 +102,7 @@ function PartnersSection() {
               key={group.number}
               variants={{
                 hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+                visible: { opacity: 1, y: 0, transition: { duration: 1.2 } }
               }}
             >
 
@@ -146,7 +146,7 @@ function PartnersSection() {
               <motion.div 
                 className="partner-line"
                 initial={{ width: 0 }}
-                whileInView={{ width: "100%", transition: { duration: 0.8, delay: index * 0.2 + 0.1 } }}
+                whileInView={{ width: "100%", transition: { duration: 1.2, delay: index * 0.2 + 0.1 } }}
                 viewport={{ once: true }}
               ></motion.div>
 
@@ -160,7 +160,7 @@ function PartnersSection() {
           className="partners-note"
           variants={{
             hidden: { opacity: 0, y: 20 },
-            visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+            visible: { opacity: 1, y: 0, transition: { duration: 1.2 } }
           }}
         >
 

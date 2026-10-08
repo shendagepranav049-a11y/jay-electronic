@@ -50,7 +50,7 @@ function WhyJaySection() {
           className="why-jay-header"
           variants={{
             hidden: { opacity: 0, y: 30 },
-            visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+            visible: { opacity: 1, y: 0, transition: { duration: 1.2 } }
           }}
         >
           <div className="why-jay-label-wrap">
@@ -76,7 +76,7 @@ function WhyJaySection() {
               viewport={{ once: true, margin: "-100px" }}
               variants={{
                 hidden: { opacity: 0, x: index % 2 === 0 ? -30 : 30 },
-                visible: { opacity: 1, x: 0, transition: { duration: 0.6, delay: 0.2 } }
+                visible: { opacity: 1, x: 0, transition: { duration: 1.2, delay: 0.2 } }
               }}
             >
               <div className="timeline-content">

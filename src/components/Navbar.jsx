@@ -77,7 +77,7 @@ function Navbar() {
       className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="navbar-container">
 
