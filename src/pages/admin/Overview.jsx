@@ -1,4 +1,17 @@
+import { motion } from "framer-motion";
+
 function Overview({ stats, setActiveTab }) {
+  const adminOptions = [
+    { id: "hero", label: "Hero Content", color: "#FF6B6B" },
+    { id: "about", label: "About Section", color: "#4ECDC4" },
+    { id: "why-jay", label: "Why Jay", color: "#FFE66D" },
+    { id: "solutions", label: "Solutions", color: "#1A535C" },
+    { id: "projects", label: "Projects", color: "#F7FFF7" },
+    { id: "industries", label: "Industries", color: "#FF9F1C" },
+    { id: "contact", label: "Contact Info", color: "#2EC4B6" },
+    { id: "footer", label: "Footer", color: "#E71D36" },
+  ];
+
   return (
     <div className="admin-overview">
       <div className="stats-grid">
@@ -16,9 +29,26 @@ function Overview({ stats, setActiveTab }) {
         </div>
       </div>
       
-      <div className="overview-welcome">
-        <h2>Welcome to Content Manager</h2>
-        <p>Select a section from the sidebar to manage your website content, update media, or review customer enquiries.</p>
+      <div className="overview-welcome" style={{ marginTop: '50px' }}>
+        <h2>Quick Access: Manage Website Content</h2>
+        <p>Select any of the moving options below to quickly edit that section of the website.</p>
+      </div>
+
+      {/* Marquee matching the Industries section style */}
+      <div className="admin-marquee-container">
+        <div className="admin-marquee-track">
+          {/* Duplicate the array twice for seamless infinite scrolling */}
+          {[...adminOptions, ...adminOptions, ...adminOptions].map((opt, index) => (
+            <div 
+              key={`\${opt.id}-\${index}`}
+              className="admin-marquee-item"
+              onClick={() => setActiveTab(opt.id)}
+            >
+              <span>{opt.label}</span>
+              <div className="admin-marquee-glow"></div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
