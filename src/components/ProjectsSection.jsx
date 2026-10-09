@@ -1,5 +1,6 @@
 import { useSiteCollection } from '../utils/firebaseUtils';
 import { motion } from "framer-motion";
+import { useState } from "react";
 import "./ProjectsSection.css";
 
 const fallbackProjects = [
@@ -12,7 +13,7 @@ const fallbackProjects = [
       { label: "Cameras", value: "500+" },
       { label: "Analytics", value: "12 Types" }
     ],
-    image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=1200&q=80"
   },
   {
     number: "02",
@@ -23,7 +24,7 @@ const fallbackProjects = [
       { label: "Endpoints", value: "5000+" },
       { label: "Fiber", value: "12km" }
     ],
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80"
   },
   {
     number: "03",
@@ -34,7 +35,7 @@ const fallbackProjects = [
       { label: "Sensors", value: "1200+" },
       { label: "Zones", value: "45" }
     ],
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80"
   },
   {
     number: "04",
@@ -45,115 +46,86 @@ const fallbackProjects = [
       { label: "Displays", value: "24x" },
       { label: "Uptime", value: "99.99%" }
     ],
-    image: "https://images.unsplash.com/photo-1541884323281-229d44c80cb1?auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1541884323281-229d44c80cb1?auto=format&fit=crop&w=1200&q=80"
   }
 ];
 
 function ProjectsSection() {
   const { data: dbProjects } = useSiteCollection("projects");
   const projectsList = dbProjects.length > 0 ? dbProjects : fallbackProjects;
+  
+  // By default, the first project is expanded
+  const [activeProject, setActiveProject] = useState(0);
 
   return (
-    <section className="projects-section" id="projects">
-      <div className="logo-watermark"></div>
-      <div className="projects-container">
+    <section className="projects-accordion-section" id="projects">
+      <div className="projects-accordion-container">
 
         <motion.div 
-          className="projects-header"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0, transition: { duration: 1.2 } }}
+          className="projects-accordion-header"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0, transition: { duration: 1 } }}
           viewport={{ once: true }}
         >
-          <div>
-            <div className="projects-label-wrap">
-              <span className="projects-label-line"></span>
-              <p className="projects-label">FEATURED PROJECTS</p>
-            <div className="purple-gold-line"></div>
-            </div>
-            <h2 className="text-shine">
-              Delivering excellence
-              <span> at scale.</span>
+          <div className="projects-title-left">
+            <p className="accordion-label">FEATURED PROJECTS</p>
+            <h2>
+              Delivering excellence <span>at scale.</span>
             </h2>
           </div>
-          <p className="projects-intro">
+          <p className="accordion-intro">
             Explore our portfolio of integrated technology deployments 
-            across government, enterprise, and industrial sectors.
+            across government, enterprise, and industrial sectors. 
+            <strong> Hover or tap a panel to expand.</strong>
           </p>
         </motion.div>
 
-        <motion.div 
-          className="projects-grid"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.15 } }
-          }}
-        >
-          {projectsList.map((project, index) => (
-            <motion.div
-              key={project.id || index}
-              variants={{
-                hidden: { opacity: 0, clipPath: 'inset(0 100% 0 0)' },
-                visible: { opacity: 1, clipPath: 'inset(0 0% 0 0)', transition: { duration: 1.2, ease: "circOut" } }
-              }}
-              className="project-card ui-card"
-            >
-              <div className="project-image-wrapper">
-                <div className="project-number">
-                  {project.number || `0\${index + 1}`}
+        {/* Interactive Image Accordion */}
+        <div className="accordion-gallery">
+          {projectsList.map((project, index) => {
+            const isActive = activeProject === index;
+            return (
+              <div 
+                key={index} 
+                className={`accordion-panel ${isActive ? 'active' : ''}`}
+                onMouseEnter={() => setActiveProject(index)}
+                onClick={() => setActiveProject(index)}
+                style={{ backgroundImage: `url(${project.image})` }}
+              >
+                {/* Always visible vertical title on non-active panels */}
+                <div className="panel-vertical-title">
+                  <span>{project.number}</span>
+                  <h4>{project.title}</h4>
                 </div>
-                <motion.img 
-                  src={project.image || "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80"} 
-                  alt={project.title} 
-                  className="project-image"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 1.2 }}
-                />
-                <motion.div 
-                  className="project-overlay"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                >
-                  <a href="#" className="project-view-btn">View Details</a>
-                </motion.div>
-              </div>
-              
-              <div className="project-content">
-                <div className="project-meta">
-                  <span className="project-location">
-                    <span className="icon">📍</span> 
-                    {project.location || 'Location missing'}
-                  </span>
-                </div>
-                
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                
-                {project.stats && (
-                  <div className="project-stats">
-                    {project.stats.map((stat, i) => (
-                      <div key={i} className="stat-item">
-                        <span className="stat-value">{stat.value}</span>
-                        <span className="stat-label">{stat.label}</span>
-                      </div>
-                    ))}
+
+                {/* Content overlay that fades in when active */}
+                <div className="panel-content-overlay">
+                  <div className="panel-content-inner">
+                    <div className="panel-badge">
+                      <span className="icon">📍</span> {project.location}
+                    </div>
+                    <h3>{project.title}</h3>
+                    <p>{project.description}</p>
+                    
+                    <div className="panel-stats">
+                      {project.stats && project.stats.map((stat, i) => (
+                        <div key={i} className="p-stat">
+                          <strong>{stat.value}</strong>
+                          <small>{stat.label}</small>
+                        </div>
+                      ))}
+                    </div>
+
+                    <button className="panel-btn">
+                      View Case Study
+                    </button>
                   </div>
-                )}
+                </div>
+                
               </div>
-            </motion.div>
-          ))}
-        </motion.div>
-        
-        <motion.div 
-          className="projects-footer"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0, transition: { delay: 0.5 } }}
-          viewport={{ once: true }}
-        >
-          <a href="#" className="btn-secondary">View All Projects</a>
-        </motion.div>
+            );
+          })}
+        </div>
 
       </div>
     </section>
