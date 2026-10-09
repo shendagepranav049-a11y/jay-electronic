@@ -1,223 +1,194 @@
 /* =========================================
-   INDUSTRIES SECTION - ENTERPRISE GRID
+   INDUSTRIES SECTION - WHITE CONTINUOUS MARQUEE
    ========================================= */
 
-.industries-section {
-  position: relative;
-  padding: 180px 0;
-  background: #06131c;
+.industries-white-section {
+  padding: 140px 0;
+  background-color: #FFFFFF; /* Pure White Background as requested */
+  color: #111111;
+  overflow: hidden;
 }
 
-/* Subtle background lines */
-.industries-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
-  background-size: 100px 100px;
-  pointer-events: none;
-}
-
-.industries-container {
-  max-width: 1400px;
+.industries-white-container {
+  width: min(1400px, 95%);
   margin: 0 auto;
-  padding: 0 5%;
-  position: relative;
-  z-index: 2;
 }
 
-.industries-header {
+/* Header Area */
+.industries-white-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  gap: 40px;
-  margin-bottom: 80px;
+  margin-bottom: 70px;
+  padding: 0 20px;
 }
 
-.industries-label-wrap {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 24px;
-}
-
-.industries-label-line {
-  width: 40px;
-  height: 2px;
-  background: var(--accent-industries);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-}
-
-.industries-label {
+.industries-white-label {
   font-size: 13px;
-  font-weight: 700;
-  color: var(--accent-industries);
+  font-weight: 800;
   letter-spacing: 3px;
-  margin: 0;
+  color: #9B59FF; /* Purple Accent */
+  margin-bottom: 15px;
 }
 
-.industries-header h2 {
-  font-size: clamp(32px, 4vw, 52px);
-  font-weight: 600;
+.industries-white-title {
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 800;
   line-height: 1.1;
-  color: var(--white);
-  margin: 0;
+  color: #111111;
   max-width: 600px;
 }
 
-.industries-header h2 span {
-  color: var(--text-muted);
+.industries-white-title span {
+  display: block;
+  color: #D4AF37; /* Gold Accent */
 }
 
-.industries-intro {
+.industries-white-intro {
   max-width: 450px;
-  font-size: 17px;
+  color: #666666;
   line-height: 1.7;
-  color: var(--text-muted);
-  margin: 0;
-  padding-bottom: 10px;
+  font-size: 16px;
 }
 
-/* Enterprise Grid */
-.industries-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+/* =========================================
+   INFINITE CONTINUOUS MARQUEE
+   ========================================= */
+.marquee-wrapper {
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+  /* Mask edges for a smooth fade-in/fade-out */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
-/* Industry Cards */
-.industry-card {
-  background: rgba(20, 40, 69, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 4px;
+.marquee-track {
+  display: flex;
+  width: max-content;
+  /* CSS Animation for continuous movement */
+  animation: scrollMarquee 35s linear infinite;
+  gap: 30px;
+  padding-left: 30px;
+}
+
+/* Marquee does NOT pause on hover, as requested */
+/* "move hot rahile pahijet contineu" */
+.marquee-track:hover {
+  /* animation-play-state: paused; (Removed to ensure continuous movement) */
+}
+
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* Scrolls exactly half the width since we duplicated the array */
+}
+
+/* =========================================
+   MARQUEE CARDS
+   ========================================= */
+.marquee-card {
+  width: 350px;
+  flex-shrink: 0;
+  cursor: pointer;
+  /* Perspective for a slight 3D touch effect */
+  perspective: 1000px; 
+}
+
+.marquee-card-inner {
+  background: #F8FAFC; /* Very light cool gray */
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
   padding: 40px 30px;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.4s ease;
-  backdrop-filter: blur(5px);
-  min-height: 280px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
 }
 
-.industry-card:hover {
-  background: rgba(0, 229, 255, 0.05);
-  border-color: rgba(0, 229, 255, 0.2);
-  transform: translateY(-5px);
-}
-
-.industry-icon {
-  width: 48px;
-  height: 48px;
+.marquee-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: #FFFFFF;
+  color: #D4AF37;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--accent-industries);
-  background: rgba(0, 229, 255, 0.1);
-  border-radius: 8px;
-  margin-bottom: 30px;
-  transition: all 0.3s ease;
+  margin-bottom: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
 }
 
-.industry-card:hover .industry-icon {
-  background: var(--accent-industries);
-  color: #000;
-  transform: scale(1.1);
-}
-
-.industry-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.industry-content h3 {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--white);
+.marquee-card-inner h3 {
+  font-size: 24px;
+  font-weight: 800;
+  color: #111111;
   margin-bottom: 15px;
-  transition: color 0.3s ease;
+  transition: color 0.4s ease;
 }
 
-.industry-card:hover .industry-content h3 {
-  color: var(--accent-industries);
-}
-
-.industry-content p {
-  font-size: 14px;
+.marquee-card-inner p {
+  font-size: 16px;
+  color: #64748B;
   line-height: 1.6;
-  color: var(--text-muted);
-  margin: 0;
+  transition: color 0.4s ease;
 }
 
-/* Connector Line (Design element) */
-.industry-connector-line {
-  position: absolute;
-  top: 64px;
-  left: 78px;
-  width: 50px;
-  height: 1px;
-  background: dashed 1px rgba(255, 255, 255, 0.1);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+/* =========================================
+   TOUCH / HOVER COLOR CHANGE EFFECT
+   ========================================= */
+/* "tyavrti touch kel ki diffent color disl pahijet" */
+.marquee-card:hover .marquee-card-inner,
+.marquee-card:active .marquee-card-inner {
+  /* Completely changes color on touch/hover */
+  background: linear-gradient(135deg, #9B59FF 0%, #6C2BD9 100%); /* Vibrant Purple */
+  border-color: #9B59FF;
+  box-shadow: 0 20px 40px rgba(155, 89, 255, 0.3);
+  transform: translateY(-10px) scale(1.02);
 }
 
-.industry-card:hover .industry-connector-line {
-  opacity: 1;
+.marquee-card:hover .marquee-icon,
+.marquee-card:active .marquee-icon {
+  background: #D4AF37; /* Gold */
+  color: #FFFFFF;
+  transform: rotate(15deg) scale(1.1);
 }
 
-.industry-hover-line {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  background: var(--accent-industries);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+.marquee-card:hover h3,
+.marquee-card:active h3 {
+  color: #FFFFFF;
 }
 
-@media (max-width: 1200px) {
-  .industries-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.marquee-card:hover p,
+.marquee-card:active p {
+  color: #F1F5F9;
 }
 
-@media (max-width: 992px) {
-  .industries-header {
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 1024px) {
+  .industries-white-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
   }
-  
-  .industries-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 @media (max-width: 768px) {
-  .industries-section {
-    padding: 180px 0;
+  .industries-white-section {
+    padding: 100px 0;
   }
-  
-  .industries-header h2 {
+  .industries-white-title {
     font-size: 32px;
   }
-  
-  .industries-grid {
-    grid-template-columns: 1fr;
+  .marquee-card {
+    width: 280px;
   }
-}
-
-.industry-card {
-  border: none;
-  border-left: 3px solid var(--gold);
-}
-.industry-card:hover {
-  border-color: transparent;
-  border-left-color: var(--purple);
-  transform: translateX(8px) translateY(-4px);
+  .marquee-card-inner {
+    padding: 30px 20px;
+  }
 }
