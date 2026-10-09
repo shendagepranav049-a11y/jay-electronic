@@ -29,7 +29,7 @@ function Overview({ stats, setActiveTab }) {
         </div>
       </div>
       
-      <div className="overview-welcome" style={{ marginTop: '50px' }}>
+      <div className="overview-welcome" style={{ marginTop: '20px' }}>
         <h2>Quick Access: Manage Website Content</h2>
         <p>Select any of the moving options below to quickly edit that section of the website.</p>
       </div>
