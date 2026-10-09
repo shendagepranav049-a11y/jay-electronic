@@ -1,27 +1,30 @@
 /* =========================================
-   CONTACT SECTION - HIGH CONVERSION
+   CONTACT SECTION - INTERACTIVE WHITE THEME
    ========================================= */
 
 .contact-section {
   position: relative;
-  padding: 180px 0;
-  background: var(--midnight-navy);
+  padding: 140px 0;
+  background-color: #FFFFFF; /* Pure White Background */
+  color: #111111;
   overflow: hidden;
 }
 
+/* Subtle background pattern */
 .contact-section::before {
   content: '';
   position: absolute;
-  top: -20%;
-  left: -10%;
-  width: 50%;
-  height: 50%;
-  background: radial-gradient(circle, rgba(0, 229, 255, 0.05) 0%, transparent 70%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(155, 89, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
   pointer-events: none;
 }
 
 .contact-container {
-  max-width: 1400px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 0 5%;
   position: relative;
@@ -29,7 +32,7 @@
 }
 
 .contact-header {
-  margin-bottom: 80px;
+  margin-bottom: 70px;
 }
 
 .contact-label-wrap {
@@ -39,32 +42,25 @@
   margin-bottom: 24px;
 }
 
-.contact-label-line {
-  width: 40px;
-  height: 2px;
-  background: var(--cyan);
-  box-shadow: 0 0 10px var(--cyan);
-}
-
 .contact-label {
   font-size: 13px;
-  font-weight: 700;
-  color: var(--cyan);
+  font-weight: 800;
+  color: #9B59FF; /* Purple Accent */
   letter-spacing: 4px;
   text-transform: uppercase;
 }
 
 .contact-header h2 {
   font-size: clamp(36px, 5vw, 64px);
-  font-weight: 600;
+  font-weight: 800;
   line-height: 1.1;
-  color: var(--white);
+  color: #111111;
   max-width: 600px;
-  letter-spacing: -0.5px;
+  letter-spacing: -1px;
 }
 
 .contact-header h2 span {
-  color: var(--text-muted);
+  color: #D4AF37; /* Gold Accent */
 }
 
 /* Layout */
@@ -77,51 +73,81 @@
 .contact-info {
   flex: 1;
   max-width: 500px;
+  padding: 40px;
+  background: #F8FAFC;
+  border-radius: 20px;
+  border: 1px solid #E2E8F0;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+}
+
+/* TOUCH / HOVER: "kshavrti pn touch kel kii move zal pahije anik colur genrate zal pahije" */
+.contact-info:hover,
+.contact-info:active {
+  transform: translateY(-10px) scale(1.02);
+  background: linear-gradient(135deg, #9B59FF, #D4AF37); /* Colorful Gradient Generate */
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: 0 30px 60px rgba(155, 89, 255, 0.2);
 }
 
 .contact-lead {
   font-size: 24px;
-  font-weight: 700;
-  color: var(--white);
+  font-weight: 800;
+  color: inherit;
   line-height: 1.4;
   margin-bottom: 25px;
+  transition: color 0.5s ease;
 }
 
 .contact-description {
   font-size: 16px;
   line-height: 1.7;
-  color: var(--text-muted);
-  margin-bottom: 60px;
+  color: #475569;
+  margin-bottom: 40px;
+  transition: color 0.5s ease;
+}
+
+.contact-info:hover .contact-description,
+.contact-info:active .contact-description {
+  color: #F8FAFC;
 }
 
 .contact-company {
   padding-left: 24px;
-  border-left: 2px solid rgba(0, 229, 255, 0.3);
+  border-left: 4px solid #D4AF37;
+  transition: border-color 0.5s ease;
+}
+
+.contact-info:hover .contact-company,
+.contact-info:active .contact-company {
+  border-left-color: #FFFFFF;
 }
 
 .contact-company-label {
   font-size: 14px;
-  font-weight: 700;
-  color: var(--cyan);
+  font-weight: 800;
+  color: inherit;
   letter-spacing: 2px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .contact-company-text {
   font-size: 15px;
   line-height: 1.6;
-  color: var(--text-muted);
+  color: inherit;
+  opacity: 0.8;
 }
 
 /* Form Styles */
 .contact-form {
   flex: 1.2;
-  background: rgba(20, 40, 69, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
   padding: 50px;
-  border-radius: 8px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+  transition: all 0.5s ease;
 }
 
 .contact-form-row {
@@ -139,25 +165,27 @@
 
 .contact-field label {
   font-size: 13px;
-  font-weight: 600;
-  color: var(--text-muted);
+  font-weight: 700;
+  color: #64748B;
   margin-bottom: 8px;
   letter-spacing: 0.5px;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .contact-field input,
 .contact-field select,
 .contact-field textarea {
   width: 100%;
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  padding: 16px 20px;
+  background: #F8FAFC;
+  border: 2px solid transparent; /* Start with transparent border */
+  border-radius: 12px;
+  padding: 18px 20px;
   font-family: inherit;
   font-size: 15px;
-  color: var(--white);
-  transition: all 0.3s ease;
+  color: #111111;
+  font-weight: 600;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
 .contact-field select {
@@ -168,24 +196,25 @@
   background-size: 10px auto;
 }
 
-.contact-field select option {
-  background: var(--bg-card);
-  color: var(--white);
-}
-
+/* TYPING / FOCUS EFFECT: "contach form bhartana type krtana color aale pahijet anik moveble zal pahije" */
 .contact-field input:focus,
 .contact-field select:focus,
 .contact-field textarea:focus {
   outline: none;
-  background: rgba(0, 0, 0, 0.4);
-  border-color: var(--cyan);
-  box-shadow: 0 0 0 4px rgba(0, 229, 255, 0.1);
+  background: #FFFFFF;
+  /* Color generate on focus */
+  border-color: #9B59FF; 
+  /* Moveable / Scale effect */
+  transform: scale(1.03) translateY(-4px); 
+  box-shadow: 0 15px 30px rgba(155, 89, 255, 0.15), inset 0 0 0 2px #D4AF37;
 }
 
-.contact-field input:focus + label,
-.contact-field select:focus + label,
-.contact-field textarea:focus + label {
-  color: var(--cyan);
+/* Make label color change when typing */
+.contact-field:has(input:focus) label,
+.contact-field:has(select:focus) label,
+.contact-field:has(textarea:focus) label {
+  color: #9B59FF;
+  transform: translateY(-2px);
 }
 
 .contact-submit-btn {
@@ -194,26 +223,28 @@
   align-items: center;
   justify-content: center;
   gap: 12px;
-  padding: 18px 30px;
-  background: var(--cyan);
-  color: #000;
+  padding: 20px 30px;
+  background: #111111;
+  color: #FFFFFF;
   border: none;
-  border-radius: 4px;
+  border-radius: 12px;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 800;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 10px;
 }
 
-.contact-submit-btn:hover:not(:disabled) {
-  background: var(--cyan-light);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px var(--cyan-glow);
+.contact-submit-btn:hover:not(:disabled),
+.contact-submit-btn:active:not(:disabled) {
+  background: linear-gradient(90deg, #9B59FF, #D4AF37);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
 }
 
 .contact-submit-btn:disabled {
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.3);
+  background: #E2E8F0;
+  color: #94A3B8;
   cursor: not-allowed;
 }
 
@@ -221,23 +252,26 @@
 .form-error {
   margin-top: 20px;
   padding: 16px 20px;
-  border-radius: 4px;
+  border-radius: 12px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
   animation: fadeUp 0.4s ease;
 }
 
 .form-success {
   background: rgba(16, 185, 129, 0.1);
-  color: #10b981;
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  color: #10B981;
 }
 
 .form-error {
   background: rgba(239, 68, 68, 0.1);
-  color: #ef4444;
-  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #EF4444;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 992px) {
@@ -252,7 +286,7 @@
 
 @media (max-width: 768px) {
   .contact-section {
-    padding: 180px 0;
+    padding: 100px 0;
   }
   
   .contact-header h2 {
