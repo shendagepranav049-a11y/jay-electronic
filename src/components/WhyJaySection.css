@@ -1,248 +1,189 @@
 /* =========================================
-   WHY JAY SECTION - TIMELINE THEME
+   WHY JAY SECTION - OBLONG MOVING PILLS
    ========================================= */
 
-.why-jay-section {
-  position: relative;
-  padding: 180px 0;
-  background: #0a0d10;
+.why-jay-oblong-section {
+  padding: 140px 0;
+  /* Dark Bronze / Mocha background (Very distinct from black/blue/burgundy) */
+  background: linear-gradient(135deg, #1F1712 0%, #110B08 100%);
+  color: #FFFFFF;
   overflow: hidden;
 }
 
-.why-jay-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at right center, rgba(16, 185, 129, 0.05), transparent 60%);
-  pointer-events: none;
-}
-
-.why-jay-container {
-  max-width: 1200px;
+.why-jay-oblong-container {
+  width: min(1200px, 95%);
   margin: 0 auto;
-  padding: 0 5%;
-  position: relative;
-  z-index: 2;
 }
 
-.why-jay-header {
+/* Header Area */
+.why-jay-oblong-header {
   text-align: center;
+  margin-bottom: 80px;
+}
+
+.oblong-label {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #D4AF37; /* Gold Accent */
+  margin-bottom: 15px;
+}
+
+.why-jay-oblong-header h2 {
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #FFFFFF;
+}
+
+.why-jay-oblong-header h2 span {
+  display: block;
+  color: #9B59FF; /* Purple Accent */
+}
+
+/* =========================================
+   OBLONG MOVING CARDS
+   ========================================= */
+.oblong-cards-grid {
   display: flex;
   flex-direction: column;
+  gap: 35px;
   align-items: center;
-  margin-bottom: 100px;
 }
 
-.why-jay-label-wrap {
+/* The Oblong (Pill) Shape */
+.oblong-card {
+  width: 100%;
+  max-width: 900px;
+  /* Continuous Moving Animation */
+  animation: oblongFloat 6s ease-in-out infinite alternate;
+}
+
+/* Delays to make them move independently */
+.oblong-delay-1 { animation-delay: 0s; }
+.oblong-delay-2 { animation-delay: 1.5s; }
+.oblong-delay-3 { animation-delay: 3s; }
+.oblong-delay-4 { animation-delay: 4.5s; }
+
+@keyframes oblongFloat {
+  0% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-15px) translateX(10px); }
+  100% { transform: translateY(10px) translateX(-5px); }
+}
+
+.oblong-card-inner {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: 30px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  /* Make it Oblong / Capsule Shaped */
+  border-radius: 100px; 
+  padding: 30px 40px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
 }
 
-.why-jay-label-line {
-  width: 40px;
-  height: 2px;
-  background: var(--accent-whyjay);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+.oblong-number-circle {
+  flex-shrink: 0;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.1);
+  color: #D4AF37;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 900;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  transition: all 0.5s ease;
+  z-index: 2;
 }
 
-.why-jay-label {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--accent-whyjay);
-  letter-spacing: 4px;
-  text-transform: uppercase;
+.oblong-text {
+  flex-grow: 1;
+  z-index: 2;
 }
 
-.why-jay-header h2 {
-  font-size: clamp(36px, 5vw, 56px);
-  font-weight: 600;
-  line-height: 1.1;
-  color: var(--white);
-  max-width: 800px;
-  letter-spacing: -0.5px;
+.oblong-text h3 {
+  font-size: 24px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+  transition: color 0.5s ease;
 }
 
-.why-jay-header h2 span {
-  color: var(--text-muted);
+.oblong-text p {
+  color: #A1A1AA;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  transition: color 0.5s ease;
 }
 
-/* Timeline Setup */
-.why-jay-timeline {
-  position: relative;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 40px 0;
-}
-
-.timeline-line-bg,
-.timeline-line-active {
+/* =========================================
+   TOUCH / HOVER COLOR CHANGE EFFECT
+   ========================================= */
+.oblong-hover-glow {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
-}
-
-.timeline-line-bg {
-  height: 100%;
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.timeline-line-active {
-  background: linear-gradient(180deg, transparent, var(--accent-whyjay), transparent);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-}
-
-/* Timeline Items */
-.timeline-item {
-  position: relative;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-bottom: 80px;
-  width: 50%;
-  padding-right: 60px;
-}
-
-.timeline-item:nth-child(even) {
-  align-self: flex-end;
-  justify-content: flex-start;
-  padding-left: 60px;
-  padding-right: 0;
-  margin-left: 50%;
-}
-
-.timeline-item:last-child {
-  margin-bottom: 0;
-}
-
-.timeline-dot {
-  position: absolute;
-  right: -10px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  background: #0a0d10;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 50%;
-  box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
-  z-index: 3;
-}
-
-.timeline-item:nth-child(even) .timeline-dot {
-  left: -10px;
-  right: auto;
-}
-
-/* Content Box */
-.timeline-content {
-  position: relative;
-  background: rgba(20, 40, 69, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 4px;
-  padding: 40px;
-  backdrop-filter: blur(10px);
-  transition: all 0.4s ease;
+  left: 0;
   width: 100%;
-}
-
-.timeline-item:hover .timeline-content {
-  background: rgba(16, 185, 129, 0.05);
-  border-color: rgba(16, 185, 129, 0.2);
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-}
-
-.timeline-number {
-  position: absolute;
-  top: -40px;
-  right: 20px;
-  font-size: 100px;
-  font-weight: 700;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05);
-  line-height: 1;
+  height: 100%;
+  /* Dramatic Gold Color Change */
+  background: linear-gradient(90deg, #D4AF37, #F8E7A1);
+  opacity: 0;
   z-index: 0;
-  transition: all 0.4s ease;
+  transition: opacity 0.5s ease;
 }
 
-.timeline-item:nth-child(even) .timeline-number {
-  right: auto;
-  left: 20px;
+.oblong-card-inner:hover,
+.oblong-card-inner:active {
+  border-color: #D4AF37;
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
 }
 
-.timeline-item:hover .timeline-number {
-  -webkit-text-stroke: 1.5px var(--accent-whyjay);
-  text-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
+.oblong-card-inner:hover .oblong-hover-glow,
+.oblong-card-inner:active .oblong-hover-glow {
+  opacity: 1; /* Shows the full gold background */
 }
 
-.timeline-content h3 {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 15px;
-  position: relative;
-  z-index: 2;
+/* Change text to dark when background becomes bright gold */
+.oblong-card-inner:hover .oblong-text h3,
+.oblong-card-inner:active .oblong-text h3 {
+  color: #110B08;
 }
 
-.timeline-content p {
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--text-muted);
-  position: relative;
-  z-index: 2;
+.oblong-card-inner:hover .oblong-text p,
+.oblong-card-inner:active .oblong-text p {
+  color: #2C1F16;
 }
 
-@media (max-width: 992px) {
-  .why-jay-timeline {
-    padding-left: 30px;
-  }
-  
-  .timeline-line-bg,
-  .timeline-line-active {
-    left: 30px;
-  }
-  
-  .timeline-item {
-    width: 100%;
-    padding-left: 60px;
-    padding-right: 0;
-    justify-content: flex-start;
-  }
-  
-  .timeline-item:nth-child(even) {
-    margin-left: 0;
-  }
-  
-  .timeline-dot {
-    left: -10px !important;
-    right: auto !important;
-  }
-  
-  .timeline-number {
-    right: 20px !important;
-    left: auto !important;
-  }
+.oblong-card-inner:hover .oblong-number-circle,
+.oblong-card-inner:active .oblong-number-circle {
+  background: #110B08;
+  color: #D4AF37;
+  border-color: #110B08;
 }
 
+/* =========================================
+   RESPONSIVE
+   ========================================= */
 @media (max-width: 768px) {
-  .why-jay-section {
-    padding: 180px 0;
-  }
-  
-  .why-jay-header h2 {
-    font-size: 32px;
-  }
-  
-  .timeline-content {
+  .oblong-card-inner {
+    flex-direction: column;
+    text-align: center;
+    border-radius: 40px; /* Still oblong but more vertical on mobile */
     padding: 30px 20px;
+    gap: 15px;
   }
-  
-  .timeline-number {
-    font-size: 60px;
-    top: -20px;
+
+  .why-jay-oblong-header h2 {
+    font-size: 32px;
   }
 }
