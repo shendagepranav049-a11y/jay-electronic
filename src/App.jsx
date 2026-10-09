@@ -20,6 +20,7 @@ import FloatingWhatsApp from "./components/FloatingWhatsApp";
 
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard.jsx";
+import TouchBubbles from "./components/TouchBubbles";
 
 function PublicWebsite() {
   return (
@@ -67,6 +68,7 @@ function PublicWebsite() {
 
 function App() {
   return (
+    <>
     <BrowserRouter>
 
       <Routes>
@@ -92,6 +94,8 @@ function App() {
       </Routes>
 
     </BrowserRouter>
+      <TouchBubbles />
+    </>
   );
 }
 
