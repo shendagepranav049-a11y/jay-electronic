@@ -4,9 +4,8 @@
 
 .why-jay-oblong-section {
   padding: 140px 0;
-  /* Dark Bronze / Mocha background (Very distinct from black/blue/burgundy) */
-  background: linear-gradient(135deg, #1F1712 0%, #110B08 100%);
-  color: #FFFFFF;
+  background-color: #FAF7F2; /* Warm Luxury Sand/Beige matching Solutions */
+  color: #111111;
   overflow: hidden;
 }
 
@@ -33,7 +32,7 @@
   font-size: clamp(32px, 4vw, 56px);
   font-weight: 800;
   line-height: 1.1;
-  color: #FFFFFF;
+  color: #111111;
 }
 
 .why-jay-oblong-header h2 span {
@@ -76,9 +75,9 @@
   display: flex;
   align-items: center;
   gap: 30px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(212, 175, 55, 0.15);
-  /* Make it Oblong / Capsule Shaped */
+  background: #FFFFFF; /* White card on sand background */
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   border-radius: 100px; 
   padding: 30px 40px;
   overflow: hidden;
@@ -112,13 +111,13 @@
 .oblong-text h3 {
   font-size: 24px;
   font-weight: 800;
-  color: #FFFFFF;
+  color: #111111;
   margin-bottom: 8px;
   transition: color 0.5s ease;
 }
 
 .oblong-text p {
-  color: #A1A1AA;
+  color: #666666;
   font-size: 16px;
   line-height: 1.5;
   margin: 0;
