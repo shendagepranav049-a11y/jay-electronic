@@ -163,6 +163,16 @@ function AdminDashboard() {
 
       {/* Main Content Area */}
       <main className="admin-main">
+        
+        {/* Admin Dashboard Hero Banner */}
+        <div className="admin-hero-banner">
+          <div className="admin-hero-overlay"></div>
+          <div className="admin-hero-content">
+            <h1>Welcome to the Control Center</h1>
+            <p>Manage your Jay Electronics website, content, and enquiries.</p>
+          </div>
+        </div>
+
         <header className="admin-header">
           <h1>{tabs.find(t => t.id === activeTab)?.label || "Dashboard"}</h1>
           <a href="/" target="_blank" rel="noreferrer" className="admin-preview-btn">
