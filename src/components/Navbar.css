@@ -247,6 +247,56 @@
   transform: scaleX(1);
 }
 
+/* =========================================
+   ADMIN BUTTON
+   ========================================= */
+
+.navbar-admin-btn {
+  position: relative;
+  height: 38px;
+  margin-left: 15px;
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.navbar-admin-btn::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(90deg, #9B59FF, #00E5FF);
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 0.3s ease;
+}
+
+.navbar-admin-btn:hover {
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 229, 255, 0.2);
+}
+
+.navbar-admin-btn:hover::before {
+  opacity: 1;
+}
+
+.admin-btn-text, .navbar-admin-btn svg {
+  position: relative;
+  z-index: 1;
+}
+
 
 /* =========================================
    CONTACT BUTTON
