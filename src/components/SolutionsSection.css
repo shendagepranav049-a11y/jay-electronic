@@ -1,198 +1,215 @@
 /* =========================================
-   SOLUTIONS SECTION - INTERACTIVE TECHNOLOGY
+   SOLUTIONS SECTION - WARM SAND SLIDER
    ========================================= */
 
-.solutions-section {
-  position: relative;
-  padding: 180px 0;
-  background: var(--bg-main);
+.solutions-slider-section {
+  padding: 140px 0;
+  background-color: #FAF7F2; /* Warm Luxury Sand/Beige (No Black, No Blue) */
+  color: #1A1A1A;
+  overflow: hidden;
 }
 
-.solutions-container {
-  max-width: 1400px;
+.solutions-slider-container {
+  width: min(1400px, 95%);
   margin: 0 auto;
-  padding: 0 5%;
 }
 
-.solutions-header {
+/* Header Area */
+.solutions-slider-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  gap: 40px;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
+  padding: 0 15px;
 }
 
-.solutions-label-wrap {
+.solutions-title-area {
+  max-width: 700px;
+}
+
+.solutions-slider-label {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #9B7715; /* Deep Gold */
+  margin-bottom: 15px;
+}
+
+.solutions-slider-heading {
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #111;
+}
+
+.solutions-slider-heading span {
+  display: block;
+  color: #9B7715;
+}
+
+/* Slider Nav Arrows */
+.solutions-slider-nav {
+  display: flex;
+  gap: 15px;
+}
+
+.slider-arrow {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #E5DFD3;
+  background: transparent;
+  color: #111;
+  font-size: 20px;
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 24px;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.solutions-label-line {
-  width: 40px;
-  height: 2px;
-  background: var(--accent-solutions);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+.slider-arrow:hover, .slider-arrow:active {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+  transform: scale(1.05);
 }
 
-.solutions-label {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--accent-solutions);
-  letter-spacing: 3px;
-  margin: 0;
-}
-
-.solutions-header h2 {
-  font-size: clamp(32px, 4vw, 52px);
-  font-weight: 600;
-  line-height: 1.1;
-  color: var(--white);
-  margin: 0;
-  max-width: 600px;
-}
-
-.solutions-header h2 span {
-  color: var(--text-muted);
-}
-
-.solutions-intro {
-  max-width: 450px;
-  font-size: 17px;
-  line-height: 1.7;
-  color: var(--text-muted);
-  margin: 0;
-  padding-bottom: 10px;
-}
-
-/* Grid */
-.solutions-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+/* Horizontal Slider Wrapper */
+.solutions-slider-wrapper {
+  display: flex;
   gap: 30px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 20px 15px 60px; /* Padding for shadows */
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar IE/Edge */
 }
 
-/* Technical Cards */
-.solution-card {
+.solutions-slider-wrapper::-webkit-scrollbar {
+  display: none; /* Hide scrollbar Chrome/Safari */
+}
+
+/* Individual Slide Card */
+.solution-slide-card {
+  flex: 0 0 320px; /* Fixed width for slides */
+  height: 380px;
+  scroll-snap-align: start;
+  perspective: 1000px; /* For 3D flip effect */
+  cursor: pointer;
+}
+
+.slide-card-inner {
   position: relative;
-  background: var(--midnight-navy);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+
+/* Hover & Touch effect -> Flips the card to change color completely */
+.solution-slide-card:hover .slide-card-inner,
+.solution-slide-card:active .slide-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front & Back Base Styles */
+.slide-card-front, .slide-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 20px;
   padding: 40px 30px;
-  border-radius: 4px;
-  overflow: hidden;
-  transition: all 0.4s ease;
   display: flex;
   flex-direction: column;
 }
 
-/* Technical Corner Accents */
-.solution-card::before,
-.solution-card::after {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  transition: all 0.4s ease;
-  opacity: 0;
+/* FRONT FACE (White/Clean) */
+.slide-card-front {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  justify-content: space-between;
 }
 
-.solution-card::before {
-  top: 0;
-  left: 0;
-  border-top: 2px solid var(--accent-solutions);
-  border-left: 2px solid var(--accent-solutions);
+.slide-number {
+  font-size: 48px;
+  font-weight: 900;
+  color: #F0EBE1; /* Very light sand */
+  line-height: 1;
 }
 
-.solution-card::after {
-  bottom: 0;
-  right: 0;
-  border-bottom: 2px solid var(--accent-solutions);
-  border-right: 2px solid var(--accent-solutions);
-}
-
-.solution-card:hover::before,
-.solution-card:hover::after {
-  opacity: 1;
-  width: 100%;
-  height: 100%;
-}
-
-.solution-card:hover {
-  background: rgba(20, 40, 69, 0.8);
-  border-color: rgba(0, 229, 255, 0.2);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 0 40px rgba(0, 229, 255, 0.05);
-  transform: translateY(-5px);
-}
-
-.solution-number {
-  font-size: 54px;
+.slide-card-front h3 {
+  font-size: 24px;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.03);
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
-  margin-bottom: 20px;
-  transition: all 0.4s ease;
-  z-index: 2;
+  color: #111;
+  margin-top: auto;
+  margin-bottom: 25px;
 }
 
-.solution-card:hover .solution-number {
-  color: transparent;
-  -webkit-text-stroke: 1px var(--accent-solutions);
-  text-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+.slide-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #FAF7F2;
+  color: #9B7715;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.solution-card h3 {
+/* BACK FACE (Color Change on Touch/Hover) */
+.slide-card-back {
+  /* Rich Gold/Purple gradient for a dramatic color change */
+  background: linear-gradient(135deg, #9B59FF, #D4AF37);
+  color: #fff;
+  transform: rotateY(180deg);
+  box-shadow: 0 20px 40px rgba(155, 89, 255, 0.3);
+  justify-content: center;
+}
+
+.slide-number-back {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 24px;
+  font-weight: 800;
+  opacity: 0.3;
+}
+
+.slide-card-back h3 {
   font-size: 22px;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 15px;
-  z-index: 2;
-  transition: color 0.3s ease;
+  font-weight: 800;
+  margin-bottom: 20px;
 }
 
-.solution-card:hover h3 {
-  color: var(--accent-solutions);
+.slide-card-back p {
+  font-size: 16px;
+  line-height: 1.7;
+  opacity: 0.95;
 }
 
-.solution-card p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--text-muted);
-  margin: 0;
-  z-index: 2;
-}
-
-/* Hover Animated Line */
-.solution-card .hover-line {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 3px;
-  background: var(--accent-solutions);
-  transition: width 0.4s ease;
-  z-index: 3;
-}
-
-.solution-card:hover .hover-line {
-  width: 100%;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 992px) {
-  .solutions-header {
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 900px) {
+  .solutions-slider-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    gap: 30px;
+  }
+  .solutions-slider-nav {
+    display: none; /* Hide custom arrows on mobile, users will naturally swipe */
   }
 }
 
-@media (max-width: 768px) {
-  .solutions-section {
-    padding: 180px 0;
+@media (max-width: 600px) {
+  .solutions-slider-section {
+    padding: 100px 0;
   }
-  
-  .solutions-header h2 {
-    font-size: 32px;
+  .solution-slide-card {
+    flex: 0 0 85vw; /* Almost full width on mobile */
   }
 }
