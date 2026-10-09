@@ -4,7 +4,8 @@
 
 .projects-accordion-section {
   padding: 140px 0;
-  background-color: #0B0B14; /* Deep Midnight Indigo Background */
+  /* Deep Premium Burgundy/Crimson (Not Blue, Not Black) */
+  background: linear-gradient(135deg, #2A0811 0%, #1A050B 100%);
   color: #FFFFFF;
   overflow: hidden;
 }
@@ -93,9 +94,9 @@
   inset: 0;
   background: linear-gradient(
     to right, 
-    rgba(11, 11, 20, 0.9) 0%, 
-    rgba(11, 11, 20, 0.4) 50%,
-    rgba(11, 11, 20, 0) 100%
+    rgba(42, 8, 17, 0.95) 0%, 
+    rgba(42, 8, 17, 0.5) 50%,
+    rgba(42, 8, 17, 0) 100%
   );
   opacity: 0;
   transition: opacity 0.8s ease;
