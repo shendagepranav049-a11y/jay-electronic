@@ -16,7 +16,7 @@ import WhyJaySection from "./components/WhyJaySection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
-import FloatingWhatsApp from "./components/FloatingWhatsApp";
+import FloatingSocialActions from "./components/FloatingSocialActions";
 
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard.jsx";
@@ -59,8 +59,8 @@ function PublicWebsite() {
       {/* FOOTER */}
       <Footer />
       
-      {/* FLOATING WHATSAPP */}
-      <FloatingWhatsApp />
+      {/* FLOATING QUICK ACTIONS (WHATSAPP, INSTAGRAM, FACEBOOK) */}
+      <FloatingSocialActions />
     </>
   );
 }

@@ -189,4 +189,96 @@
     text-align: center;
     width: 100%;
   }
+
+  .hero-social-connect {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+/* =========================================================
+   HERO SOCIAL CONNECT (WHATSAPP, INSTAGRAM, FACEBOOK)
+   ========================================================= */
+
+.hero-social-connect {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.hero-social-label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.hero-social-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 50px;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.hero-social-btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.hero-wa-btn {
+  background: rgba(37, 211, 102, 0.15);
+  color: #25D366;
+  border: 1px solid rgba(37, 211, 102, 0.35);
+}
+
+.hero-wa-btn:hover {
+  background: #25D366;
+  color: #ffffff;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45);
+}
+
+.hero-ig-btn {
+  background: rgba(225, 48, 108, 0.15);
+  color: #f06595;
+  border: 1px solid rgba(225, 48, 108, 0.35);
+}
+
+.hero-ig-btn:hover {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  color: #ffffff;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(214, 36, 159, 0.45);
+}
+
+.hero-fb-btn {
+  background: rgba(24, 119, 242, 0.15);
+  color: #4599ff;
+  border: 1px solid rgba(24, 119, 242, 0.35);
+}
+
+.hero-fb-btn:hover {
+  background: #1877F2;
+  color: #ffffff;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(24, 119, 242, 0.45);
 }

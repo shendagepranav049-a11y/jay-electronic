@@ -302,3 +302,86 @@
     gap: 0;
   }
 }
+
+/* =========================================================
+   CONTACT SOCIAL CHANNELS
+   ========================================================= */
+
+.contact-social-channels {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.contact-social-title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #64748b;
+  margin-bottom: 14px;
+}
+
+.contact-social-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.contact-social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 18px;
+  border-radius: 50px;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.contact-social-pill svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.contact-wa-pill {
+  background: rgba(37, 211, 102, 0.1);
+  color: #128c7e;
+  border: 1.5px solid rgba(37, 211, 102, 0.3);
+}
+
+.contact-wa-pill:hover {
+  background: #25D366;
+  color: #ffffff;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 22px rgba(37, 211, 102, 0.35);
+}
+
+.contact-ig-pill {
+  background: rgba(225, 48, 108, 0.1);
+  color: #c13584;
+  border: 1.5px solid rgba(225, 48, 108, 0.3);
+}
+
+.contact-ig-pill:hover {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  color: #ffffff;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 22px rgba(214, 36, 159, 0.35);
+}
+
+.contact-fb-pill {
+  background: rgba(24, 119, 242, 0.1);
+  color: #1877F2;
+  border: 1.5px solid rgba(24, 119, 242, 0.3);
+}
+
+.contact-fb-pill:hover {
+  background: #1877F2;
+  color: #ffffff;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 22px rgba(24, 119, 242, 0.35);
+}
