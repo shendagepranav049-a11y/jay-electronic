@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { auth, db } from "../firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { collection, query, orderBy, getDocs } from "firebase/firestore";
+import { collection, getDocs, doc, setDoc, serverTimestamp, onSnapshot } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/je-logo.png";
 import "./AdminDashboard.css";
@@ -22,33 +22,57 @@ function AdminDashboard() {
 
   async function fetchStats() {
     try {
-      const qE = query(collection(db, "enquiries"));
-      const snapE = await getDocs(qE);
-      
-      const qP = query(collection(db, "projects"));
-      const snapP = await getDocs(qP);
+      try {
+        const snapE = await getDocs(collection(db, "enquiries"));
+        setStats(prev => ({ ...prev, enquiries: snapE.size }));
+      } catch (err) {
+        console.warn("Could not fetch enquiries count:", err);
+      }
 
-      const qS = query(collection(db, "solutions"));
-      const snapS = await getDocs(qS);
-      
-      setStats({
-        enquiries: snapE.size,
-        projects: snapP.size,
-        solutions: snapS.size
-      });
-    } catch (e) {
-      console.error(e);
+      try {
+        const snapP = await getDocs(collection(db, "projects"));
+        setStats(prev => ({ ...prev, projects: snapP.size }));
+      } catch (err) {
+        console.warn("Could not fetch projects count:", err);
+      }
+
+      try {
+        const snapS = await getDocs(collection(db, "solutions"));
+        setStats(prev => ({ ...prev, solutions: snapS.size }));
+      } catch (err) {
+        console.warn("Could not fetch solutions count:", err);
+      }
     } finally {
       setLoading(false);
     }
-  };
+  }
 
   useEffect(() => {
-    const unsubscribeAuth = onAuthStateChanged(auth, (currentUser) => {
+    // Live enquiries count listener
+    const unsubEnquiries = onSnapshot(collection(db, "enquiries"), (snap) => {
+      setStats(prev => ({ ...prev, enquiries: snap.size }));
+    }, (err) => {
+      console.warn("Enquiries live count listener error:", err);
+    });
+    return () => unsubEnquiries();
+  }, []);
+
+  useEffect(() => {
+    const unsubscribeAuth = onAuthStateChanged(auth, async (currentUser) => {
       if (!currentUser) {
         navigate("/admin/login");
       } else {
         setUser(currentUser);
+        // Ensure admin document exists in Firestore for permissions
+        try {
+          await setDoc(doc(db, "admins", currentUser.uid), {
+            email: currentUser.email,
+            role: "admin",
+            lastActive: serverTimestamp()
+          }, { merge: true });
+        } catch (e) {
+          console.warn("Admin record sync warning:", e);
+        }
         fetchStats();
       }
     });
