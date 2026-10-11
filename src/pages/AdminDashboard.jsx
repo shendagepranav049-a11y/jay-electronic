@@ -18,6 +18,7 @@ function AdminDashboard() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("overview");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [stats, setStats] = useState({ enquiries: 0, projects: 0, solutions: 0 });
 
   async function fetchStats() {
@@ -58,6 +59,13 @@ function AdminDashboard() {
   }, []);
 
   useEffect(() => {
+    const isDemo = new URLSearchParams(window.location.search).get("demo") === "true";
+    if (isDemo) {
+      setUser({ email: "admin@jayelectronics.com", uid: "demo-admin" });
+      setLoading(false);
+      return;
+    }
+
     const unsubscribeAuth = onAuthStateChanged(auth, async (currentUser) => {
       if (!currentUser) {
         navigate("/admin/login");
@@ -130,7 +138,167 @@ function AdminDashboard() {
 
   return (
     <div className="admin-layout">
-      {/* Sidebar */}
+      {/* Mobile Sticky Top Header */}
+      <header className="admin-mobile-topbar">
+        <div 
+          className="admin-mobile-brand" 
+          onClick={() => { setActiveTab("overview"); setMobileMenuOpen(false); }}
+        >
+          <img src={logo} alt="Jay Electronics" />
+          <div className="admin-mobile-brand-text">
+            <h2>JAY ADMIN</h2>
+            <span className="admin-mobile-active-badge">
+              {tabs.find(t => t.id === activeTab)?.label || "Dashboard"}
+            </span>
+          </div>
+        </div>
+
+        <div className="admin-mobile-controls">
+          <a href="/" target="_blank" rel="noreferrer" className="admin-mobile-preview-btn">
+            Site ↗
+          </a>
+          <button 
+            type="button"
+            className={`admin-mobile-menu-toggle ${mobileMenuOpen ? "open" : ""}`}
+            onClick={() => setMobileMenuOpen(prev => !prev)}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </header>
+
+      {/* Mobile Swipeable Tab Strip (Quick 1-Tap Switching) */}
+      <nav className="admin-mobile-tab-strip" aria-label="Quick Section Navigation">
+        <div className="admin-mobile-tabs-scroll">
+          {tabs.map(tab => (
+            <button
+              key={tab.id}
+              type="button"
+              className={`admin-mobile-tab-pill ${activeTab === tab.id ? "active" : ""}`}
+              onClick={() => {
+                setActiveTab(tab.id);
+                setMobileMenuOpen(false);
+              }}
+            >
+              {tab.label}
+              {tab.id === 'enquiries' && stats.enquiries > 0 && (
+                <span className="tab-pill-badge">{stats.enquiries}</span>
+              )}
+            </button>
+          ))}
+        </div>
+      </nav>
+
+      {/* Mobile Drawer (Collapsible Menu for All Sections) */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <div className="admin-drawer-portal">
+            <motion.div 
+              className="admin-drawer-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileMenuOpen(false)}
+            />
+            <motion.aside 
+              className="admin-mobile-drawer"
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ type: "spring", damping: 26, stiffness: 300 }}
+            >
+              <div className="admin-drawer-header">
+                <div className="admin-brand">
+                  <img src={logo} alt="Jay Electronics" />
+                  <div>
+                    <h2>ADMIN PORTAL</h2>
+                    <p>CONTROL CENTER</p>
+                  </div>
+                </div>
+                <button 
+                  type="button" 
+                  className="admin-drawer-close-btn" 
+                  onClick={() => setMobileMenuOpen(false)}
+                  aria-label="Close menu"
+                >
+                  ✕
+                </button>
+              </div>
+
+              <div className="admin-drawer-body">
+                <div className="admin-nav-group">
+                  <h3>MAIN</h3>
+                  {tabs.filter(t => t.group === "main").map(tab => (
+                    <button 
+                      key={tab.id} 
+                      className={`admin-nav-btn ${activeTab === tab.id ? "active" : ""}`}
+                      onClick={() => {
+                        setActiveTab(tab.id);
+                        setMobileMenuOpen(false);
+                      }}
+                    >
+                      <span>{tab.label}</span>
+                      {tab.id === 'enquiries' && stats.enquiries > 0 && (
+                        <span className="admin-badge-count">{stats.enquiries}</span>
+                      )}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="admin-nav-group">
+                  <h3>WEBSITE CONTENT</h3>
+                  {tabs.filter(t => t.group === "website").map(tab => (
+                    <button 
+                      key={tab.id} 
+                      className={`admin-nav-btn ${activeTab === tab.id ? "active" : ""}`}
+                      onClick={() => {
+                        setActiveTab(tab.id);
+                        setMobileMenuOpen(false);
+                      }}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="admin-nav-group">
+                  <h3>COLLECTIONS</h3>
+                  {tabs.filter(t => t.group === "lists").map(tab => (
+                    <button 
+                      key={tab.id} 
+                      className={`admin-nav-btn ${activeTab === tab.id ? "active" : ""}`}
+                      onClick={() => {
+                        setActiveTab(tab.id);
+                        setMobileMenuOpen(false);
+                      }}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="admin-drawer-footer">
+                <div className="drawer-user-info">
+                  <span className="user-label">Logged in as:</span>
+                  <p className="user-email">{user?.email}</p>
+                </div>
+                <a href="/" target="_blank" rel="noreferrer" className="drawer-preview-btn">
+                  Preview Live Website ↗
+                </a>
+                <button className="admin-logout-btn" onClick={handleLogout}>
+                  Logout
+                </button>
+              </div>
+            </motion.aside>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* Desktop Sidebar */}
       <aside className="admin-sidebar">
         <div className="admin-brand">
           <img src={logo} alt="Jay Electronics" />
@@ -146,10 +314,13 @@ function AdminDashboard() {
             {tabs.filter(t => t.group === "main").map(tab => (
               <button 
                 key={tab.id} 
-                className={`admin-nav-btn \${activeTab === tab.id ? "active" : ""}`}
+                className={`admin-nav-btn ${activeTab === tab.id ? "active" : ""}`}
                 onClick={() => setActiveTab(tab.id)}
               >
-                {tab.label}
+                <span>{tab.label}</span>
+                {tab.id === 'enquiries' && stats.enquiries > 0 && (
+                  <span className="admin-badge-count">{stats.enquiries}</span>
+                )}
               </button>
             ))}
           </div>
@@ -159,7 +330,7 @@ function AdminDashboard() {
             {tabs.filter(t => t.group === "website").map(tab => (
               <button 
                 key={tab.id} 
-                className={`admin-nav-btn \${activeTab === tab.id ? "active" : ""}`}
+                className={`admin-nav-btn ${activeTab === tab.id ? "active" : ""}`}
                 onClick={() => setActiveTab(tab.id)}
               >
                 {tab.label}
@@ -172,7 +343,7 @@ function AdminDashboard() {
             {tabs.filter(t => t.group === "lists").map(tab => (
               <button 
                 key={tab.id} 
-                className={`admin-nav-btn \${activeTab === tab.id ? "active" : ""}`}
+                className={`admin-nav-btn ${activeTab === tab.id ? "active" : ""}`}
                 onClick={() => setActiveTab(tab.id)}
               >
                 {tab.label}

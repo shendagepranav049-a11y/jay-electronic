@@ -32,7 +32,7 @@
   --midnight-navy: var(--black-2);
 }
 
-* {
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -40,12 +40,25 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   font-family: 'Inter', Arial, sans-serif;
   background: var(--black-2);
   color: var(--white);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
 }
 

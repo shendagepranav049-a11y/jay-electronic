@@ -178,7 +178,7 @@ function EnquiriesManager() {
             placeholder="Search name, phone, email..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            style={{ padding: '10px 16px', borderRadius: '10px', background: '#0f172a', border: '1px solid #334155', color: '#fff', minWidth: '240px', fontSize: '13px' }}
+            style={{ padding: '10px 16px', borderRadius: '10px', background: '#0f172a', border: '1px solid #334155', color: '#fff', fontSize: '13px' }}
           />
         </div>
       </div>

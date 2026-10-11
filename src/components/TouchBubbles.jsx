@@ -1,40 +1,48 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './TouchBubbles.css';
 
 function TouchBubbles() {
   const [bubbles, setBubbles] = useState([]);
+  const lastTouchTime = useRef(0);
 
   useEffect(() => {
     // Function to handle creating a new bubble
     const handleTouchOrClick = (e) => {
+      const now = Date.now();
       let clientX, clientY;
 
       // Handle touch events
       if (e.touches && e.touches.length > 0) {
+        lastTouchTime.current = now;
         clientX = e.touches[0].clientX;
         clientY = e.touches[0].clientY;
       } 
-      // Handle click events (for desktop testing or hybrid devices)
+      // Handle click events (prevent duplicate fire right after touchstart)
       else if (e.clientX && e.clientY) {
+        if (now - lastTouchTime.current < 500) {
+          return; // Ignore synthetic mouse click following touch
+        }
         clientX = e.clientX;
         clientY = e.clientY;
       } else {
         return;
       }
 
+      const bubbleId = now + Math.random();
       const newBubble = {
-        id: Date.now() + Math.random(),
+        id: bubbleId,
         x: clientX,
         y: clientY,
-        size: Math.random() * 20 + 20 // Random size between 20px and 40px
+        size: Math.random() * 18 + 18 // Size between 18px and 36px
       };
 
-      setBubbles((prev) => [...prev, newBubble]);
+      // Limit max concurrent bubbles to 6 for buttery smooth performance
+      setBubbles((prev) => [...prev.slice(-5), newBubble]);
 
-      // Remove the bubble after animation completes (1 second)
+      // Remove the bubble after animation completes
       setTimeout(() => {
-        setBubbles((prev) => prev.filter((b) => b.id !== newBubble.id));
-      }, 1000);
+        setBubbles((prev) => prev.filter((b) => b.id !== bubbleId));
+      }, 900);
     };
 
     window.addEventListener('click', handleTouchOrClick);

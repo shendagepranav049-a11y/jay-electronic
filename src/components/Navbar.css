@@ -493,11 +493,6 @@
       translateY(-15px);
 
     pointer-events: none;
-
-    transition:
-      opacity 0.3s ease,
-      transform 0.3s ease,
-      visibility 0.3s ease;
   }
 
   .mobile-menu-open {
