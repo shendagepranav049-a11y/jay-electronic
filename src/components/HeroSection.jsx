@@ -73,7 +73,7 @@ function HeroSection() {
           viewport={{ once: true }}
         >
           <motion.div className="hero-label-premium" variants={itemVariants}>
-            {content.label}
+            {content.label || "SINCE 1989 • TECHNOLOGY INTEGRATION"}
           </motion.div>
 
           <h1 className="hero-title-premium">
@@ -85,15 +85,15 @@ function HeroSection() {
           </h1>
 
           <motion.p className="hero-description-premium" variants={itemVariants}>
-            {content.description}
+            {content.description || content.subheading}
           </motion.p>
 
           <motion.div className="hero-actions-premium" variants={itemVariants}>
             <a href="#contact" className="btn-solid-gold">
-              {content.primaryCTA}
+              {content.primaryCTA || content.primaryCtaText || "Get Free Site Survey"}
             </a>
             <a href="#contact" className="btn-outline-gold">
-              {content.secondaryCTA}
+              {content.secondaryCTA || "Request Quotation"}
             </a>
           </motion.div>
 

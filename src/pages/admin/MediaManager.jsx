@@ -44,10 +44,17 @@ function MediaManager({ onSelect, isPicker = false }) {
     if (!window.confirm("Delete this image?")) return;
     try {
       await deleteDoc(doc(db, "media", item.id));
-      const storageRef = ref(storage, item.storagePath);
-      await deleteObject(storageRef);
+      if (item.storagePath) {
+        try {
+          const storageRef = ref(storage, item.storagePath);
+          await deleteObject(storageRef);
+        } catch (storageErr) {
+          console.warn("Storage deletion skipped:", storageErr.message);
+        }
+      }
     } catch (e) {
-      console.error(e);
+      console.error("Failed to delete media:", e);
+      alert("Error deleting image: " + e.message);
     }
   };
 

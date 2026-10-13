@@ -40,9 +40,17 @@ function ContentEditor({ sectionId, title }) {
     switch (sectionId) {
       case "hero":
         return [
-          { name: "heading", label: "Hero Heading", type: "text" },
-          { name: "subheading", label: "Hero Subheading", type: "text" },
-          { name: "primaryCtaText", label: "Primary CTA Text", type: "text" },
+          { name: "label", label: "Top Badge / Label", type: "text" },
+          { name: "heading", label: "Hero Main Heading", type: "textarea" },
+          { name: "description", label: "Hero Description", type: "textarea" },
+          { name: "primaryCTA", label: "Primary Button Text", type: "text" },
+          { name: "secondaryCTA", label: "Secondary Button Text", type: "text" },
+        ];
+      case "information":
+        return [
+          { name: "heading", label: "Section Heading", type: "text" },
+          { name: "description", label: "Description", type: "textarea" },
+          { name: "buttonText", label: "Button Text", type: "text" },
         ];
       case "about":
         return [
@@ -67,9 +75,9 @@ function ContentEditor({ sectionId, title }) {
         ];
       case "social":
         return [
-          { name: "whatsapp", label: "WhatsApp Link (e.g., https://wa.me/1234567890)", type: "text" },
-          { name: "instagram", label: "Instagram Link", type: "text" },
-          { name: "facebook", label: "Facebook Link", type: "text" },
+          { name: "whatsapp", label: "WhatsApp Link / Number (e.g., https://wa.me/919876543210)", type: "text" },
+          { name: "instagram", label: "Instagram Link (e.g., https://instagram.com/jayelectronics)", type: "text" },
+          { name: "facebook", label: "Facebook Link (e.g., https://facebook.com/jayelectronics)", type: "text" },
         ];
       default:
         return [];

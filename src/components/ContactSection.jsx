@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { useSiteContent } from '../utils/firebaseUtils';
 
 function ContactSection() {
-  const { loading: contentLoading } = useSiteContent('contact', { phone: '+91 98765 43210', email: 'info@jayelectronics.in', address: 'Kolhapur, Maharashtra, India' });
+  const { data: contactData } = useSiteContent('contact', { phone: '+91 98765 43210', email: 'info@jayelectronics.in', address: 'Kolhapur, Maharashtra, India' });
   const { data: socialData } = useSiteContent('social');
 
   const getWhatsAppUrl = () => {
@@ -157,6 +157,12 @@ function ContactSection() {
                 technology, security and infrastructure
                 solutions.
               </p>
+
+              <div className="contact-direct-details" style={{ marginTop: "16px", display: "flex", flexDirection: "column", gap: "8px", fontSize: "14px" }}>
+                <div><strong>Phone:</strong> <a href={`tel:${contactData?.phone || '+91 98765 43210'}`} style={{ color: "var(--accent-glow, #38bdf8)", textDecoration: "none", marginLeft: "6px" }}>{contactData?.phone || '+91 98765 43210'}</a></div>
+                <div><strong>Email:</strong> <a href={`mailto:${contactData?.email || 'info@jayelectronics.in'}`} style={{ color: "var(--accent-glow, #38bdf8)", textDecoration: "none", marginLeft: "6px" }}>{contactData?.email || 'info@jayelectronics.in'}</a></div>
+                <div><strong>Office:</strong> <span style={{ opacity: 0.85, marginLeft: "6px" }}>{contactData?.address || 'Kolhapur, Maharashtra, India'}</span></div>
+              </div>
             </div>
 
             {/* Social Channels on Home Page */}

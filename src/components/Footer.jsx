@@ -6,7 +6,15 @@ import { Link } from "react-router-dom";
 import { useSiteContent } from '../utils/firebaseUtils';
 
 function Footer() {
-  const { loading } = useSiteContent('footer', { description: 'Delivering integrated technology, security and infrastructure solutions designed for modern organizations and connected environments.' });
+  const { data: footerData } = useSiteContent('footer', { 
+    description: 'Technology Integrator & Infrastructure Service Provider delivering integrated technology, security and infrastructure solutions.',
+    copyright: 'Jay Electronics Pvt Ltd. All rights reserved.'
+  });
+  const { data: contactData } = useSiteContent('contact', {
+    phone: '+91 98765 43210',
+    email: 'info@jayelectronics.in',
+    address: 'Kolhapur, Maharashtra, India'
+  });
   const { data: socialData } = useSiteContent('social');
   
   const getWhatsAppUrl = () => {
@@ -28,7 +36,6 @@ function Footer() {
     return `https://www.facebook.com/${socialData.facebook}`;
   };
 
-  if (loading) return null;
   const currentYear = new Date().getFullYear();
 
   return (
@@ -52,9 +59,7 @@ function Footer() {
             </a>
 
             <p className="footer-description">
-              Technology Integrator & Infrastructure Service Provider
-              delivering integrated technology, security and
-              infrastructure solutions.
+              {footerData.description || "Technology Integrator & Infrastructure Service Provider delivering integrated technology, security and infrastructure solutions."}
             </p>
 
             <a
@@ -132,7 +137,7 @@ function Footer() {
 
             {/* Phone */}
             <a
-              href="tel:+919876543210"
+              href={`tel:${contactData.phone || "+91 98765 43210"}`}
               className="footer-contact-detail"
             >
               <span className="footer-contact-icon">
@@ -140,14 +145,14 @@ function Footer() {
               </span>
 
               <span>
-                +91 98765 43210
+                {contactData.phone || "+91 98765 43210"}
               </span>
             </a>
 
 
             {/* Email */}
             <a
-              href="mailto:info@jayelectronics.in"
+              href={`mailto:${contactData.email || "info@jayelectronics.in"}`}
               className="footer-contact-detail"
             >
               <span className="footer-contact-icon">
@@ -155,7 +160,7 @@ function Footer() {
               </span>
 
               <span>
-                info@jayelectronics.in
+                {contactData.email || "info@jayelectronics.in"}
               </span>
             </a>
 
@@ -167,7 +172,7 @@ function Footer() {
               </span>
 
               <span>
-                Kolhapur, Maharashtra, India
+                {contactData.address || "Kolhapur, Maharashtra, India"}
               </span>
             </div>
 
@@ -231,7 +236,7 @@ function Footer() {
         {/* Bottom */}
         <div className="footer-bottom">
           <p>
-            © {currentYear} Jay Electronics Pvt Ltd. All rights reserved. 
+            © {currentYear} {footerData.copyright || "Jay Electronics Pvt Ltd. All rights reserved."} 
             {" | "} 
             <Link to="/admin/login" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Admin Login</Link>
           </p>

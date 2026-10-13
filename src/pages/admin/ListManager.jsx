@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { db } from "../../firebase";
 import { collection, query, orderBy, onSnapshot, deleteDoc, doc, setDoc, updateDoc } from "firebase/firestore";
 import MediaManager from "./MediaManager";
+import { uploadMedia } from "../../utils/firebaseUtils";
 
 function ListManager({ collectionName, title, hasGallery = false }) {
   const [items, setItems] = useState([]);
@@ -9,6 +10,7 @@ function ListManager({ collectionName, title, hasGallery = false }) {
   
   const [editingItem, setEditingItem] = useState(null);
   const [showMediaPicker, setShowMediaPicker] = useState(false);
+  const [uploadingDirect, setUploadingDirect] = useState(false);
 
   useEffect(() => {
     const q = query(collection(db, collectionName), orderBy("order", "asc"));
@@ -59,6 +61,24 @@ function ListManager({ collectionName, title, hasGallery = false }) {
     setShowMediaPicker(false);
   };
 
+  const handleDirectImageUpload = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploadingDirect(true);
+    try {
+      const mediaData = await uploadMedia(file);
+      // Also save to media collection for gallery reuse
+      const docRef = doc(collection(db, "media"));
+      await setDoc(docRef, mediaData);
+      setEditingItem(prev => ({ ...prev, image: mediaData.downloadURL }));
+    } catch (err) {
+      console.error("Direct upload failed:", err);
+      alert("Failed to upload image: " + err.message);
+    } finally {
+      setUploadingDirect(false);
+    }
+  };
+
   if (loading) return <div>Loading...</div>;
 
   return (
@@ -86,10 +106,24 @@ function ListManager({ collectionName, title, hasGallery = false }) {
             {hasGallery && (
               <div className="form-group">
                 <label>Main Image</label>
-                <div className="image-selector">
-                  {editingItem.image && <img src={editingItem.image} alt="preview" className="img-preview" />}
-                  <button type="button" onClick={() => setShowMediaPicker(true)}>Select from Media</button>
-                  {editingItem.image && <button type="button" onClick={() => setEditingItem({...editingItem, image: ""})}>Clear</button>}
+                <div className="image-selector" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', alignItems: 'center' }}>
+                  {editingItem.image && (
+                    <div style={{ width: '80px', height: '80px', borderRadius: '8px', overflow: 'hidden', border: '1px solid #334155' }}>
+                      <img src={editingItem.image} alt="preview" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    </div>
+                  )}
+                  <label style={{ padding: '8px 14px', background: '#2563eb', color: '#fff', borderRadius: '8px', cursor: 'pointer', fontSize: '13px', fontWeight: 600 }}>
+                    {uploadingDirect ? "Compressing & Uploading..." : "📷 Upload from Phone / PC"}
+                    <input type="file" accept="image/*" onChange={handleDirectImageUpload} style={{ display: 'none' }} disabled={uploadingDirect} />
+                  </label>
+                  <button type="button" onClick={() => setShowMediaPicker(true)} style={{ padding: '8px 14px', background: '#334155', color: '#fff', border: 'none', borderRadius: '8px', cursor: 'pointer', fontSize: '13px' }}>
+                    Select from Gallery
+                  </button>
+                  {editingItem.image && (
+                    <button type="button" onClick={() => setEditingItem({...editingItem, image: ""})} style={{ padding: '8px 14px', background: '#ef4444', color: '#fff', border: 'none', borderRadius: '8px', cursor: 'pointer', fontSize: '13px' }}>
+                      Remove
+                    </button>
+                  )}
                 </div>
               </div>
             )}

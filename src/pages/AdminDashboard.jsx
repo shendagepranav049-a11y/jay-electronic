@@ -109,13 +109,14 @@ function AdminDashboard() {
       case "hero": return <ContentEditor sectionId="hero" title="Hero Section" />;
       case "about": return <ContentEditor sectionId="about" title="About Section" />;
       case "why-jay": return <ContentEditor sectionId="whyJay" title="Why Jay Section" />;
+      case "information": return <ContentEditor sectionId="information" title="Information Section" />;
       case "contact": return <ContentEditor sectionId="contact" title="Contact Information" />;
       case "footer": return <ContentEditor sectionId="footer" title="Footer & Links" />;
       case "social": return <ContentEditor sectionId="social" title="Social Media Links" />;
       
-      case "solutions": return <ListManager collectionName="solutions" title="Solutions" />;
+      case "solutions": return <ListManager collectionName="solutions" title="Solutions" hasGallery={true} />;
       case "projects": return <ListManager collectionName="projects" title="Projects" hasGallery={true} />;
-      case "industries": return <ListManager collectionName="industries" title="Industries" />;
+      case "industries": return <ListManager collectionName="industries" title="Industries" hasGallery={true} />;
       
       default: return <Overview stats={stats} setActiveTab={setActiveTab} />;
     }
@@ -129,6 +130,7 @@ function AdminDashboard() {
     { id: "hero", label: "Hero Content", group: "website" },
     { id: "about", label: "About", group: "website" },
     { id: "why-jay", label: "Why Jay", group: "website" },
+    { id: "information", label: "Information", group: "website" },
     { id: "contact", label: "Contact Info", group: "website" },
     { id: "footer", label: "Footer", group: "website" },
     { id: "social", label: "Social Media", group: "website" },
