@@ -18,8 +18,6 @@ function AboutSection() {
   const y1 = useTransform(scrollYProgress, [0, 1], [50, -50]);
   const y2 = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
-  if (loading) return null;
-
   const standardFadeUp = {
     hidden: { opacity: 0, y: 40 },
     visible: { 

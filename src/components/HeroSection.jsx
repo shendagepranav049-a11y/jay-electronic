@@ -32,9 +32,6 @@ function HeroSection() {
     return `https://www.facebook.com/${socialData.facebook}`;
   };
 
-  if (loading) return null;
-
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { 

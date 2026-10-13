@@ -41,8 +41,6 @@ function ContactSection() {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
 
-  if (contentLoading) return null;
-
   const handleChange = (e) => {
     setFormData((prev) => ({
       ...prev,
