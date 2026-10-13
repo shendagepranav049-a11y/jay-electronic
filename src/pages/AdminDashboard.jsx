@@ -49,6 +49,8 @@ function AdminDashboard() {
   }
 
   useEffect(() => {
+    if (!user) return;
+
     // Live enquiries count listener
     const unsubEnquiries = onSnapshot(collection(db, "enquiries"), (snap) => {
       setStats(prev => ({ ...prev, enquiries: snap.size }));
@@ -56,7 +58,7 @@ function AdminDashboard() {
       console.warn("Enquiries live count listener error:", err);
     });
     return () => unsubEnquiries();
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     const isDemo = new URLSearchParams(window.location.search).get("demo") === "true";

@@ -10,6 +10,47 @@ function EnquiriesManager() {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
+    const isDemo = new URLSearchParams(window.location.search).get("demo") === "true";
+    if (isDemo) {
+      setEnquiries([
+        {
+          id: "demo-1",
+          name: "Rahul Sharma",
+          company: "Apex Industries",
+          phone: "+91 98765 43210",
+          email: "rahul@apexindustries.com",
+          requirement: "CCTV Surveillance",
+          message: "Looking for 32 IP camera setup with NVR and remote monitoring for our industrial plant in Kolhapur.",
+          status: "new",
+          createdAt: new Date()
+        },
+        {
+          id: "demo-2",
+          name: "Sneha Kulkarni",
+          company: "Kulkarni Hospital",
+          phone: "+91 98220 12345",
+          email: "sneha@kulkarnihospital.org",
+          requirement: "Access Control & Fire Alarm",
+          message: "Need biometric access control system and addressable fire alarm for 4-floor hospital building.",
+          status: "contacted",
+          createdAt: new Date(Date.now() - 86400000)
+        },
+        {
+          id: "demo-3",
+          name: "Amit Patil",
+          company: "Patil Warehousing",
+          phone: "+91 94230 98765",
+          email: "amit@patilwarehousing.in",
+          requirement: "Public Address System",
+          message: "Require warehouse audio paging and PA system installation.",
+          status: "closed",
+          createdAt: new Date(Date.now() - 172800000)
+        }
+      ]);
+      setLoading(false);
+      return;
+    }
+
     let isSubscribed = true;
     setLoading(true);
     setError(null);
@@ -64,6 +105,11 @@ function EnquiriesManager() {
   }, []);
 
   const updateStatus = async (id, status) => {
+    const isDemo = new URLSearchParams(window.location.search).get("demo") === "true";
+    if (isDemo) {
+      setEnquiries(prev => prev.map(e => e.id === id ? { ...e, status } : e));
+      return;
+    }
     try {
       await updateDoc(doc(db, "enquiries", id), { status });
     } catch (e) {
@@ -74,6 +120,11 @@ function EnquiriesManager() {
 
   const deleteEnquiry = async (id) => {
     if (window.confirm("Are you sure you want to delete this enquiry?")) {
+      const isDemo = new URLSearchParams(window.location.search).get("demo") === "true";
+      if (isDemo) {
+        setEnquiries(prev => prev.filter(e => e.id !== id));
+        return;
+      }
       try {
         await deleteDoc(doc(db, "enquiries", id));
       } catch (e) {
