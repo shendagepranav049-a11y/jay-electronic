@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useSiteContent } from '../utils/firebaseUtils';
 import './HeroSection.css';
-import cctvBg from '../assets/cctv-bg.jpg';
+import cctvBg from '../assets/cctv-bg.webp';
 
 function HeroSection() {
   const { data: content, loading } = useSiteContent("hero", {

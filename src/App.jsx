@@ -1,5 +1,6 @@
 import "./App.css";
 
+import { lazy, Suspense } from "react";
 import {
   BrowserRouter,
   Routes,
@@ -18,8 +19,8 @@ import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
 import FloatingSocialActions from "./components/FloatingSocialActions";
 
-import AdminLogin from "./pages/AdminLogin";
-import AdminDashboard from "./pages/AdminDashboard.jsx";
+const AdminLogin = lazy(() => import("./pages/AdminLogin"));
+const AdminDashboard = lazy(() => import("./pages/AdminDashboard.jsx"));
 import TouchBubbles from "./components/TouchBubbles";
 
 function PublicWebsite() {
@@ -82,13 +83,21 @@ function App() {
         {/* Admin Login */}
         <Route
           path="/admin/login"
-          element={<AdminLogin />}
+          element={
+            <Suspense fallback={<div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "#0a0d14", color: "#38bdf8" }}>Loading...</div>}>
+              <AdminLogin />
+            </Suspense>
+          }
         />
 
         {/* Admin Dashboard */}
         <Route
           path="/admin/dashboard"
-          element={<AdminDashboard />}
+          element={
+            <Suspense fallback={<div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "#0a0d14", color: "#38bdf8" }}>Loading...</div>}>
+              <AdminDashboard />
+            </Suspense>
+          }
         />
 
       </Routes>
